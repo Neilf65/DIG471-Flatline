@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using NUnit.Framework;
 
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _sensitivity;
 
     private float moveSpeed;
-    private float _stamina = 20f;
+    private float _stamina = 50;
     private float _pitchX;
     private float _pitchY;
     
@@ -85,6 +86,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void onCrouch(InputAction.CallbackContext context)
+    {
+        
+    }
+
     // Move camera on input
     public void OnMouse(InputValue value)
     {
@@ -125,11 +131,21 @@ public class PlayerController : MonoBehaviour
         if (isSprinting != true)
         {
             moveSpeed = baseSpeed;
+            _stamina += 3.0f * Time.deltaTime;
+            
         }
         else if (isSprinting == true)
         {
             moveSpeed = sprintSpeed;
+            _stamina -= 8.0f * Time.deltaTime;
+
+            if (isSprinting == true && _stamina <= 0.1f)
+            {
+                moveSpeed = baseSpeed;
+            }
         }
+
+        Debug.Log ("Current stamina: " + _stamina);
 
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
