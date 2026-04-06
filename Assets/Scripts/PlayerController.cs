@@ -114,12 +114,12 @@ public class PlayerController : MonoBehaviour
         {
             if (switchTimeline == true)
             {
-                timelineDif = true
+                timelineDif = true;
             }
 
             if(switchTimeline != true)
             {
-                timelineDif = false
+                timelineDif = false;
             }
         }
     }
