@@ -26,10 +26,18 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private Vector3 velocity;
     private Vector2 sprintInput;
+    private Vector3 crouchScale;
+    private Vector3 standScale;
+    private Vector3 timeHopPos;
+    
 
     private InputAction sprintAction;
     private bool isSprinting = false;
     bool hanging;
+    private bool isCrouching;
+    private bool canTimeHop;
+    private bool timelineDif;
+    private bool switchTimeline;
 
 
     // Components
@@ -41,6 +49,8 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
+
+        canTimeHop = false;
     }
 
     // Move on input
@@ -88,7 +98,30 @@ public class PlayerController : MonoBehaviour
 
     public void onCrouch(InputAction.CallbackContext context)
     {
-        
+        if (context.started)
+        {
+            isCrouching = true;
+        }
+        else if (context.canceled)
+        {
+            isCrouching = false;
+        }
+    }
+
+    public void onTimeSwap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (switchTimeline == true)
+            {
+                timelineDif = true
+            }
+
+            if(switchTimeline != true)
+            {
+                timelineDif = false
+            }
+        }
     }
 
     // Move camera on input
@@ -101,8 +134,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Grab ledge when airborne
-        LedgeGrab();
+        
 
         // Movement inputs in relation to camera
         Vector3 forwardRelativeMovementVector = cameraTransform.forward;
@@ -126,6 +158,14 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
+        // Grab ledge when airborne
+        LedgeGrab();
+
+        // Crouching
+        Crouching();
+
+        // Timeline Jumping
+        timelineJump();
 
 
         if (isSprinting != true)
@@ -188,6 +228,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Crouching()
+    {
+        crouchScale = new Vector3(1, .7f, 1);
+        standScale = new Vector3(1, 1, 1);
+
+        if (isCrouching == true)
+        {
+            transform.localScale = crouchScale;
+        }
+        else if (isCrouching != true)
+        {
+            transform.localScale = standScale;
+        }
+    }
+
+    public void timelineJump()
+    {
+        timeHopPos = new Vector3(500, 0, 0);
+        
+        if (canTimeHop == true && timelineDif == true)
+        {
+            transform.position = timeHopPos;
+            canTimeHop = false;
+        }
+        else if (canTimeHop == true && timelineDif != true)
+        {
+            transform.position = -timeHopPos;
+            canTimeHop = false;
+        }
+    }
+
+
     private void LateUpdate()
     {
         CameraRotation();
@@ -200,6 +272,4 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(_pitchX, _pitchY, 0);
         cameraTransform.rotation = rotation;
     }
-
-
 }
