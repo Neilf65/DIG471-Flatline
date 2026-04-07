@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
-using NUnit.Framework;
+using System.Collections.Generic;
+using System.Collections;
 
 
 public class PlayerController : MonoBehaviour
@@ -12,11 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private float _sensitivity;
+    [SerializeField] private float worldBottomBoundary = -100f;
 
     private float moveSpeed;
     private float _stamina = 50;
     private float _pitchX;
     private float _pitchY;
+
+    public GameObject Player;
     
     // Transforms
     [SerializeField] private Transform cameraTransform;
@@ -29,6 +33,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 crouchScale;
     private Vector3 standScale;
     private Vector3 timeHopPos;
+    public Vector3 firstTimeline;
+    public Vector3 secondTimeline;
+    (Vector3, Quaternion) initialPositionAndRotation;
     
 
     private InputAction sprintAction;
@@ -44,22 +51,22 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private CharacterController controller;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
+        initialPositionAndRotation = (transform.position, transform.rotation);
 
-        canTimeHop = false;
     }
 
-    // Move on input
+    // Player Movement
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
         Debug.Log($"Move Input: {moveInput}");
     }
 
+    // Sprinting
     public void onSprint(InputAction.CallbackContext context)
     {
         Debug.Log($"Sprinting {context.performed}");
@@ -73,7 +80,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Jump on input
+    // Jumping
     public void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log($"Jumping {context.performed} - Is Grounded: {controller.isGrounded}");
@@ -95,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
+    // Crouching
     public void onCrouch(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -108,30 +115,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Time swap mechanic
     public void onTimeSwap(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            if (switchTimeline == true)
-            {
-                timelineDif = true;
-            }
-
-            if(switchTimeline != true)
-            {
-                timelineDif = false;
-            }
+            Debug.Log($"TimeSwap {context.performed}");
+            canTimeHop = true;
         }
     }
 
-    // Move camera on input
+    // Camera controls
     public void OnMouse(InputValue value)
     {
         lookInput = value.Get<Vector2>();
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -158,34 +158,13 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Grab ledge when airborne
+        // Movement Actions
         LedgeGrab();
-
-        // Crouching
         Crouching();
+        Sprinting();
+        CheckBounds();
 
-        // Timeline Jumping
-        timelineJump();
-
-
-        if (isSprinting != true)
-        {
-            moveSpeed = baseSpeed;
-            _stamina += 3.0f * Time.deltaTime;
-            
-        }
-        else if (isSprinting == true)
-        {
-            moveSpeed = sprintSpeed;
-            _stamina -= 8.0f * Time.deltaTime;
-
-            if (isSprinting == true && _stamina <= 0.1f)
-            {
-                moveSpeed = baseSpeed;
-            }
-        }
-
-        Debug.Log ("Current stamina: " + _stamina);
+        StartCoroutine("TimelineJump");
 
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
@@ -193,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Grab the ledge when falling
     void LedgeGrab()
     {
         if(_rb.linearVelocity.y < 0 && !hanging)
@@ -228,6 +208,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Crouching calculations
     private void Crouching()
     {
         crouchScale = new Vector3(1, .7f, 1);
@@ -243,20 +224,56 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void timelineJump()
+    // Spritning calculations
+    private void Sprinting()
     {
-        timeHopPos = new Vector3(500, 0, 0);
-        
+        if (isSprinting != true)
+        {
+            moveSpeed = baseSpeed;
+            _stamina += 3.0f * Time.deltaTime;
+            
+        }
+        else if (isSprinting == true)
+        {
+            moveSpeed = sprintSpeed;
+            _stamina -= 8.0f * Time.deltaTime;
+
+            if (isSprinting == true && _stamina <= 0.1f)
+            {
+                moveSpeed = baseSpeed;
+            }
+        }
+    }
+
+    IEnumerator TimelineJump()
+    {
+        firstTimeline = new Vector3(transform.position.x - 500f, transform.position.y + 0f, transform.position.z + 0f);
+        secondTimeline = new Vector3(transform.position.x + 500f, transform.position.y + 0f, transform.position.z + 0f);
+
         if (canTimeHop == true && timelineDif == true)
         {
-            transform.position = timeHopPos;
             canTimeHop = false;
+            timelineDif = false;
+            yield return new WaitForSeconds(0.5f);
+            Player.transform.localPosition = firstTimeline;
+
         }
         else if (canTimeHop == true && timelineDif != true)
         {
-            transform.position = -timeHopPos;
             canTimeHop = false;
+            timelineDif = true;
+            yield return new WaitForSeconds(0.5f);
+            Player.transform.localPosition = secondTimeline;
         }
+    }
+
+    void CheckBounds()
+    {
+        if (transform.position.y < worldBottomBoundary)
+        {
+            var (position, rotation) = initialPositionAndRotation;
+        }
+
     }
 
 
@@ -271,5 +288,5 @@ public class PlayerController : MonoBehaviour
         _pitchY += lookInput.y;
         Quaternion rotation = Quaternion.Euler(_pitchX, _pitchY, 0);
         cameraTransform.rotation = rotation;
-    }
+    } 
 }
