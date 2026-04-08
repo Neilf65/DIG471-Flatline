@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float worldBottomBoundary = -100f;
 
     private float moveSpeed;
-    private float _stamina = 50;
+    private float _stamina = 50f;
+    private float maxHealth = 50f;
+    private float currentHealth = 50f;
+    private float minHealth = 0f;
     private float _pitchX;
     private float _pitchY;
 
@@ -33,9 +36,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 crouchScale;
     private Vector3 standScale;
     private Vector3 timeHopPos;
-    public Vector3 firstTimeline;
-    public Vector3 secondTimeline;
-    (Vector3, Quaternion) initialPositionAndRotation;
+    private Vector3 firstTimeline;
+    private Vector3 secondTimeline;
+    (Vector3, Quaternion) currentCheckpoint;
     
 
     private InputAction sprintAction;
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
-        initialPositionAndRotation = (transform.position, transform.rotation);
+        currentCheckpoint = (transform.position, transform.rotation);
 
     }
 
@@ -162,7 +165,7 @@ public class PlayerController : MonoBehaviour
         LedgeGrab();
         Crouching();
         Sprinting();
-        CheckBounds();
+        // CheckBounds();
 
         StartCoroutine("TimelineJump");
 
@@ -245,17 +248,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PlayerHealth()
+    {
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        else if (currentHealth <= minHealth)
+        {
+            currentHealth = minHealth;
+        }
+    }
+
     IEnumerator TimelineJump()
     {
-        firstTimeline = new Vector3(transform.position.x - 500f, transform.position.y + 0f, transform.position.z + 0f);
-        secondTimeline = new Vector3(transform.position.x + 500f, transform.position.y + 0f, transform.position.z + 0f);
+        firstTimeline = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1500);
+        secondTimeline = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1500);
 
         if (canTimeHop == true && timelineDif == true)
         {
             canTimeHop = false;
             timelineDif = false;
             yield return new WaitForSeconds(0.5f);
+            Physics.SyncTransforms();
             Player.transform.localPosition = firstTimeline;
+            firstTimeline.Normalize();
 
         }
         else if (canTimeHop == true && timelineDif != true)
@@ -263,18 +281,20 @@ public class PlayerController : MonoBehaviour
             canTimeHop = false;
             timelineDif = true;
             yield return new WaitForSeconds(0.5f);
+            Physics.SyncTransforms();
             Player.transform.localPosition = secondTimeline;
+            firstTimeline.Normalize();
         }
     }
 
-    void CheckBounds()
-    {
-        if (transform.position.y < worldBottomBoundary)
-        {
-            var (position, rotation) = initialPositionAndRotation;
-        }
+    // void CheckBounds()
+    // {
+    //     if (transform.position.y < worldBottomBoundary)
+    //     {
+    //         var (position, rotation) = currentCheckpoint;
+    //     }
 
-    }
+    // }
 
 
     private void LateUpdate()
