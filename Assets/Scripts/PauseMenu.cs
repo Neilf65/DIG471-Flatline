@@ -1,61 +1,72 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
 
-    private bool isPaused = false;
-    private PlayerControls controls;
+    public bool isPaused;
+    public bool pausing;
+    public bool playstate;
+    public void onPaused(InputAction.CallbackContext context)
 
-    void Awake()
     {
-        controls = new PlayerControls();
+        if(context.performed)
+        {
+            Debug.Log("pausing {Context performed}");
+            pausing = true;
+        }
+        else if (context.performed)
+        {
+            pausing = false;
+        }
+        return;
     }
-
-    void OnEnable()
-    {
-        controls.Enable();
-        controls.UI.Pause.performed += OnPausePressed;
-    }
-
-    void OnDisable()
-    {
-        controls.UI.Pause.performed -= OnPausePressed;
-        controls.Disable();
-    }
-
+    
+  
     void Start()
     {
-        Time.timeScale = 1f;
         pauseMenu.SetActive(false);
-    }
 
-    private void OnPausePressed(InputAction.CallbackContext ctx)
-    {
-        TogglePause();
+       
     }
-
-    private void TogglePause()
+    private void Update()
     {
-        if (isPaused)
+        StartCoroutine("PauseGame");
+        StartCoroutine("ResumeGame");
+        if (pausing == false)
+        {
             ResumeGame();
-        else
+        }
+        else if (pausing != false)
+        {
             PauseGame();
+        }
     }
 
-    private void PauseGame()
+
+     IEnumerator PauseGame()
     {
+        if (pausing==true && playstate!=true){
+
+        
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        isPaused = true;
+        yield return new WaitForSeconds(0.5f);
+        isPaused = false;
+        playstate = false;
+        }
     }
-
-    private void ResumeGame()
+    
+     IEnumerator ResumeGame()
     {
+        if (pausing!=true && playstate!=true){
         pauseMenu.SetActive(false);
-        Time.timeScale = 1f; // FIXED
-        isPaused = false;    // FIXED
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(0.5f);
+        isPaused = true;  
+        playstate = false;
+        } 
     }
 }
 
