@@ -3876,7 +3876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212345, y: 0, z: 0, w: 0.98836154}
+  m_LocalRotation: {x: 0.15212345, y: -0, z: -0, w: 0.98836154}
   m_LocalPosition: {x: 1.99788, y: 2.8235292, z: -1.6718946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3971,7 +3971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99974c810bf90714783c902d7963baea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _sensitivity: 0
+  _sensitivity: 30
   Target: {fileID: 601959184}
 --- !u!1 &338513008
 GameObject:
@@ -4132,7 +4132,7 @@ MonoBehaviour:
   baseSpeed: 5
   sprintSpeed: 10
   jumpHeight: 5
-  _sensitivity: 0
+  _sensitivity: 30
   worldBottomBoundary: -100
   Player: {fileID: 396049950}
   cameraTransform: {fileID: 330585546}
@@ -12921,7 +12921,8 @@ Transform:
   m_LocalPosition: {x: -9.58237, y: 0, z: -3.54868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1970595097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165172835
@@ -13279,7 +13280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184837127}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212345, y: 0, z: 0, w: 0.98836154}
+  m_LocalRotation: {x: 0.15212345, y: -0, z: -0, w: 0.98836154}
   m_LocalPosition: {x: 1.99788, y: 2.8235292, z: -1.6718946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13443,7 +13444,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         InputAction: {fileID: -4792364389954788269, guid: c85cd5e27a2c9964ca33f60c01eef0ab, type: 3}
-        Gain: 10
+        Gain: 50
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -13454,7 +13455,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         InputAction: {fileID: -4792364389954788269, guid: c85cd5e27a2c9964ca33f60c01eef0ab, type: 3}
-        Gain: -10
+        Gain: -50
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -20518,13 +20519,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970595096}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.58237, y: 1.32, z: -3.54868}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 396049951}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1159026129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984770628
 GameObject:
@@ -22582,6 +22583,5 @@ SceneRoots:
   - {fileID: 510914238}
   - {fileID: 1347830120}
   - {fileID: 1159026129}
-  - {fileID: 1970595097}
   - {fileID: 773276533}
   - {fileID: 764581536}
