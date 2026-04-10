@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private float _sensitivity;
-    [SerializeField] private float worldBottomBoundary = -100f;
+    // [SerializeField] private float worldBottomBoundary = -100f;
 
     private float moveSpeed;
     private float _stamina = 50f;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 timeHopPos;
     private Vector3 firstTimeline;
     private Vector3 secondTimeline;
-    (Vector3, Quaternion) currentCheckpoint;
+    // (Vector3, Quaternion) currentCheckpoint;
     
 
     private InputAction sprintAction;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
-        currentCheckpoint = (transform.position, transform.rotation);
+        // currentCheckpoint = (transform.position, transform.rotation);
 
     }
 
@@ -154,12 +154,14 @@ public class PlayerController : MonoBehaviour
 
 
         // Change player orientation based on movement input
+
+
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
         controller.enabled = false;
         Quaternion targetRotation = moveDirection == Vector3.zero ? transform.rotation : Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
         transform.rotation = targetRotation;
         controller.enabled = true;
-
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
         // Movement Actions
         LedgeGrab();
@@ -309,4 +311,5 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(_pitchX, _pitchY, 0);
         cameraTransform.rotation = rotation;
     } 
+    
 }
