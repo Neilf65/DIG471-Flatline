@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "name": "PlayerActions",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "BasicMovement",
@@ -46,15 +46,6 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "fc2be6b1-504e-4e74-a289-927fb5f5b9b3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "TimeSwap",
-                    "type": "Button",
-                    "id": "d3b07e02-fb86-4a20-af2d-12701ee7e77a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -215,28 +206,17 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f3ddbade-a253-45f3-ab7a-404baefa3a70",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Desktop",
-                    "action": "TimeSwap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
         {
             "name": "UI",
-            "id": "b68ce882-358f-4489-9d33-d9776267d960",
+            "id": "40f8dba3-9110-4258-8ac2-5b13e32d4f28",
             "actions": [
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "71f455d9-15bd-4dba-87a9-0e0be666a72f",
+                    "id": "bf7aa35f-d4b4-432e-96b4-596baab750b3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -246,11 +226,11 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "845e841d-7324-47c4-93a2-36b580fe1694",
+                    "id": "0f766a22-3e0d-42e0-8bdc-02cb67412160",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Desktop",
+                    "groups": "",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
