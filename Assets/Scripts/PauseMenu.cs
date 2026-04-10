@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 using System.Collections;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    private PlayerControls playerControls;
+    private InputAction uI;
+    
+    [SerializeField] private InputActionAsset playerMovement;
 
     public bool isPaused;
     public bool pausing;
@@ -11,62 +16,53 @@ public class PauseMenu : MonoBehaviour
     public void onPaused(InputAction.CallbackContext context)
 
     {
-        if(context.performed)
+        pausing = !pausing;
+        if(pausing)
         {
-            Debug.Log("pausing {Context performed}");
-            pausing = true;
+            PauseGame();
         }
-        else if (context.performed)
+        else
         {
-            pausing = false;
+            ResumeGame();
         }
-        return;
     }
     
+    private void OnEnable()
+    {
+        uI = playerControls.UI.Pause;
+        uI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        uI.Disable(); 
+    }
   
-    void Start()
+    void Awake()
     {
         pauseMenu.SetActive(false);
+        playerControls = new PlayerControls();
 
        
     }
     private void Update()
     {
-        StartCoroutine("PauseGame");
-        StartCoroutine("ResumeGame");
-        if (pausing == false)
-        {
-            ResumeGame();
-        }
-        else if (pausing != false)
-        {
-            PauseGame();
-        }
+        
     }
 
 
-     IEnumerator PauseGame()
+     public void PauseGame()
     {
-        if (pausing==true && playstate!=true){
-
-        
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        yield return new WaitForSeconds(0.5f);
-        isPaused = false;
-        playstate = false;
-        }
+
     }
     
-     IEnumerator ResumeGame()
+     public void ResumeGame()
     {
-        if (pausing!=true && playstate!=true){
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        yield return new WaitForSeconds(0.5f);
-        isPaused = true;  
-        playstate = false;
-        } 
+
     }
 }
 
