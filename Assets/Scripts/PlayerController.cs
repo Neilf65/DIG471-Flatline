@@ -12,14 +12,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float jumpHeight;
+    [SerializeField] private float doubleJumpHeight;
     [SerializeField] private float _sensitivity;
+    [SerializeField] private float BatteryCount;
     // [SerializeField] private float worldBottomBoundary = -100f;
 
     private float moveSpeed;
     private float _stamina = 50f;
-    private float maxHealth = 50f;
+    private float maxHealth = 100f;
     private float currentHealth = 50f;
     private float minHealth = 0f;
+    private float maxEnergy = 50f;
+    private float minEnergy = 0f;
+    private float currentEnergy;
     private float _pitchX;
     private float _pitchY;
 
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private bool canTimeHop;
     private bool timelineDif;
     private bool switchTimeline;
+    private bool canDoubleJump;
 
 
     // Components
@@ -89,20 +95,24 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Jumping {context.performed} - Is Grounded: {controller.isGrounded}");
         if (context.performed && controller.isGrounded)
         {
-            Debug.Log("We are supposed to jump");
             if (hanging)
             {
                 _rb.useGravity = true;
                 hanging = false;
 
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
-                
+                canDoubleJump = true;
             }
             else
             {
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
+                canDoubleJump = true;
             }
-
+        }
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
+        {
+            velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
+            canDoubleJump = false;
         }
     }
     // Crouching
@@ -137,8 +147,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
-
         // Movement inputs in relation to camera
         Vector3 forwardRelativeMovementVector = cameraTransform.forward;
         Vector3 rightRelativeMovementVector = cameraTransform.right;
@@ -174,7 +182,7 @@ public class PlayerController : MonoBehaviour
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
+        
     }
 
     // Grab the ledge when falling
@@ -250,6 +258,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void DoubleJump()
+    {
+        
+    }
+
     public void PlayerHealth()
     {
         if (currentHealth >= maxHealth)
@@ -262,6 +275,20 @@ public class PlayerController : MonoBehaviour
             currentHealth = minHealth;
         }
     }
+
+    public void PlayerEnergy()
+    {
+        if (currentEnergy >= maxEnergy)
+        {
+            currentEnergy = maxEnergy;
+        }
+        if (currentEnergy <= minEnergy)
+        {
+            currentEnergy = minEnergy;
+        }
+    }
+
+    
 
     IEnumerator TimelineJump()
     {
@@ -312,4 +339,10 @@ public class PlayerController : MonoBehaviour
         cameraTransform.rotation = rotation;
     } 
     
+    public void CollectBattery(GameObject Battery)
+    {
+        BatteryCount += 1;
+        Debug.Log("Collected Battery");
+        Destroy(Battery);
+    }
 }
