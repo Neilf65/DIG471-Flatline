@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Target = GameObject.Find("PlayerCharacter").transform;
+        Target = GameObject.Find("Player").transform;
     }
 
     private void Update()
