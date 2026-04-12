@@ -3388,10 +3388,12 @@ MonoBehaviour:
   sprintSpeed: 10
   jumpHeight: 5
   doubleJumpHeight: 0
-  _sensitivity: 0
+  maxHealth: 100
+  maxEnergy: 50
   BatteryCount: 0
-  Player: {fileID: 0}
   cameraTransform: {fileID: 330585546}
+  Player: {fileID: 0}
+  timeInvincible: 2
 --- !u!54 &396049953
 Rigidbody:
   m_ObjectHideFlags: 0
