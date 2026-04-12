@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject Player;
+    private GameObject Player;
 
     // Transforms
     public Transform Target;
@@ -84,11 +84,13 @@ public class EnemyMovement : MonoBehaviour
     }   
 
     public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            if (other.CompareTag("Player"))
-            {
+    { 
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+    
 
-            }
+        if (player != null)
+        {
+            player.ChangeHealth(-10);
+        }
     }
 }

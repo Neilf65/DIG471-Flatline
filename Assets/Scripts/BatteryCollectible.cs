@@ -8,10 +8,10 @@ public class BatteryCollectible : MonoBehaviour
     [SerializeField] private float slowMultiplier = 1f;
     [SerializeField] private float length; 
     // reference to player
-    PlayerController _player;
+    PlayerController PlayerController;
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -23,10 +23,12 @@ public class BatteryCollectible : MonoBehaviour
         // Bounce the item up and down
         float PositionPingPongY = (Mathf.PingPong(Time.time, length) - length / 2) / slowMultiplier;
         transform.Translate(new Vector3(0, PositionPingPongY, 0));
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //Collect Battery
+        Debug.Log("Collided with Battery");
+        PlayerController.CollectBattery(gameObject);
     }
 }
