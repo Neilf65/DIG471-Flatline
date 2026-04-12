@@ -304,12 +304,13 @@ MonoBehaviour:
   baseSpeed: 5
   sprintSpeed: 10
   jumpHeight: 5
-  _sensitivity: 0
-  worldBottomBoundary: -100
-  Player: {fileID: 0}
+  doubleJumpHeight: 0
+  maxHealth: 100
+  maxEnergy: 50
+  BatteryCount: 0
   cameraTransform: {fileID: 0}
-  firstTimeline: {x: 0, y: 0, z: 0}
-  secondTimeline: {x: 0, y: 0, z: 0}
+  Player: {fileID: 0}
+  timeInvincible: 2
 --- !u!143 &1825518954042977441
 CharacterController:
   m_ObjectHideFlags: 0
@@ -425,9 +426,41 @@ MonoBehaviour:
     m_ActionId: 56c12abe-898f-4725-b00d-c227fee65805
     m_ActionName: 'BasicMovement/Sprint[/Keyboard/shift]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2038455272992670055}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fc2be6b1-504e-4e74-a289-927fb5f5b9b3
     m_ActionName: 'BasicMovement/Crouch[/Keyboard/c]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2038455272992670055}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnTimeSwap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7532ec2c-df35-46fe-9f4d-fddfcae35c2a
+    m_ActionName: 'BasicMovement/TimeSwap[/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf7aa35f-d4b4-432e-96b4-596baab750b3
+    m_ActionName: 'UI/Pause[/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: BasicMovement
