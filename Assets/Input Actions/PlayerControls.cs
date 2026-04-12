@@ -136,6 +136,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeSwap"",
+                    ""type"": ""Button"",
+                    ""id"": ""7532ec2c-df35-46fe-9f4d-fddfcae35c2a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -292,6 +301,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc609aa0-0650-4ed6-9713-421fcf6aa21f"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""TimeSwap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -355,6 +375,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_BasicMovement_Jump = m_BasicMovement.FindAction("Jump", throwIfNotFound: true);
         m_BasicMovement_Sprint = m_BasicMovement.FindAction("Sprint", throwIfNotFound: true);
         m_BasicMovement_Crouch = m_BasicMovement.FindAction("Crouch", throwIfNotFound: true);
+        m_BasicMovement_TimeSwap = m_BasicMovement.FindAction("TimeSwap", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -444,6 +465,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicMovement_Jump;
     private readonly InputAction m_BasicMovement_Sprint;
     private readonly InputAction m_BasicMovement_Crouch;
+    private readonly InputAction m_BasicMovement_TimeSwap;
     /// <summary>
     /// Provides access to input actions defined in input action map "BasicMovement".
     /// </summary>
@@ -475,6 +497,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/Crouch".
         /// </summary>
         public InputAction @Crouch => m_Wrapper.m_BasicMovement_Crouch;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/TimeSwap".
+        /// </summary>
+        public InputAction @TimeSwap => m_Wrapper.m_BasicMovement_TimeSwap;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -516,6 +542,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
+            @TimeSwap.started += instance.OnTimeSwap;
+            @TimeSwap.performed += instance.OnTimeSwap;
+            @TimeSwap.canceled += instance.OnTimeSwap;
         }
 
         /// <summary>
@@ -542,6 +571,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
+            @TimeSwap.started -= instance.OnTimeSwap;
+            @TimeSwap.performed -= instance.OnTimeSwap;
+            @TimeSwap.canceled -= instance.OnTimeSwap;
         }
 
         /// <summary>
@@ -726,6 +758,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCrouch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeSwap" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeSwap(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
