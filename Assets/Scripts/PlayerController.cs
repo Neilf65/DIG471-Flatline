@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 timeHopPos;
     private Vector3 firstTimeline;
     private Vector3 secondTimeline;
+    private Vector3 vectorReset;
     // (Vector3, Quaternion) currentCheckpoint;
     
     // Reference to Player
@@ -220,8 +221,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TimelineJump()
     {
-        Vector3 firstTimeline = new Vector3(transform.position.x, transform.position.y, transform.localPosition.z + 1500);
-        Vector3 secondTimeline = new Vector3(transform.position.x, transform.position.y, transform.localPosition.z + -1500);
+        Vector3 firstTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 1500);
+        Vector3 secondTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + -1500);
 
         if (canTimeHop == true)
         {
@@ -231,7 +232,7 @@ public class PlayerController : MonoBehaviour
             canTimeHop = false;
             yield return new WaitForSeconds(0.0f);
             controller.enabled = false;
-            Player.transform.position = timelineTwo.position;
+            Player.transform.position = firstTimeline;
             controller.enabled = true;
             timelineDif = false;
             }
@@ -241,7 +242,7 @@ public class PlayerController : MonoBehaviour
             canTimeHop = false;
             yield return new WaitForSeconds(0.0f);
             controller.enabled = false;
-            Player.transform.position = timelineOne.position;
+            Player.transform.position = secondTimeline;
             controller.enabled = true;
             timelineDif = true;
             }   
