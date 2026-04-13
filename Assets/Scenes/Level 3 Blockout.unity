@@ -7363,7 +7363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 375505393}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SolarBuilding 2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7378,13 +7378,13 @@ Transform:
   m_GameObject: {fileID: 375505392}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.24433358, z: -0, w: 0.9696913}
-  m_LocalPosition: {x: 213, y: 0.2, z: 380}
-  m_LocalScale: {x: 0.81439, y: 0.81439, z: 0.81439}
+  m_LocalPosition: {x: 231.50958, y: -0.029229999, z: 491.49988}
+  m_LocalScale: {x: 0.81439006, y: 0.81439, z: 0.81439006}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1873755736}
   - {fileID: 1812511647}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 699880173}
   m_LocalEulerAnglesHint: {x: 0, y: 28.285, z: 0}
 --- !u!1001 &381545839
 PrefabInstance:
@@ -13112,6 +13112,8 @@ Transform:
   - {fileID: 1395803219}
   - {fileID: 705308113}
   - {fileID: 1019341210}
+  - {fileID: 1832796746}
+  - {fileID: 375505393}
   m_Father: {fileID: 1707353422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &704150227
@@ -33526,7 +33528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832796746}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SolarBuilding 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33541,13 +33543,13 @@ Transform:
   m_GameObject: {fileID: 1832796745}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.24433358, z: -0, w: 0.9696913}
-  m_LocalPosition: {x: -180, y: 0.2, z: -214}
-  m_LocalScale: {x: 0.81439, y: 0.81439, z: 0.81439}
+  m_LocalPosition: {x: -161.49042, y: -0.029229999, z: -102.50008}
+  m_LocalScale: {x: 0.81439006, y: 0.81439, z: 0.81439006}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 356279532}
   - {fileID: 761959783}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 699880173}
   m_LocalEulerAnglesHint: {x: 0, y: 28.285, z: 0}
 --- !u!1 &1836834253
 GameObject:
@@ -40133,5 +40135,3 @@ SceneRoots:
   - {fileID: 1159026129}
   - {fileID: 773276533}
   - {fileID: 764581536}
-  - {fileID: 1832796746}
-  - {fileID: 375505393}
