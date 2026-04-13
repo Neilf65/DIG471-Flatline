@@ -40174,9 +40174,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1159026129}
     m_Modifications:
+    - target: {fileID: 1824782674381907710, guid: f1f165de227667c419d99c7e7b689bb3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2970238289755573564, guid: f1f165de227667c419d99c7e7b689bb3, type: 3}
       propertyPath: m_Name
       value: PlayerObj(JohnF)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813251917853630659, guid: f1f165de227667c419d99c7e7b689bb3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 8116409140897733024, guid: f1f165de227667c419d99c7e7b689bb3, type: 3}
+      propertyPath: jumpHeight
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8116409140897733024, guid: f1f165de227667c419d99c7e7b689bb3, type: 3}
       propertyPath: cameraTransform
