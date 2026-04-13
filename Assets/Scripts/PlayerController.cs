@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     
     // Transforms
     [SerializeField] private Transform cameraTransform;
+    public Transform timelineOne;
+    public Transform timelineTwo;
 
     // Movement Vectors
 
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        Debug.Log($"Move Input: {moveInput}");
+        // Debug.Log($"Move Input: {moveInput}");
     }
 
     // Sprinting
@@ -167,6 +169,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            
+                isInvincible = false;
+        }
+
         // Movement inputs in relation to camera
         Vector3 forwardRelativeMovementVector = cameraTransform.forward;
         Vector3 rightRelativeMovementVector = cameraTransform.right;
@@ -195,27 +210,42 @@ public class PlayerController : MonoBehaviour
         LedgeGrab();
         Crouching();
         Sprinting();
-        // CheckBounds();
-
         StartCoroutine("TimelineJump");
+
 
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
 
-        if (currentHealth <= 0)
+    IEnumerator TimelineJump()
+    {
+        Vector3 firstTimeline = new Vector3(transform.position.x, transform.position.y, transform.localPosition.z + 1500);
+        Vector3 secondTimeline = new Vector3(transform.position.x, transform.position.y, transform.localPosition.z + -1500);
+
+        if (canTimeHop == true)
         {
-            Destroy(gameObject);
+            if (timelineDif == true)
+            {
+            Debug.Log("first TimeLine");
+            canTimeHop = false;
+            yield return new WaitForSeconds(0.0f);
+            controller.enabled = false;
+            Player.transform.position = timelineTwo.position;
+            controller.enabled = true;
+            timelineDif = false;
+            }
+        else if (timelineDif == false)
+            {
+            Debug.Log("first TimeLine");
+            canTimeHop = false;
+            yield return new WaitForSeconds(0.0f);
+            controller.enabled = false;
+            Player.transform.position = timelineOne.position;
+            controller.enabled = true;
+            timelineDif = true;
+            }   
         }
-        
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-            
-                isInvincible = false;
-        }
-        
     }
 
     // Grab the ledge when falling
@@ -252,6 +282,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    
     }
 
     // Crouching calculations
@@ -299,7 +330,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnPlayerHit()
+    public void PlayerHit()
     {
         if (extraHits > 0)
         {
@@ -329,42 +360,6 @@ public class PlayerController : MonoBehaviour
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);
     }
-
-    IEnumerator TimelineJump()
-    {
-        firstTimeline = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1500);
-        secondTimeline = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1500);
-
-        if (canTimeHop == true && timelineDif == true)
-        {
-            canTimeHop = false;
-            timelineDif = false;
-            yield return new WaitForSeconds(0.5f);
-            Physics.SyncTransforms();
-            Player.transform.localPosition = firstTimeline;
-            firstTimeline.Normalize();
-
-        }
-        else if (canTimeHop == true && timelineDif != true)
-        {
-            canTimeHop = false;
-            timelineDif = true;
-            yield return new WaitForSeconds(0.5f);
-            Physics.SyncTransforms();
-            Player.transform.localPosition = secondTimeline;
-            firstTimeline.Normalize();
-        }
-    }
-
-    // void CheckBounds()
-    // {
-    //     if (transform.position.y < worldBottomBoundary)
-    //     {
-    //         var (position, rotation) = currentCheckpoint;
-    //     }
-
-    // }
-
 
     private void LateUpdate()
     {
