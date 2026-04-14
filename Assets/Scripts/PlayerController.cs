@@ -7,30 +7,37 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    // Floats
+
+    // Speed variables
     [SerializeField] private float gravity;
     [SerializeField] private float baseSpeed;
     [SerializeField] private float sprintSpeed;
     [SerializeField] private float jumpHeight;
-    [SerializeField] private float _sensitivity;
-    [SerializeField] private float worldBottomBoundary = -100f;
-
+    [SerializeField] private float doubleJumpHeight;
     private float moveSpeed;
+
+    // Resource variables
     private float _stamina = 50f;
-    private float maxHealth = 50f;
-    private float currentHealth = 50f;
-    private float minHealth = 0f;
+    public int maxHealth = 100;
+    int currentHealth;
+    public int health { get { return currentHealth; }}
+    public int maxEnergy = 50;
+    int currentEnergy;
+    [SerializeField] private float BatteryCount;
+    // [SerializeField] private float worldBottomBoundary = -100f;
+
+    // Mouse movement variables
     private float _pitchX;
     private float _pitchY;
-
-    public GameObject Player;
+    private float _sensitivity;
+    private Vector2 moveInput;
+    private Vector2 lookInput;
     
     // Transforms
     [SerializeField] private Transform cameraTransform;
 
-    // Vectors
-    private Vector2 moveInput;
-    private Vector2 lookInput;
+    // Movement Vectors
+
     private Vector3 velocity;
     private Vector2 sprintInput;
     private Vector3 crouchScale;
@@ -38,9 +45,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 timeHopPos;
     private Vector3 firstTimeline;
     private Vector3 secondTimeline;
-    (Vector3, Quaternion) currentCheckpoint;
+    // (Vector3, Quaternion) currentCheckpoint;
     
+    // Reference to Player
+    public GameObject Player;
 
+    // Input Action variables
     private InputAction sprintAction;
     private bool isSprinting = false;
     bool hanging;
@@ -48,6 +58,13 @@ public class PlayerController : MonoBehaviour
     private bool canTimeHop;
     private bool timelineDif;
     private bool switchTimeline;
+    private bool canDoubleJump;
+
+    // Damage Logic variables
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float invincibleTimer;
+    private int extraHits = 0;
 
 
     // Components
@@ -58,8 +75,8 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
-        currentCheckpoint = (transform.position, transform.rotation);
-
+        currentHealth = maxHealth;
+        // currentCheckpoint = (transform.position, transform.rotation);
     }
 
     // Player Movement
@@ -89,24 +106,28 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Jumping {context.performed} - Is Grounded: {controller.isGrounded}");
         if (context.performed && controller.isGrounded)
         {
-            Debug.Log("We are supposed to jump");
             if (hanging)
             {
                 _rb.useGravity = true;
                 hanging = false;
 
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
-                
+                canDoubleJump = true;
             }
             else
             {
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
+                canDoubleJump = true;
             }
-
+        }
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
+        {
+            velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
+            canDoubleJump = false;
         }
     }
     // Crouching
-    public void onCrouch(InputAction.CallbackContext context)
+    public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -118,8 +139,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnItemUse(InputAction.CallbackContext context)
+    {
+        if (context.performed && BatteryCount >= 1f)
+        {
+            BatteryCount -= 1;
+            currentEnergy += 25;
+        }
+    }
+
     // Time swap mechanic
-    public void onTimeSwap(InputAction.CallbackContext context)
+    public void OnTimeSwap(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -137,8 +167,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
-
         // Movement inputs in relation to camera
         Vector3 forwardRelativeMovementVector = cameraTransform.forward;
         Vector3 rightRelativeMovementVector = cameraTransform.right;
@@ -154,12 +182,14 @@ public class PlayerController : MonoBehaviour
 
 
         // Change player orientation based on movement input
+
+
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+
         controller.enabled = false;
         Quaternion targetRotation = moveDirection == Vector3.zero ? transform.rotation : Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
         transform.rotation = targetRotation;
         controller.enabled = true;
-
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
         // Movement Actions
         LedgeGrab();
@@ -173,6 +203,19 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            
+                isInvincible = false;
+        }
+        
     }
 
     // Grab the ledge when falling
@@ -248,17 +291,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlayerHealth()
+    private void OnTriggerEnter(Collider other)
     {
-        if (currentHealth >= maxHealth)
+        if (other.CompareTag("Enemy"))
         {
-            currentHealth = maxHealth;
+            extraHits++;
         }
+    }
 
-        else if (currentHealth <= minHealth)
+    public void OnPlayerHit()
+    {
+        if (extraHits > 0)
         {
-            currentHealth = minHealth;
+        // Prevent extra hits within a short amount of time
+        extraHits--;
         }
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;   
+            }
+                isInvincible = true;
+                invincibleTimer = timeInvincible;
+        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log("Current health: " + currentHealth);
+
+    }
+
+    private void ChangeEnergy(int EnergyAmount)
+    {
+        currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
+        Debug.Log("Current Energy: " + currentEnergy);
     }
 
     IEnumerator TimelineJump()
@@ -309,4 +378,11 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(_pitchX, _pitchY, 0);
         cameraTransform.rotation = rotation;
     } 
+    
+    public void CollectBattery(GameObject Battery)
+    {
+        BatteryCount += 1;
+        Debug.Log("Collected Batteries: " + BatteryCount);
+        Destroy(Battery);
+    }
 }

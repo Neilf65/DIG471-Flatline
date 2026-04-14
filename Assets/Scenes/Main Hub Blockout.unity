@@ -4132,10 +4132,13 @@ MonoBehaviour:
   baseSpeed: 5
   sprintSpeed: 10
   jumpHeight: 5
-  _sensitivity: 30
-  worldBottomBoundary: -100
-  Player: {fileID: 396049950}
+  doubleJumpHeight: 0
+  maxHealth: 100
+  maxEnergy: 50
+  BatteryCount: 0
   cameraTransform: {fileID: 330585546}
+  Player: {fileID: 396049950}
+  timeInvincible: 2
 --- !u!54 &396049953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4360,7 +4363,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 396049952}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: onCrouch
+        m_MethodName: OnCrouch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4376,7 +4379,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 396049952}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: onTimeSwap
+        m_MethodName: OnTimeSwap
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4386,8 +4389,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: d3b07e02-fb86-4a20-af2d-12701ee7e77a
-    m_ActionName: 'BasicMovement/TimeSwap[/Keyboard/q]'
+    m_ActionId: 7532ec2c-df35-46fe-9f4d-fddfcae35c2a
+    m_ActionName: 'BasicMovement/TimeSwap[/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf7aa35f-d4b4-432e-96b4-596baab750b3
+    m_ActionName: 'UI/Pause[/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: BasicMovement
@@ -13445,6 +13452,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -4792364389954788269, guid: c85cd5e27a2c9964ca33f60c01eef0ab, type: 3}
         Gain: 50
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -13456,6 +13465,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -4792364389954788269, guid: c85cd5e27a2c9964ca33f60c01eef0ab, type: 3}
         Gain: -50
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -13467,6 +13478,8 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+        LegacyInput: 
+        LegacyGain: 1
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
