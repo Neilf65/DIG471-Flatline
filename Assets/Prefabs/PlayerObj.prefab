@@ -367,9 +367,11 @@ MonoBehaviour:
   sprintSpeed: 10
   jumpHeight: 5
   doubleJumpHeight: 0
+  dashDirection: 1.5
+  dashDistance: 10
+  dashStoppingSpeed: 0.1
   maxHealth: 100
   maxEnergy: 50
-  BatteryCount: 0
   cameraTransform: {fileID: 0}
   timelineOne: {fileID: 412307287621290542}
   timelineTwo: {fileID: 4483936478165803051}
@@ -525,6 +527,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bf7aa35f-d4b4-432e-96b4-596baab750b3
     m_ActionName: 'UI/Pause[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2038455272992670055}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0cec24f1-9dc5-43cd-83e3-c98da370fb54
+    m_ActionName: 'BasicMovement/Dash[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2038455272992670055}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnItemUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9cc82cdc-74b3-4607-862f-e8bfc8ce6f3d
+    m_ActionName: 'BasicMovement/ItemUse[/Keyboard/z]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: BasicMovement
