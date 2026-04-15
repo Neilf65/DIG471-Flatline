@@ -145,6 +145,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""0cec24f1-9dc5-43cd-83e3-c98da370fb54"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemUse"",
+                    ""type"": ""Button"",
+                    ""id"": ""9cc82cdc-74b3-4607-862f-e8bfc8ce6f3d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -312,6 +330,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""TimeSwap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5a2b406-dbb3-4804-8056-790c8e600759"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29d54006-3af1-43eb-b6f4-7cbce42d1c8b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2995cbe-1197-43fd-ac46-9920550ce97c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fee65ee5-22d2-4630-9b31-6bac11c9246c"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -376,6 +438,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_BasicMovement_Sprint = m_BasicMovement.FindAction("Sprint", throwIfNotFound: true);
         m_BasicMovement_Crouch = m_BasicMovement.FindAction("Crouch", throwIfNotFound: true);
         m_BasicMovement_TimeSwap = m_BasicMovement.FindAction("TimeSwap", throwIfNotFound: true);
+        m_BasicMovement_Dash = m_BasicMovement.FindAction("Dash", throwIfNotFound: true);
+        m_BasicMovement_ItemUse = m_BasicMovement.FindAction("ItemUse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -466,6 +530,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicMovement_Sprint;
     private readonly InputAction m_BasicMovement_Crouch;
     private readonly InputAction m_BasicMovement_TimeSwap;
+    private readonly InputAction m_BasicMovement_Dash;
+    private readonly InputAction m_BasicMovement_ItemUse;
     /// <summary>
     /// Provides access to input actions defined in input action map "BasicMovement".
     /// </summary>
@@ -501,6 +567,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/TimeSwap".
         /// </summary>
         public InputAction @TimeSwap => m_Wrapper.m_BasicMovement_TimeSwap;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_BasicMovement_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/ItemUse".
+        /// </summary>
+        public InputAction @ItemUse => m_Wrapper.m_BasicMovement_ItemUse;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -545,6 +619,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TimeSwap.started += instance.OnTimeSwap;
             @TimeSwap.performed += instance.OnTimeSwap;
             @TimeSwap.canceled += instance.OnTimeSwap;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @ItemUse.started += instance.OnItemUse;
+            @ItemUse.performed += instance.OnItemUse;
+            @ItemUse.canceled += instance.OnItemUse;
         }
 
         /// <summary>
@@ -574,6 +654,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TimeSwap.started -= instance.OnTimeSwap;
             @TimeSwap.performed -= instance.OnTimeSwap;
             @TimeSwap.canceled -= instance.OnTimeSwap;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @ItemUse.started -= instance.OnItemUse;
+            @ItemUse.performed -= instance.OnItemUse;
+            @ItemUse.canceled -= instance.OnItemUse;
         }
 
         /// <summary>
@@ -765,6 +851,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTimeSwap(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ItemUse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnItemUse(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

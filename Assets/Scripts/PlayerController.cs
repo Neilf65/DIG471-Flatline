@@ -1,69 +1,80 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
-using System.Collections.Generic;
 using System.Collections;
 
 
 public class PlayerController : MonoBehaviour
 {
 
-    // Speed variables
+    // Variables
+
+    // Gravity
     [SerializeField] private float gravity;
-    [SerializeField] private float baseSpeed;
-    [SerializeField] private float sprintSpeed;
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float doubleJumpHeight;
     private float moveSpeed;
 
-    // Resource variables
-    private float _stamina = 50f;
+    // Movement
+    [SerializeField] private float baseSpeed;
+    private Vector3 velocity;
+    private Vector3 moveDirection;
+
+    // Sprinting
+    [SerializeField] private float sprintSpeed;
+    // Jumping
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float doubleJumpHeight;
+
+    // Dashing
+    [SerializeField] private float dashDirection = 1.5f;
+    public const float maxDashTime = 1.0f;
+    public float dashDistance = 10;
+    public float dashStoppingSpeed = 0.1f;
+    float currentDashTime = maxDashTime;
+    float dashSpeed = 6;
+
+    // Crouching
+    private Vector3 crouchScale;
+    private Vector3 standScale;
+
+    // Health
     public int maxHealth = 100;
     int currentHealth;
     public int health { get { return currentHealth; }}
-    public int maxEnergy = 50;
-    int currentEnergy;
-    [SerializeField] private float BatteryCount;
-    // [SerializeField] private float worldBottomBoundary = -100f;
 
-    // Mouse movement variables
+    // Stamina 
+    private float _stamina = 50f;
+
+    // Energy 
+    int currentEnergy;
+    public int maxEnergy = 50;
+    private float BatteryCount;
+
+    // Mouse movement
     private float _pitchX;
     private float _pitchY;
-    private float _sensitivity;
     private Vector2 moveInput;
     private Vector2 lookInput;
     
-    // Transforms
+    // Camera
     [SerializeField] private Transform cameraTransform;
+
+    // Timeline
     public Transform timelineOne;
     public Transform timelineTwo;
 
-    // Movement Vectors
-
-    private Vector3 velocity;
-    private Vector2 sprintInput;
-    private Vector3 crouchScale;
-    private Vector3 standScale;
-    private Vector3 timeHopPos;
-    private Vector3 firstTimeline;
-    private Vector3 secondTimeline;
-    private Vector3 vectorReset;
-    // (Vector3, Quaternion) currentCheckpoint;
     
-    // Reference to Player
+    // Player
     public GameObject Player;
 
-    // Input Action variables
-    private InputAction sprintAction;
+    // Input Action Bools
     private bool isSprinting = false;
     bool hanging;
     private bool isCrouching;
     private bool canTimeHop;
     private bool timelineDif;
-    private bool switchTimeline;
     private bool canDoubleJump;
+    private bool dashNow;
 
-    // Damage Logic variables
+    // Damage Logic
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float invincibleTimer;
@@ -103,6 +114,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Dashing
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        Debug.Log($"Dashing {context.performed}");
+        if (context.performed)
+        {
+            dashNow = true;
+        }
+        else
+        {
+            dashNow = false;
+        }
+    }
+
     // Jumping
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -111,7 +136,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hanging)
             {
-                _rb.useGravity = true;
+                _rb.useGravity = false;
                 hanging = false;
 
                 velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravity);
@@ -211,6 +236,7 @@ public class PlayerController : MonoBehaviour
         LedgeGrab();
         Crouching();
         Sprinting();
+        Dashing();
         StartCoroutine("TimelineJump");
 
 
@@ -255,10 +281,11 @@ public class PlayerController : MonoBehaviour
         if(_rb.linearVelocity.y < 0 && !hanging)
         {
             RaycastHit downHit;
-            Vector3 lineDownStart = (transform.position + Vector3.up * 3f) + transform.forward;
-            Vector3 lineDownEnd = (transform.position + Vector3.up * 1.5f) + transform.forward;
+            Vector3 lineDownStart = (transform.position + Vector3.up * 1f) + transform.forward;
+            Vector3 lineDownEnd = (transform.position + Vector3.up * .5f) + transform.forward;
             Physics.Linecast(lineDownStart, lineDownEnd, out downHit, LayerMask.GetMask("Ground"));
             Debug.DrawLine(lineDownStart, lineDownEnd);
+            Debug.Log(downHit.transform.name);
 
             if(downHit.collider != null)
             {
@@ -271,6 +298,7 @@ public class PlayerController : MonoBehaviour
                 if(fwdHit.collider != null)
                 {
                     _rb.useGravity = false;
+                    controller.enabled = false;
                     _rb.linearVelocity = Vector3.zero;
 
                     hanging = true;
@@ -321,6 +349,25 @@ public class PlayerController : MonoBehaviour
                 moveSpeed = baseSpeed;
             }
         }
+    }
+
+    public void Dashing()
+    {
+        if (dashNow == true)
+        {
+            currentDashTime = 0;
+        }
+        if (currentDashTime < maxDashTime)
+        {
+            moveDirection = transform.forward * dashDistance;
+            currentDashTime += dashStoppingSpeed;
+        }
+        else
+        {
+            moveDirection = Vector3.zero;
+        }
+        controller.Move(moveDirection * Time.deltaTime * dashSpeed);
+
     }
 
     private void OnTriggerEnter(Collider other)
