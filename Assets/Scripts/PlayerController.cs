@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float doubleJumpHeight;
 
     // Dashing
-    [SerializeField] private float dashDirection = 1.5f;
     public const float maxDashTime = 1.0f;
     public float dashDistance = 10;
     public float dashStoppingSpeed = 0.1f;
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public int health { get { return currentHealth; }}
 
     // Stamina 
-    private float _stamina = 50f;
+    public float _stamina = 50f;
 
     // Energy 
     int currentEnergy;
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private bool canTimeHop;
     private bool timelineDif;
     private bool canDoubleJump;
-    private bool dashNow;
+    private bool dashNow = false;
 
     // Damage Logic
     public float timeInvincible = 2.0f;
@@ -148,10 +147,12 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
             }
         }
-        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true && currentEnergy >= 5)
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
+            ChangeEnergy(5);
+            Debug.Log("current energy" + currentEnergy);
         }
     }
     // Crouching
@@ -169,10 +170,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnItemUse(InputAction.CallbackContext context)
     {
-        if (context.performed && BatteryCount >= 1f)
+        if (context.performed && BatteryCount >= 1f && currentEnergy < 50)
         {
             BatteryCount -= 1;
-            currentEnergy += 25;
+            ChangeEnergy(25);
+            Debug.Log("Current batteries: " + BatteryCount);
+            Debug.Log("Current energy: " + currentEnergy);
+        }
+        if (context.performed && currentEnergy == maxEnergy)
+        {
+        
         }
     }
 
@@ -347,27 +354,34 @@ public class PlayerController : MonoBehaviour
             if (isSprinting == true && _stamina <= 0.1f)
             {
                 moveSpeed = baseSpeed;
+                isSprinting = false;
             }
         }
+        Debug.Log("Current Stamina: " + _stamina);
     }
 
     public void Dashing()
-    {
-        if (dashNow == true)
+    {   
+        if (dashNow == true && currentEnergy >= 10)
         {
+            
+            ChangeEnergy(-10);
+            Debug.Log("current energy" + currentEnergy);
             currentDashTime = 0;
         }
         if (currentDashTime < maxDashTime)
         {
             moveDirection = transform.forward * dashDistance;
             currentDashTime += dashStoppingSpeed;
+            Debug.Log (currentDashTime);
+            controller.Move(velocity * Time.deltaTime);
         }
-        else
+        else 
         {
             moveDirection = Vector3.zero;
         }
         controller.Move(moveDirection * Time.deltaTime * dashSpeed);
-
+        dashNow = false;
     }
 
     private void OnTriggerEnter(Collider other)
