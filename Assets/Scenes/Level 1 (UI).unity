@@ -486,7 +486,7 @@ VideoPlayer:
   m_AspectRatio: 5
   m_DataSource: 0
   m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1.1
+  m_PlaybackSpeed: 1.76
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
@@ -9738,6 +9738,7 @@ RectTransform:
   m_Children:
   - {fileID: 468785594}
   - {fileID: 1413627174}
+  - {fileID: 1830838460}
   m_Father: {fileID: 1174078596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13993,7 +13994,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 783683812}
-  transitionVideo: {fileID: 41716962}
+  videoPlayer: {fileID: 41716962}
+  renderTexture: {fileID: 8400000, guid: 6866d9881c9c112488171e5001b5b2b7, type: 2}
+  videoImage: {fileID: 1830838461}
+  playerMovement: {fileID: 0}
+  isPaused: 0
+  pausing: 0
+  playstate: 0
 --- !u!4 &1174078596
 Transform:
   m_ObjectHideFlags: 0
@@ -14008,7 +14015,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783683816}
-  - {fileID: 1830838460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1184837127
@@ -21025,11 +21031,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1174078596}
+  m_Father: {fileID: 783683816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 552.9209, y: 332.07272}
+  m_AnchoredPosition: {x: 0, y: -0.000030518}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830838461
