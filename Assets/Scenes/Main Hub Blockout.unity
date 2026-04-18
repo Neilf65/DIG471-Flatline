@@ -4133,10 +4133,14 @@ MonoBehaviour:
   sprintSpeed: 10
   jumpHeight: 5
   doubleJumpHeight: 0
+  dashDistance: 10
+  dashStoppingSpeed: 0.1
   maxHealth: 100
+  _stamina: 50
   maxEnergy: 50
-  BatteryCount: 0
   cameraTransform: {fileID: 330585546}
+  timelineOne: {fileID: 0}
+  timelineTwo: {fileID: 0}
   Player: {fileID: 396049950}
   timeInvincible: 2
 --- !u!54 &396049953
