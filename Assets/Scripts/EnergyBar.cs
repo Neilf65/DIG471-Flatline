@@ -1,16 +1,24 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class EnergyBar : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Slider energyBar;
+    public PlayerController player;
+
+    private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        energyBar = GetComponent<Slider>();
+        energyBar.maxValue = player.maxEnergy;
+        energyBar.value = player.maxEnergy;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetEnergy(int eg)
     {
-        
+        energyBar.value = eg;
     }
 }

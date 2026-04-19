@@ -24,6 +24,7 @@ public class SecurityCam : MonoBehaviour
             if (player != null)
             {
                 player.ChangeHealth(-10);
+                Debug.Log("currentHealth:" + player.currentHealth);
             }
         }
 

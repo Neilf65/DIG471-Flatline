@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
-
 public class PlayerController : MonoBehaviour
 {
 
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Dashing
     public const float maxDashTime = 1.0f;
     public float dashDistance = 10;
-    public float dashStoppingSpeed = 0.1f;
+    float dashStoppingSpeed = 0.1f;
     float currentDashTime = maxDashTime;
     float dashSpeed = 6;
 
@@ -36,11 +35,12 @@ public class PlayerController : MonoBehaviour
 
     // Health
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
     public int health { get { return currentHealth; }}
 
     // Stamina 
     public float _stamina = 50f;
+    public float currentStamina;
 
     // Energy 
     int currentEnergy;
@@ -57,8 +57,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     // Timeline
-    public Transform timelineOne;
-    public Transform timelineTwo;
 
     
     // Player
@@ -72,12 +70,16 @@ public class PlayerController : MonoBehaviour
     private bool timelineDif;
     private bool canDoubleJump;
     private bool dashNow = false;
+    public bool isInteracting = false;
 
     // Damage Logic
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float invincibleTimer;
     private int extraHits = 0;
+
+    // UI
+    public EnergyBar energyBar;
 
 
     // Components
@@ -89,7 +91,8 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         currentHealth = maxHealth;
-        // currentCheckpoint = (transform.position, transform.rotation);
+        currentEnergy = maxEnergy;
+        currentStamina = _stamina;
     }
 
     // Player Movement
@@ -97,6 +100,15 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         // Debug.Log($"Move Input: {moveInput}");
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log($"Interacting {context.performed}");
+            isInteracting = true;
+        }
     }
 
     // Sprinting
@@ -343,21 +355,24 @@ public class PlayerController : MonoBehaviour
         if (isSprinting != true)
         {
             moveSpeed = baseSpeed;
-            _stamina += 3.0f * Time.deltaTime;
-            
+
+            if (currentStamina < 50)
+            {
+                currentStamina += 3.0f * Time.deltaTime;
+            }
         }
         else if (isSprinting == true)
         {
             moveSpeed = sprintSpeed;
-            _stamina -= 8.0f * Time.deltaTime;
+            currentStamina -= 8.0f * Time.deltaTime;
 
-            if (isSprinting == true && _stamina <= 0.1f)
+            if (isSprinting == true && currentStamina <= 0.1f)
             {
                 moveSpeed = baseSpeed;
                 isSprinting = false;
             }
         }
-        Debug.Log("Current Stamina: " + _stamina);
+        // Debug.Log("Current Stamina: " + currentStamina);
     }
 
     public void Dashing()
@@ -421,6 +436,13 @@ public class PlayerController : MonoBehaviour
     {
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);
+        // energyBar.SetEnergy(currentEnergy);
+    }
+
+    private void ChangeStamina(float stamAmount)
+    {
+        currentStamina = Mathf.Clamp(currentStamina + stamAmount, 0, _stamina);
+
     }
 
     private void LateUpdate()

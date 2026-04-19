@@ -45,11 +45,6 @@ public class PauseMenu : MonoBehaviour
 
        
     }
-    private void Update()
-    {
-        
-    }
-
 
      public void PauseGame()
     {
