@@ -159,12 +159,12 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
             }
         }
-        if (context.performed && controller.isGrounded != true && canDoubleJump == true && currentEnergy >= 5)
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true && currentStamina >= 5)
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
-            ChangeEnergy(5);
-            Debug.Log("current energy" + currentEnergy);
+            ChangeStamina(-5);
+            Debug.Log("current stamina" + currentStamina);
         }
     }
     // Crouching
