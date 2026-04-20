@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using Unity.VectorGraphics;
 
 
 public class PlayerController : MonoBehaviour
 {
-
+    [SerializeField] private SVGImage bar;
     // Variables
 
     // Gravity
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     int currentEnergy;
     public int maxEnergy = 50;
     private float BatteryCount;
+
 
     // Mouse movement
     private float _pitchX;
@@ -177,9 +179,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Current batteries: " + BatteryCount);
             Debug.Log("Current energy: " + currentEnergy);
         }
+        float fillAmount = (float) currentEnergy / maxEnergy;
         if (context.performed && currentEnergy == maxEnergy)
         {
-        
+
+
         }
     }
 
@@ -421,6 +425,8 @@ public class PlayerController : MonoBehaviour
     {
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);
+        float fillAmount = (float)currentEnergy / maxEnergy;
+        bar.transform.localScale = new Vector3(fillAmount, 1f, 1f);
     }
 
     private void LateUpdate()

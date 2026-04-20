@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
@@ -63,6 +64,8 @@ public class PauseMenu : MonoBehaviour
         videoImage.enabled = true;   
         videoPlayer.frame = 0;
         videoPlayer.Play();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         
 
     }
@@ -71,6 +74,23 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
 
     }
     void OnVideoEnd(VideoPlayer vp)
