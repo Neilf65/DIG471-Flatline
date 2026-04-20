@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &412307287621290542
 Transform:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4483936478165803051
 Transform:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 2038455272992670055}
   - component: {fileID: 1825518954042977441}
   - component: {fileID: 6781684980663917330}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -348,7 +348,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &2038455272992670055
 MonoBehaviour:
@@ -366,17 +366,18 @@ MonoBehaviour:
   baseSpeed: 5
   sprintSpeed: 10
   jumpHeight: 5
-  doubleJumpHeight: 0
-  dashDirection: 1.5
+  doubleJumpHeight: 3
   dashDistance: 10
-  dashStoppingSpeed: 0.1
   maxHealth: 100
+  currentHealth: 0
+  _stamina: 50
+  currentStamina: 0
   maxEnergy: 50
   cameraTransform: {fileID: 0}
-  timelineOne: {fileID: 412307287621290542}
-  timelineTwo: {fileID: 4483936478165803051}
   Player: {fileID: 4487872615679249175}
+  isInteracting: 0
   timeInvincible: 2
+  energyBar: {fileID: 0}
 --- !u!143 &1825518954042977441
 CharacterController:
   m_ObjectHideFlags: 0
@@ -559,6 +560,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9cc82cdc-74b3-4607-862f-e8bfc8ce6f3d
     m_ActionName: 'BasicMovement/ItemUse[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2038455272992670055}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6cd8cad1-0050-41bf-a4b0-5f35f598c811
+    m_ActionName: 'UI/Interact[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: BasicMovement
