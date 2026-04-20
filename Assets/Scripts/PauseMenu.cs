@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.Video;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private RenderTexture renderTexture;
+    [SerializeField] private RawImage videoImage;
     private PlayerControls playerControls;
     private InputAction uI;
     
@@ -42,19 +46,19 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         playerControls = new PlayerControls();
+        videoPlayer.loopPointReached += OnVideoEnd;
 
-       
-    }
-    private void Update()
-    {
-        
-    }
 
+    }
 
      public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        videoImage.enabled = true;   
+        videoPlayer.frame = 0;
+        videoPlayer.Play();
+        
 
     }
     
@@ -64,6 +68,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
     }
+    void OnVideoEnd(VideoPlayer vp)
+    {
+        vp.Stop();
+        videoImage.enabled = false; // hide video only
+    }
 }
+
+
 
 
