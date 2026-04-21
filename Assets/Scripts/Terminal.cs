@@ -122,6 +122,7 @@ public class Terminal : MonoBehaviour
         if (player.isInteracting == true && Physics.CheckSphere(transform.position, radius, Player))
         {
             TerminalOpen();
+            Debug.Log("Terminal should open now");
         }
 
         if (player.isInteracting == false)

@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"Interacting {context.performed}");
             isInteracting = true;
+            Debug.Log ($"Interacting {context.performed}");
         }
     }
 
