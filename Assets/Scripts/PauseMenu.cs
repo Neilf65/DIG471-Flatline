@@ -1,8 +1,9 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
@@ -52,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-     public void PauseGame()
+    public void PauseGame()
     {
         settingsMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -63,11 +64,16 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
     
-     public void ResumeGame()
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Settings()
