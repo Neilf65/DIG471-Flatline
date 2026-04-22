@@ -272,7 +272,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""77d108bf-d176-494e-8c2a-873662faaccc"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=2,y=2)"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": true,
