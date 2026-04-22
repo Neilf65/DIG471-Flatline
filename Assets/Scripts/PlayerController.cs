@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -43,7 +44,8 @@ public class PlayerController : MonoBehaviour
     public float currentStamina;
 
     // Energy 
-    int currentEnergy;
+    [SerializeField] private EnergyBar energyBarUI;
+    public int currentEnergy;
     public int maxEnergy = 50;
     private float BatteryCount;
 
@@ -80,12 +82,12 @@ public class PlayerController : MonoBehaviour
     private int extraHits = 0;
 
     // UI
-    public EnergyBar energyBar;
 
 
     // Components
     private Rigidbody _rb;
     private CharacterController controller;
+    private AudioSource source;
 
     void Start()
     {
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         currentEnergy = maxEnergy;
         currentStamina = _stamina;
+        energyBarUI.SetEnergy(maxEnergy);
     }
 
     // Player Movement
@@ -441,6 +444,8 @@ public class PlayerController : MonoBehaviour
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);
         // energyBar.SetEnergy(currentEnergy);
+
+        energyBarUI.SetEnergy(currentEnergy);
     }
 
     private void ChangeStamina(float stamAmount)

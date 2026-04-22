@@ -1,24 +1,18 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class EnergyBar : MonoBehaviour
 {
-    public Slider energyBar;
-    public PlayerController player;
+    public float currentEnergy, maxEnergy, Width, Height;
+    [SerializeField] private PlayerController playerController;
 
-    private void Start()
+    [SerializeField] RectTransform energyBar;
+
+    public void SetEnergy(float Energy)
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        energyBar = GetComponent<Slider>();
-        energyBar.maxValue = player.maxEnergy;
-        energyBar.value = player.maxEnergy;
+        currentEnergy = Energy;
+        float newWidth = (currentEnergy / maxEnergy) * Width;
 
-    }
-
-    public void SetEnergy(int eg)
-    {
-        energyBar.value = eg;
+        energyBar.sizeDelta = new Vector2(newWidth, Height);
     }
 }
