@@ -6,6 +6,7 @@ public class Terminal : MonoBehaviour
 {
     // GameObject
     [SerializeField] GameObject terminalUI;
+    [SerializeField] GameObject winScreen;
     private PlayerControls playerControls;
     private InputAction uI;
 
@@ -80,6 +81,9 @@ public class Terminal : MonoBehaviour
             {
                 keyToPress.text = "System Override!";
                 freeze = true;
+                winScreen.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
 
@@ -145,7 +149,6 @@ public class Terminal : MonoBehaviour
     {
         terminalUI.SetActive(false);
         Time.timeScale = 1f;
-
     }
 
     

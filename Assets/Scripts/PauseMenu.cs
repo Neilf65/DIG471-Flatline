@@ -1,11 +1,13 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject settingsMenu;
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RenderTexture renderTexture;
     [SerializeField] private RawImage videoImage;
@@ -21,11 +23,11 @@ public class PauseMenu : MonoBehaviour
 
     {
         pausing = !pausing;
-        if(pausing)
+        if(pausing == true)
         {
             PauseGame();
         }
-        else
+        if (pausing == false)
         {
             ResumeGame();
         }
@@ -51,22 +53,37 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-     public void PauseGame()
+    public void PauseGame()
     {
-        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(true);
         Time.timeScale = 0f;
-        videoImage.enabled = true;   
-        videoPlayer.frame = 0;
-        videoPlayer.Play();
-        
-
+        // videoImage.enabled = true;   
+        // videoPlayer.frame = 0;
+        // videoPlayer.Play();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
-     public void ResumeGame()
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
 
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Settings()
+    {
+        settingsMenu.SetActive(true);
+
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
     void OnVideoEnd(VideoPlayer vp)
     {
