@@ -59,8 +59,9 @@ public class PlayerController : MonoBehaviour
     // Timeline
 
     
-    // Player
+    // Game Object
     public GameObject Player;
+    public GameObject GameOverScreen;
 
     // Input Action Bools
     private bool isSprinting = false;
@@ -108,7 +109,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"Interacting {context.performed}");
             isInteracting = true;
-            Debug.Log ($"Interacting {context.performed}");
         }
     }
 
@@ -218,6 +218,9 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            GameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         
         if (isInvincible)
