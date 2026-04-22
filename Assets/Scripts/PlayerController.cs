@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour
     private int extraHits = 0;
 
     // UI
-    public EnergyBar energyBar;
 
 
     // Components
