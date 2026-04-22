@@ -322,17 +322,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fc609aa0-0650-4ed6-9713-421fcf6aa21f"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Desktop"",
-                    ""action"": ""TimeSwap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c5a2b406-dbb3-4804-8056-790c8e600759"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",

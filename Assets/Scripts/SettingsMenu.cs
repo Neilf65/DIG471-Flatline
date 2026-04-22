@@ -11,6 +11,8 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
     {
         RefreshSettings();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void RefreshSettings()
@@ -28,5 +30,11 @@ public class SettingsMenu : MonoBehaviour
 
         QualitySettings.SetQualityLevel(Settings.QualityLevel);
         mixer.SetFloat("Master", Mathf.Log10(Settings.Volume) * 20);
+    }
+
+    public void Back()
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

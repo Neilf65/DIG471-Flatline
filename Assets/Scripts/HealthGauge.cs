@@ -19,7 +19,8 @@ public class HealthGauge : MonoBehaviour
     [SerializeField] private RawImage okayImage;
     [SerializeField] private RawImage hurtImage;
 
-    VideoPlayer[] videoArray = new VideoPlayer[3];
+    // AudioSource
+    private AudioSource source;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -33,7 +34,7 @@ public class HealthGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        VideoType();
     }
 
     public void VideoType()
