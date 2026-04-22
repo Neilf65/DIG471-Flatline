@@ -88,7 +88,6 @@ public class PauseMenu : MonoBehaviour
     public void Settings()
     {
         settingsMenu.SetActive(true);
-        PausePanel.SetActive(false);
     }
     void OnVideoEnd(VideoPlayer vp)
     {
