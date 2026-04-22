@@ -445,17 +445,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e9c41d11-31ad-4b58-a508-bdcdfad75247"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c5a2b406-dbb3-4804-8056-790c8e600759"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",

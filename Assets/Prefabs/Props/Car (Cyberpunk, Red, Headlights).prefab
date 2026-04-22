@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3369449087566372183}
   - component: {fileID: 8895718748804110737}
   - component: {fileID: 4642004722645516512}
+  - component: {fileID: 5159380107363546195}
   m_Layer: 0
   m_Name: Car_Body
   m_TagString: Untagged
@@ -178,6 +179,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5159380107363546195
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4436429305248939247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8452620946744165354, guid: 34f64ad74f11fe244821561701490ebb, type: 3}
 --- !u!1 &5026267123420054057
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5659674518962903187}
+  - component: {fileID: 8214208655065006295}
   m_Layer: 0
   m_Name: Car (Cyberpunk, Red, Headlights)
   m_TagString: Untagged
@@ -213,6 +237,28 @@ Transform:
   - {fileID: 4507522365125202150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -535.537, z: 0}
+--- !u!64 &8214208655065006295
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026267123420054057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &5131502760542194665
 GameObject:
   m_ObjectHideFlags: 0
