@@ -38,6 +38,7 @@ public class SecurityCam : MonoBehaviour
                         transform.LookAt(camRotationOrigin);
                         camRotateTime = 0f;
                         camRotateY = -0.1f;
+                        FindFirstObjectByType<SoundEffectsManager>().Play("sec_cam_zap");
                     }
 
                     else if (player == null)
@@ -65,6 +66,7 @@ public class SecurityCam : MonoBehaviour
         {
             camRotateTime = 5f;
             camRotateY = -camRotateY;
+            FindFirstObjectByType<SoundEffectsManager>().Play("sec_cam_scan");
         }
     }
 }

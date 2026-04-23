@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -81,13 +80,15 @@ public class PlayerController : MonoBehaviour
     float invincibleTimer;
     private int extraHits = 0;
 
-    // UI
 
 
     // Components
     private Rigidbody _rb;
     private CharacterController controller;
-    private AudioSource source;
+
+    // Audio
+    [SerializeField] private AudioClip boostJump;
+    [SerializeField] private AudioClip dashSFX;
 
     void Start()
     {
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        // FindFirstObjectByType<SoundEffectsManager>().Play("Walking");
         // Debug.Log($"Move Input: {moveInput}");
     }
 
@@ -163,12 +165,11 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
             }
         }
-        if (context.performed && controller.isGrounded != true && canDoubleJump == true && currentStamina >= 5)
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
-            ChangeStamina(-5);
-            Debug.Log("current stamina" + currentStamina);
+            FindFirstObjectByType<SoundEffectsManager>().Play("Boost");
         }
     }
     // Crouching
@@ -365,7 +366,7 @@ public class PlayerController : MonoBehaviour
 
             if (currentStamina < 50)
             {
-                currentStamina += 3.0f * Time.deltaTime;
+                currentStamina += 7.0f * Time.deltaTime;
             }
         }
         else if (isSprinting == true)
@@ -390,6 +391,7 @@ public class PlayerController : MonoBehaviour
             ChangeEnergy(-10);
             Debug.Log("current energy" + currentEnergy);
             currentDashTime = 0;
+            FindFirstObjectByType<SoundEffectsManager>().Play("Dash");
         }
         if (currentDashTime < maxDashTime)
         {
@@ -436,6 +438,7 @@ public class PlayerController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log("Current health: " + currentHealth);
+        FindFirstObjectByType<SoundEffectsManager>().Play("Hurt");
 
     }
 
