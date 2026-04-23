@@ -2441,6 +2441,7 @@ Transform:
   - {fileID: 1902487655}
   - {fileID: 610674658}
   - {fileID: 1404748633}
+  - {fileID: 557412659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198052649 stripped
@@ -4528,7 +4529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -12379,6 +12380,101 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4696667188155458734, guid: 836d71846f9be2b42adf16fc36d972f8, type: 3}
+--- !u!1 &557412658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 557412659}
+  - component: {fileID: 557412660}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &557412659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557412658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 196343870}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557412660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557412658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3675b872c6718e409f4f7a9f89186c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundEffectsManager
+  sounds:
+  - name: Walking
+    clip: {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
+    volume: 0.468
+    pitch: 1
+    source: {fileID: 0}
+  - name: Run
+    clip: {fileID: 8300000, guid: 9e1c87de138aa8947b6c4a2c5b946215, type: 3}
+    volume: 0.391
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: d12234c7c47095e43a2e3613762a3d38, type: 3}
+    volume: 0.443
+    pitch: 1
+    source: {fileID: 0}
+  - name: Boost
+    clip: {fileID: 8300000, guid: 52d9d80e4bc3a824ca8ed11c8c76d49d, type: 3}
+    volume: 0.485
+    pitch: 1
+    source: {fileID: 0}
+  - name: Terminal
+    clip: {fileID: 8300000, guid: ef1ff5b7c4e077a49a8f20ae3e619a36, type: 3}
+    volume: 0.506
+    pitch: 1
+    source: {fileID: 0}
+  - name: sec_cam_scan
+    clip: {fileID: 8300000, guid: a9b279163a3c2914897f8fd6e8a88c12, type: 3}
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: soldier_run
+    clip: {fileID: 8300000, guid: 0f4ca18231de5f9449b8af8aafb36227, type: 3}
+    volume: 0.498
+    pitch: 1
+    source: {fileID: 0}
+  - name: sec_cam_zap
+    clip: {fileID: 8300000, guid: fbe434852f7a6d84ca201221ae298030, type: 3}
+    volume: 0.613
+    pitch: 1
+    source: {fileID: 0}
+  - name: soldier_alert
+    clip: {fileID: 8300000, guid: 62ba49eb50ca1724b8b655bd7c7a7cbf, type: 3}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: soldier_attack
+    clip: {fileID: 8300000, guid: 58b77fe19a5397b438885c4a8577d03f, type: 3}
+    volume: 0.557
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &557758593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
@@ -15713,13 +15809,13 @@ MonoBehaviour:
     m_ActionName: 'UI/Pause[/Keyboard/p]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1855415293}
+        m_TargetAssemblyTypeName: Terminal, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
