@@ -3830,7 +3830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &269974892
 Transform:
   m_ObjectHideFlags: 0
@@ -4655,7 +4655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4724,7 +4724,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212345, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: 1.667881, y: 70.34363, z: -26.251892}
+  m_LocalPosition: {x: 1.667881, y: 72.346306, z: -26.251892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11330,6 +11330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069039289098984055, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalScale.y
       value: 13.854301
@@ -11344,11 +11348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.77
+      value: 19.24
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -64.5
+      value: -64.14
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11528,6 +11532,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.886
+      objectReference: {fileID: 0}
     - target: {fileID: 2038455272992670055, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: jumpHeight
       value: 3
@@ -11587,7 +11595,7 @@ PrefabInstance:
     - target: {fileID: 4988920735113663546, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 9217690926202048183, guid: 2683f44fb199e0849ace50e9b5c64d73, type: 3}
+      objectReference: {fileID: 1302981942003164591, guid: 2683f44fb199e0849ace50e9b5c64d73, type: 3}
     - target: {fileID: 6781684980663917330, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: m_DefaultActionMap
       value: 
@@ -14009,9 +14017,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6999657689406170122, guid: d73d499df712f4d419e3f2ec0daf86d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1208843338}
-    - targetCorrespondingSourceObject: {fileID: 6369621433641484614, guid: d73d499df712f4d419e3f2ec0daf86d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 778253429}
   m_SourcePrefab: {fileID: 100100000, guid: d73d499df712f4d419e3f2ec0daf86d3, type: 3}
 --- !u!4 &624181964 stripped
 Transform:
@@ -15831,15 +15836,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2079825712}
   - {fileID: 209757620}
   - {fileID: 1239980598}
   - {fileID: 1865176029}
   - {fileID: 831692030}
   - {fileID: 515825932}
   - {fileID: 1899664410}
-  - {fileID: 1961301616}
   - {fileID: 1851835216}
+  - {fileID: 1291109114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -15861,7 +15865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 209757619}
   settingsMenu: {fileID: 1239980594}
-  PausePanel: {fileID: 0}
+  PausePanel: {fileID: 109683719}
   videoPlayer: {fileID: 1070328447}
   renderTexture: {fileID: 8400000, guid: 6866d9881c9c112488171e5001b5b2b7, type: 2}
   videoImage: {fileID: 137220924}
@@ -15940,13 +15944,13 @@ MonoBehaviour:
     m_ActionName: 'UI/Pause[/Keyboard/p]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1855415293}
+        m_TargetAssemblyTypeName: Terminal, Assembly-CSharp
+        m_MethodName: Console
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -22258,7 +22262,7 @@ Transform:
   m_GameObject: {fileID: 1184837127}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212345, y: -0, z: -0, w: 0.98836154}
-  m_LocalPosition: {x: 1.667881, y: 72.50363, z: -26.251892}
+  m_LocalPosition: {x: 1.667881, y: 72.346306, z: -26.251892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24791,6 +24795,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288036930}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1291109114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1031738732415366979, guid: 5c074d30c52ef0945a621d5a999c2a5b, type: 3}
+  m_PrefabInstance: {fileID: 1924549784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299033230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8453201583633519187, guid: 1894bbc2da5f4614c81f5144caf2268e, type: 3}
@@ -32042,6 +32051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069039289098984055, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalScale.y
       value: 13.854301
@@ -32056,11 +32069,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.51
+      value: 46.657
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -188.47
+      value: -188.434
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34746,6 +34759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069039289098984055, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalScale.y
       value: 13.854301
@@ -34760,11 +34777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.87
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -84.6
+      value: -84.21
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40349,6 +40366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1069039289098984055, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalScale.y
       value: 13.854301
@@ -40363,11 +40384,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.98
+      value: 34.85
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -189.32
+      value: -188.86
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -42164,15 +42185,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1013683656301530151, guid: 1894bbc2da5f4614c81f5144caf2268e, type: 3}
---- !u!224 &2079825712 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1234691517278810303, guid: aa2cb4bbfb38a5142a2bbf8aee8a8e38, type: 3}
-  m_PrefabInstance: {fileID: 1745495599}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2079825713 stripped
+--- !u!114 &2079825713
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5483816681508779510, guid: aa2cb4bbfb38a5142a2bbf8aee8a8e38, type: 3}
-  m_PrefabInstance: {fileID: 1745495599}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -42180,6 +42197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fa3bf38581dd04893cc98d2644e7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  currentEnergy: 0
+  maxEnergy: 0
+  Width: 0
+  Height: 0
+  playerController: {fileID: 0}
+  energyBar: {fileID: 0}
 --- !u!1001 &2080086015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43181,6 +43204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery
       objectReference: {fileID: 0}
+    - target: {fileID: 1069039289098984055, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalScale.y
       value: 13.854301
@@ -43195,11 +43222,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.36
+      value: -1.91
       objectReference: {fileID: 0}
     - target: {fileID: 4721592241829510363, guid: 2931bb6240e4dc543b84b3dc91651a51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -43394,6 +43421,5 @@ SceneRoots:
   - {fileID: 773276533}
   - {fileID: 764581536}
   - {fileID: 1260012700}
-  - {fileID: 1994268738}
   - {fileID: 1753286358}
   - {fileID: 621369107}
