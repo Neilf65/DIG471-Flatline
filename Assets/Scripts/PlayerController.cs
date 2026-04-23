@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        // FindFirstObjectByType<SoundEffectsManager>().Play("Walking");
+        FindFirstObjectByType<SoundEffectsManager>().Play("Walking");
         // Debug.Log($"Move Input: {moveInput}");
     }
 
