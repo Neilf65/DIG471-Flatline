@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
+    // GameObject References
     private GameObject Player;
 
     // Transforms
@@ -29,10 +30,16 @@ public class EnemyMovement : MonoBehaviour
     // Navmesh
     private NavMeshAgent Agent;
 
+    // Audio 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip alertSFX;
+
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         Target = GameObject.Find("Player").transform;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -81,6 +88,8 @@ public class EnemyMovement : MonoBehaviour
     private void ChasePlayer()
     {
         Agent.SetDestination(Target.position);
+
+        // play alert SFX 
     }   
 
     public void OnTriggerEnter(Collider other)
