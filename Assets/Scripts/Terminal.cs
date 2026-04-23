@@ -143,6 +143,9 @@ public class Terminal : MonoBehaviour
         keyToPress.text = availableOptions[rand].ToString();
         mainSlider.value = 4;
         freeze = false;
+
+        // play terminal SFX
+        FindFirstObjectByType<SoundEffectsManager>().Play("Terminal");
     }
 
     public void TerminalClose()
