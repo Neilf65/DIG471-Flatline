@@ -14608,6 +14608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 0}
   settingsMenu: {fileID: 618722095}
+  PausePanel: {fileID: 0}
   videoPlayer: {fileID: 645846139}
   renderTexture: {fileID: 8400000, guid: 6866d9881c9c112488171e5001b5b2b7, type: 2}
   videoImage: {fileID: 53962436}
@@ -14627,6 +14628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2248d52ddf54f24ebd1b0fd73b13515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOver
+  videoImage: {fileID: 0}
+  videoPlayer: {fileID: 0}
 --- !u!1001 &781128093
 PrefabInstance:
   m_ObjectHideFlags: 0
