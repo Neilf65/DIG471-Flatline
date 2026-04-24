@@ -8,6 +8,9 @@ public class SecurityCam : MonoBehaviour
     private float zapTime = 0f;
     private Vector3 camRotationOrigin;
 
+    private AudioSource audioSource;
+    public AudioClip[] secCamClips;
+
     void Awake()
     {
         camRotationOrigin = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
@@ -18,7 +21,7 @@ public class SecurityCam : MonoBehaviour
         camRotateTime -= Time.deltaTime;
         var direction = transform.forward;
         RaycastHit hit;
-
+        
         if (Physics.Raycast(transform.position, direction, out hit, 10f))
         {
             PlayerController player = Player.GetComponent<PlayerController>();
@@ -38,7 +41,6 @@ public class SecurityCam : MonoBehaviour
                         transform.LookAt(camRotationOrigin);
                         camRotateTime = 0f;
                         camRotateY = -0.1f;
-                        FindFirstObjectByType<SoundEffectsManager>().Play("sec_cam_zap");
                     }
 
                     else if (player == null)
@@ -66,7 +68,6 @@ public class SecurityCam : MonoBehaviour
         {
             camRotateTime = 5f;
             camRotateY = -camRotateY;
-            FindFirstObjectByType<SoundEffectsManager>().Play("sec_cam_scan");
         }
     }
 }

@@ -103,7 +103,6 @@ public class EnemyMovement : MonoBehaviour
         if (player != null)
         {
             player.ChangeHealth(-10);
-            FindFirstObjectByType<SoundEffectsManager>().Play("soldier_attack");
         }
     }
 }
