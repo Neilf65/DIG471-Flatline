@@ -11,12 +11,17 @@ public class EnemyMovement : MonoBehaviour
 
     // Transforms
     public Transform Target;
+    public Transform rayPoint;
+
+    // Vectors
     public Vector3 walkPoint;
+    public Vector3 lookDir = Vector3.down;
 
     // Floats
     public float UpdateSpeed = 0.1f;
     public float walkPointRange;
     public float sightRange;
+    public float fovRange = 5f;
     [SerializeField] private float walkTime;
 
 
@@ -35,14 +40,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private AudioClip alertSFX;
 
 
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         Target = GameObject.Find("Player").transform;
+        rayPoint = gameObject.transform;
     }
 
     private void Update()
     {
+        
         // Check for sight range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
@@ -62,7 +70,6 @@ public class EnemyMovement : MonoBehaviour
             Agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        FindFirstObjectByType<SoundEffectsManager>().Play("soldier_walk");
 
         // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
@@ -87,12 +94,6 @@ public class EnemyMovement : MonoBehaviour
     private void ChasePlayer()
     {
         Agent.SetDestination(Target.position);
-
-        // play alert SFX 
-        FindFirstObjectByType<SoundEffectsManager>().Play("soldier_alert");
-
-        // play run SFX
-        FindFirstObjectByType<SoundEffectsManager>().Play("soldier_run");
     }   
 
     public void OnTriggerEnter(Collider other)
@@ -103,7 +104,6 @@ public class EnemyMovement : MonoBehaviour
         if (player != null)
         {
             player.ChangeHealth(-10);
-            FindFirstObjectByType<SoundEffectsManager>().Play("soldier_attack");
         }
     }
 }

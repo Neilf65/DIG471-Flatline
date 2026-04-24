@@ -23,7 +23,7 @@ public class RespawnController : MonoBehaviour
             controller.enabled = false;
             collision.transform.position = respawnPoint.position;
             controller.enabled = true;
-            playerController.ChangeHealth(-20);
+            playerController.PlayerDeath();
         }
     }
 }

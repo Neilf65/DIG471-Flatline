@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     // Sprinting
     [SerializeField] private float sprintSpeed;
     // Jumping
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float doubleJumpHeight;
+    private float jumpHeight = 5f;
+    private float doubleJumpHeight = 3f;
 
     // Dashing
     public const float maxDashTime = 1.0f;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     // Energy 
     [SerializeField] private EnergyBar energyBarUI;
-    public int currentEnergy;
+    private int currentEnergy;
     public int maxEnergy = 50;
     private float BatteryCount;
 
@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        FindFirstObjectByType<SoundEffectsManager>().Play("Walking");
         // Debug.Log($"Move Input: {moveInput}");
     }
 
@@ -219,14 +218,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            GameOverScreen.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
@@ -391,7 +382,6 @@ public class PlayerController : MonoBehaviour
             ChangeEnergy(-10);
             Debug.Log("current energy" + currentEnergy);
             currentDashTime = 0;
-            FindFirstObjectByType<SoundEffectsManager>().Play("Dash");
         }
         if (currentDashTime < maxDashTime)
         {
@@ -437,8 +427,12 @@ public class PlayerController : MonoBehaviour
                 invincibleTimer = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("Current health: " + currentHealth);
-        FindFirstObjectByType<SoundEffectsManager>().Play("Hurt");
+        Debug.Log("Current health: " + currentHealth); 
+
+        if (currentHealth <= 0)
+        {
+            PlayerDeath();
+        }
 
     }
 
@@ -475,5 +469,16 @@ public class PlayerController : MonoBehaviour
         BatteryCount += 1;
         Debug.Log("Collected Batteries: " + BatteryCount);
         Destroy(Battery);
+    }
+
+    public void PlayerDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            GameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
