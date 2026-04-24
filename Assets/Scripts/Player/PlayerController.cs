@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     // Sprinting
     [SerializeField] private float sprintSpeed;
     // Jumping
-    [SerializeField] private float jumpHeight;
-    [SerializeField] private float doubleJumpHeight;
+    private float jumpHeight = 5f;
+    private float doubleJumpHeight = 3f;
 
     // Dashing
     public const float maxDashTime = 1.0f;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     // Energy 
     [SerializeField] private EnergyBar energyBarUI;
-    public int currentEnergy;
+    private int currentEnergy;
     public int maxEnergy = 50;
     private float BatteryCount;
 
