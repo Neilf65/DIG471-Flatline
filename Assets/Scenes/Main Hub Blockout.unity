@@ -4131,18 +4131,20 @@ MonoBehaviour:
   gravity: -9
   baseSpeed: 5
   sprintSpeed: 10
-  jumpHeight: 5
-  doubleJumpHeight: 0
   dashDistance: 10
-  dashStoppingSpeed: 0.1
   maxHealth: 100
+  currentHealth: 0
   _stamina: 50
+  currentStamina: 0
+  energyBarUI: {fileID: 0}
   maxEnergy: 50
   cameraTransform: {fileID: 330585546}
-  timelineOne: {fileID: 0}
-  timelineTwo: {fileID: 0}
   Player: {fileID: 396049950}
+  GameOverScreen: {fileID: 0}
+  isInteracting: 0
   timeInvincible: 2
+  boostJump: {fileID: 0}
+  dashSFX: {fileID: 0}
 --- !u!54 &396049953
 Rigidbody:
   m_ObjectHideFlags: 0
