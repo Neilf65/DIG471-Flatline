@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 7733074005457411273}
   - component: {fileID: 6701002492074234732}
   - component: {fileID: 8870482726328166310}
-  - component: {fileID: 7185714894975818790}
+  - component: {fileID: 6316574006449012588}
   m_Layer: 0
   m_Name: HoloPad
   m_TagString: Untagged
@@ -357,8 +357,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7185714894975818790
-BoxCollider:
+--- !u!64 &6316574006449012588
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -375,9 +375,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.01580724, y: 0.019999998, z: 0.015894309}
-  m_Center: {x: -0.000081619706, y: 0.009796013, z: 0.0000000046566124}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8108563764783910780, guid: c5284404e1e9d6a4781a81763362e494, type: 3}
 --- !u!1 &7165146009378987267
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7157053940632458171}
+  - component: {fileID: -2714433005916118037}
   m_Layer: 0
   m_Name: HoloTree (2)
   m_TagString: Untagged
@@ -504,6 +506,28 @@ Transform:
   - {fileID: 7733074005457411273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.086, y: 29.967, z: 1.549}
+--- !u!64 &-2714433005916118037
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7501068501084621057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &9068981516344410121
 GameObject:
   m_ObjectHideFlags: 0
