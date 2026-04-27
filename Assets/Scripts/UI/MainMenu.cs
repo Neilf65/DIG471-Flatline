@@ -1,16 +1,41 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
-public class MainMenu : MonoBehaviour
+[RequireComponent(typeof(Button))]
+public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public void Play()
-    {
-      SceneManager.LoadScene(1);  
-    }
+  public Image imageComponent;
 
-    // Update is called once per frame
-    public void Quit()
-    {
-       Application.Quit(); 
-    }
+  [SerializeField] private GameObject settingsMenu;
+
+  public void OnPointerEnter(PointerEventData eventData)
+  {
+    
+    imageComponent.enabled = true;
+  }
+
+  public void OnPointerExit(PointerEventData eventData)
+  {
+    
+    imageComponent.enabled = false;
+  }
+
+  public void Play()
+  {
+    SceneManager.LoadScene(1);
+  }
+
+  public void Settings()
+  {
+    settingsMenu.SetActive(true);
+  }
+  
+  public void QuitGame()
+  {
+    Application.Quit();
+  }
+
 }
