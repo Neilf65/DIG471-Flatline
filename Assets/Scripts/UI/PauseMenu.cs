@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -6,6 +5,7 @@ using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
+    // Fields
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject PausePanel;
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField] private InputActionAsset playerMovement;
 
+    // Booleans
     public bool isPaused;
     public bool pausing;
     public bool playstate;
@@ -48,8 +49,9 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         pauseMenu.SetActive(false);
-        playerControls = new PlayerControls();
+        // playerControls = new PlayerControls();
         videoPlayer.loopPointReached += OnVideoEnd;
+        AudioListener audioListener = GetComponent<AudioListener>();
 
 
     }
@@ -63,6 +65,10 @@ public class PauseMenu : MonoBehaviour
         videoPlayer.Play();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        //Pause game audio
+
+        AudioListener.pause = true;
     }
     
      public void ResumeGame()
@@ -71,6 +77,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        AudioListener.pause = false;
     }
     public void QuitGame()
     {
@@ -83,6 +90,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pausing = false;
+        AudioListener.pause = false;
     }
 
     public void Settings()

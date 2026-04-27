@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
+    #region Fields
     // Variables
 
     // Gravity
@@ -39,13 +39,14 @@ public class PlayerController : MonoBehaviour
     public int health { get { return currentHealth; }}
 
     // Stamina 
-    public float _stamina = 50f;
-    public float currentStamina;
+    [SerializeField] private StaminaBar staminaBarUI;
+    public float _stamina = 50;
+    private float currentStamina;
 
     // Energy 
     [SerializeField] private EnergyBar energyBarUI;
-    private int currentEnergy;
-    public int maxEnergy = 50;
+    private float currentEnergy;
+    public float maxEnergy = 50;
     private float BatteryCount;
 
     // Mouse movement
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
     private bool canDoubleJump;
     private bool dashNow = false;
     public bool isInteracting = false;
+    public bool waiting;
+    private float walkAudioTimer = 3f;
 
     // Damage Logic
     public float timeInvincible = 2.0f;
@@ -80,15 +83,17 @@ public class PlayerController : MonoBehaviour
     float invincibleTimer;
     private int extraHits = 0;
 
+    // Takedown timer reset
+    public float waitTime = 4f;
+
 
 
     // Components
     private Rigidbody _rb;
     private CharacterController controller;
 
-    // Audio
-    [SerializeField] private AudioClip boostJump;
-    [SerializeField] private AudioClip dashSFX;
+    #endregion
+
 
     void Start()
     {
@@ -98,8 +103,11 @@ public class PlayerController : MonoBehaviour
         currentEnergy = maxEnergy;
         currentStamina = _stamina;
         energyBarUI.SetEnergy(maxEnergy);
+        staminaBarUI.SetStamina(_stamina);
+        waiting = false;
     }
 
+    #region Inputs
     // Player Movement
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -123,10 +131,13 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             isSprinting = true;
+            if (isSprinting && walkAudioTimer >= 0)
+            SoundEffectsOSManager.PlaySound(SoundType.RUN);
         }
         else if (context.canceled)
         {
             isSprinting = false;
+            SoundEffectsOSManager.StopSound(SoundType.RUN);
         }
     }
 
@@ -168,7 +179,7 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
-            FindFirstObjectByType<SoundEffectsManager>().Play("Boost");
+            SoundEffectsOSManager.PlayOSSound(SoundType.JUMP, 0.5f);
         }
     }
     // Crouching
@@ -206,6 +217,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"TimeSwap {context.performed}");
             canTimeHop = true;
+            SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.7f);
         }
     }
 
@@ -215,16 +227,11 @@ public class PlayerController : MonoBehaviour
         lookInput = value.Get<Vector2>();
     }
 
+    #endregion
 
+    
     void Update()
     {
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-            
-                isInvincible = false;
-        }
 
         // Movement inputs in relation to camera
         Vector3 forwardRelativeMovementVector = cameraTransform.forward;
@@ -239,12 +246,16 @@ public class PlayerController : MonoBehaviour
         // Calculate the movement direction
         Vector3 moveDirection = forwardRelativeMovementVector * moveInput.y + rightRelativeMovementVector * moveInput.x;
 
-
-        // Change player orientation based on movement input
+        if (waiting)
+        {
+            forwardRelativeMovementVector = Vector3.zero;
+            rightRelativeMovementVector = Vector3.zero;
+        }
 
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
+        // Change player orientation based on movement input
         controller.enabled = false;
         Quaternion targetRotation = moveDirection == Vector3.zero ? transform.rotation : Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
         transform.rotation = targetRotation;
@@ -261,8 +272,17 @@ public class PlayerController : MonoBehaviour
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            
+                isInvincible = false;
+        }
     }
 
+    #region Mechanics
     IEnumerator TimelineJump()
     {
         Vector3 firstTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 1500);
@@ -351,27 +371,29 @@ public class PlayerController : MonoBehaviour
     // Spritning calculations
     private void Sprinting()
     {
+        
         if (isSprinting != true)
         {
             moveSpeed = baseSpeed;
+            walkAudioTimer = 3f;
 
             if (currentStamina < 50)
             {
-                currentStamina += 7.0f * Time.deltaTime;
+                ChangeStamina(7f * Time.deltaTime);
             }
         }
-        else if (isSprinting == true)
+        else if (isSprinting)
         {
             moveSpeed = sprintSpeed;
-            currentStamina -= 8.0f * Time.deltaTime;
+            walkAudioTimer -= Time.deltaTime;
+            ChangeStamina(-8f * Time.deltaTime);
 
-            if (isSprinting == true && currentStamina <= 0.1f)
+            if (isSprinting && currentStamina <= 0.1f)
             {
                 moveSpeed = baseSpeed;
                 isSprinting = false;
             }
         }
-        // Debug.Log("Current Stamina: " + currentStamina);
     }
 
     public void Dashing()
@@ -389,6 +411,7 @@ public class PlayerController : MonoBehaviour
             currentDashTime += dashStoppingSpeed;
             Debug.Log (currentDashTime);
             controller.Move(velocity * Time.deltaTime);
+            SoundEffectsOSManager.PlayOSSound(SoundType.DASH, 0.5f);
         }
         else 
         {
@@ -397,6 +420,8 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime * dashSpeed);
         dashNow = false;
     }
+
+    #endregion
 
     private void OnTriggerEnter(Collider other)
     {
@@ -412,9 +437,11 @@ public class PlayerController : MonoBehaviour
         {
         // Prevent extra hits within a short amount of time
         extraHits--;
+        
         }
     }
 
+    #region Resources
     public void ChangeHealth(int amount)
     {
         if (amount < 0)
@@ -425,6 +452,7 @@ public class PlayerController : MonoBehaviour
             }
                 isInvincible = true;
                 invincibleTimer = timeInvincible;
+                SoundEffectsOSManager.PlayOSSound(SoundType.HURT);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log("Current health: " + currentHealth); 
@@ -433,27 +461,29 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDeath();
         }
-
     }
 
     private void ChangeEnergy(int EnergyAmount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);
-        // energyBar.SetEnergy(currentEnergy);
 
         energyBarUI.SetEnergy(currentEnergy);
     }
 
     private void ChangeStamina(float stamAmount)
     {
-        currentStamina = Mathf.Clamp(currentStamina + stamAmount, 0, _stamina);
+        currentStamina = Mathf.Clamp(currentStamina + stamAmount, 0 , _stamina);
 
+        // Set Stamina bar
+        staminaBarUI.SetStamina(currentStamina);
     }
+
+    #endregion
 
     private void LateUpdate()
     {
-        CameraRotation();
+        // CameraRotation();
     }
 
     void CameraRotation()
@@ -463,6 +493,14 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(_pitchX, _pitchY, 0);
         cameraTransform.rotation = rotation;
     } 
+
+    public void RotatePlayer()
+    {
+        controller.enabled = false;
+        Quaternion targetRotation = moveDirection == Vector3.zero ? transform.rotation : Quaternion.LookRotation(moveDirection.normalized, Vector3.up);
+        transform.rotation = targetRotation;
+        controller.enabled = true;
+    }
     
     public void CollectBattery(GameObject Battery)
     {
@@ -481,4 +519,5 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = true;
         }
     }
+
 }

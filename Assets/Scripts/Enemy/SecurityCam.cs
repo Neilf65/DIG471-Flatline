@@ -3,6 +3,7 @@ using UnityEngine;
 public class SecurityCam : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject camReset;
     [SerializeField] private float camRotateY;
     [SerializeField] private float camRotateTime = 5f;
     private float zapTime = 0f;
@@ -13,7 +14,7 @@ public class SecurityCam : MonoBehaviour
 
     void Awake()
     {
-        camRotationOrigin = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+        
     }
     void Update()
     {
@@ -33,23 +34,14 @@ public class SecurityCam : MonoBehaviour
                     transform.LookAt(Player.transform.position);
                     zapTime += Time.deltaTime;
 
-                    if (player != null && zapTime >= 5f)
+                    if (Player != null && zapTime >= 3f)
                     {
                         player.ChangeHealth(-10);
                         Debug.Log("currentHealth:" + player.currentHealth);
                         zapTime = 0f;
-                        transform.LookAt(camRotationOrigin);
                         camRotateTime = 0f;
                         camRotateY = -0.1f;
-                    }
-
-                    else if (player == null)
-                    {
-                        RotateObject();
-                        zapTime = 0f;
-                        transform.LookAt(camRotationOrigin);
-                        camRotateTime = 0f;
-                        camRotateY = -0.1f;
+                        ResetCameraRotation();
                     }
                 }
         }
@@ -59,7 +51,6 @@ public class SecurityCam : MonoBehaviour
     private void RotateObject()
     {
         // Rotate the Camera
-        Vector3 camRotation = new Vector3(transform.rotation.x, 0, 0); 
         transform.Rotate(0, camRotateY, 0f);
 
 
@@ -69,6 +60,11 @@ public class SecurityCam : MonoBehaviour
             camRotateTime = 5f;
             camRotateY = -camRotateY;
         }
+    }
+
+    private void ResetCameraRotation()
+    {
+        transform.LookAt(camReset.transform);
     }
 }
 

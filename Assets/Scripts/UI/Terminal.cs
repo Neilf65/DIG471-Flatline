@@ -39,11 +39,11 @@ public class Terminal : MonoBehaviour
         {
             if (player.isInteracting)
             {
-                TerminalOpen();
+                Console();
             }
             else
             {
-                TerminalClose();
+                Console();
             }
         }
     }    
@@ -145,7 +145,6 @@ public class Terminal : MonoBehaviour
         freeze = false;
 
         // play terminal SFX
-        FindFirstObjectByType<SoundEffectsManager>().Play("Terminal");
     }
 
     public void TerminalClose()

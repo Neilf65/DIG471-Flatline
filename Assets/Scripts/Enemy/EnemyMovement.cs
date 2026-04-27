@@ -11,18 +11,16 @@ public class EnemyMovement : MonoBehaviour
 
     // Transforms
     public Transform Target;
-    public Transform rayPoint;
 
     // Vectors
     public Vector3 walkPoint;
-    public Vector3 lookDir = Vector3.down;
 
     // Floats
     public float UpdateSpeed = 0.1f;
     public float walkPointRange;
-    public float sightRange;
     public float fovRange = 5f;
     [SerializeField] private float walkTime;
+    private float alertTimer = 0f;
 
 
     // Booleans
@@ -36,28 +34,38 @@ public class EnemyMovement : MonoBehaviour
     // Navmesh
     private NavMeshAgent Agent;
 
-    // Audio 
-    [SerializeField] private AudioClip alertSFX;
-
-
+    // Animation
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         Target = GameObject.Find("Player").transform;
-        rayPoint = gameObject.transform;
     }
 
     private void Update()
     {
-        
-        // Check for sight range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (!playerInSightRange) Patrolling();
-        if (playerInSightRange) ChasePlayer();
+        Vector3 targetDir = Target.position - transform.position;
+        float fovAngle = Vector3.Angle(targetDir, transform.position);
+        // RaycastHit hitinfo;
+        // // Check for sight range
+        // playerInSightRange = Physics.SphereCast(transform.position, sightRange, transform.forward, out hitinfo, 5f, whatIsPlayer);
+
+        if (fovAngle < 70)
+        {
+            playerInSightRange = true;
+        }   
+        if (playerInSightRange)
+        {
+            ChasePlayer();
+        }
+
+        // if (!playerInSightRange) Patrolling();
+        // if (playerInSightRange) ChasePlayer();
 
         walkTime += Time.deltaTime;
+        alertTimer -= Time.deltaTime;
     }
 
     // Walking area for enemy
@@ -87,6 +95,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .4f);
             walkTime = 0f;
     }
 
@@ -94,6 +103,12 @@ public class EnemyMovement : MonoBehaviour
     private void ChasePlayer()
     {
         Agent.SetDestination(Target.position);
+        Debug.Log("Player in sight");
+        if (alertTimer <= 0.1f){
+        EnemySoundManager.PlayOSSound(EnemySoundType.guard_alert);
+        alertTimer = 4f;
+        return;
+        }
     }   
 
     public void OnTriggerEnter(Collider other)
@@ -103,7 +118,10 @@ public class EnemyMovement : MonoBehaviour
 
         if (player != null)
         {
+            EnemySoundManager.PlayOSSound(EnemySoundType.guard_attack);
             player.ChangeHealth(-10);
+
         }
     }
+    
 }

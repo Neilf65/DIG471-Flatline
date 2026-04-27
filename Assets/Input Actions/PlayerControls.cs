@@ -154,6 +154,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c2b7cc5-5597-488c-af17-39e9b5b32d18"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -497,6 +506,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ItemUse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""585762f0-902b-471e-8194-e3b99158bf01"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82d497dd-bbd7-41ab-baa5-b68fafdd064f"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""TimeJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -593,6 +624,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_BasicMovement_Crouch = m_BasicMovement.FindAction("Crouch", throwIfNotFound: true);
         m_BasicMovement_Dash = m_BasicMovement.FindAction("Dash", throwIfNotFound: true);
         m_BasicMovement_ItemUse = m_BasicMovement.FindAction("ItemUse", throwIfNotFound: true);
+        m_BasicMovement_TimeJump = m_BasicMovement.FindAction("TimeJump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -685,6 +717,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicMovement_Crouch;
     private readonly InputAction m_BasicMovement_Dash;
     private readonly InputAction m_BasicMovement_ItemUse;
+    private readonly InputAction m_BasicMovement_TimeJump;
     /// <summary>
     /// Provides access to input actions defined in input action map "BasicMovement".
     /// </summary>
@@ -724,6 +757,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/ItemUse".
         /// </summary>
         public InputAction @ItemUse => m_Wrapper.m_BasicMovement_ItemUse;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/TimeJump".
+        /// </summary>
+        public InputAction @TimeJump => m_Wrapper.m_BasicMovement_TimeJump;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -771,6 +808,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ItemUse.started += instance.OnItemUse;
             @ItemUse.performed += instance.OnItemUse;
             @ItemUse.canceled += instance.OnItemUse;
+            @TimeJump.started += instance.OnTimeJump;
+            @TimeJump.performed += instance.OnTimeJump;
+            @TimeJump.canceled += instance.OnTimeJump;
         }
 
         /// <summary>
@@ -803,6 +843,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ItemUse.started -= instance.OnItemUse;
             @ItemUse.performed -= instance.OnItemUse;
             @ItemUse.canceled -= instance.OnItemUse;
+            @TimeJump.started -= instance.OnTimeJump;
+            @TimeJump.performed -= instance.OnTimeJump;
+            @TimeJump.canceled -= instance.OnTimeJump;
         }
 
         /// <summary>
@@ -1012,6 +1055,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnItemUse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeJump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeJump(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
