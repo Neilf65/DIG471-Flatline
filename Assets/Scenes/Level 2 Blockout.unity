@@ -367,6 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 49535745}
   - component: {fileID: 49535744}
+  - component: {fileID: 49535746}
   m_Layer: 0
   m_Name: SoundFXManager
   m_TagString: Untagged
@@ -386,57 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3675b872c6718e409f4f7a9f89186c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectsManager
-  sounds:
-  - name: Walking
-    clip: {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
-    volume: 0.468
-    pitch: 1
-    source: {fileID: 0}
-  - name: Run
-    clip: {fileID: 8300000, guid: 9e1c87de138aa8947b6c4a2c5b946215, type: 3}
-    volume: 0.391
-    pitch: 1
-    source: {fileID: 0}
-  - name: Hurt
-    clip: {fileID: 8300000, guid: d12234c7c47095e43a2e3613762a3d38, type: 3}
-    volume: 0.443
-    pitch: 1
-    source: {fileID: 0}
-  - name: Boost
-    clip: {fileID: 8300000, guid: 52d9d80e4bc3a824ca8ed11c8c76d49d, type: 3}
-    volume: 0.485
-    pitch: 1
-    source: {fileID: 0}
-  - name: Terminal
-    clip: {fileID: 8300000, guid: ef1ff5b7c4e077a49a8f20ae3e619a36, type: 3}
-    volume: 0.506
-    pitch: 1
-    source: {fileID: 0}
-  - name: sec_cam_scan
-    clip: {fileID: 8300000, guid: a9b279163a3c2914897f8fd6e8a88c12, type: 3}
-    volume: 0
-    pitch: 1
-    source: {fileID: 0}
-  - name: soldier_run
-    clip: {fileID: 8300000, guid: 0f4ca18231de5f9449b8af8aafb36227, type: 3}
-    volume: 0.498
-    pitch: 1
-    source: {fileID: 0}
-  - name: sec_cam_zap
-    clip: {fileID: 8300000, guid: fbe434852f7a6d84ca201221ae298030, type: 3}
-    volume: 0.613
-    pitch: 1
-    source: {fileID: 0}
-  - name: soldier_alert
-    clip: {fileID: 8300000, guid: 62ba49eb50ca1724b8b655bd7c7a7cbf, type: 3}
-    volume: 0
-    pitch: 0
-    source: {fileID: 0}
-  - name: soldier_attack
-    clip: {fileID: 8300000, guid: 58b77fe19a5397b438885c4a8577d03f, type: 3}
-    volume: 0.557
-    pitch: 1
-    source: {fileID: 0}
+  soundList: []
+  loopSounds: []
 --- !u!4 &49535745
 Transform:
   m_ObjectHideFlags: 0
@@ -452,6 +404,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1044064999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &49535746
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49535743}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &65002928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SecurityCam
   Player: {fileID: 398242411}
+  camReset: {fileID: 0}
   camRotateY: 0.25
   camRotateTime: 2
   secCamClips: []
@@ -11574,6 +11624,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6cd8cad1-0050-41bf-a4b0-5f35f598c811
     m_ActionName: 'UI/Interact[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c2b7cc5-5597-488c-af17-39e9b5b32d18
+    m_ActionName: 'BasicMovement/TimeJump[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -16616,7 +16670,7 @@ PrefabInstance:
     - target: {fileID: 5483816681508779510, guid: aa2cb4bbfb38a5142a2bbf8aee8a8e38, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1350874265}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
