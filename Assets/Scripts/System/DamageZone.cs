@@ -4,16 +4,15 @@ public class DamageZone : MonoBehaviour
 {
 
     public PlayerController playerController;
+    [SerializeField] GameObject player;
     private Transform spawnPoint;
     private float lifeTime;
-    private float timer;
 
 
     void Start()
     {
-        PlayerController playerController = GetComponent<PlayerController>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         lifeTime = 7f;
-        timer = 3f;
     }
 
     // Update is called once per frame

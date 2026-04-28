@@ -27,7 +27,7 @@ public class SecurityCam : MonoBehaviour
         {
             PlayerController player = Player.GetComponent<PlayerController>();
             // print("Found an object - distance: " + hit.distance);
-            Debug.Log(hit.transform.name);
+            // Debug.Log(hit.transform.name);
 
             if (hit.collider.CompareTag("Player"))
                 {

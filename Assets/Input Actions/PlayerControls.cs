@@ -102,15 +102,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Mouse"",
-                    ""type"": ""Value"",
-                    ""id"": ""27bd9d46-b386-4943-b175-48c3b5ec0082"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""020cc770-6511-4ad7-8595-56ff3aeee003"",
@@ -277,7 +268,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Analog"",
                     ""id"": ""77d108bf-d176-494e-8c2a-873662faaccc"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -333,72 +324,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4513469d-4737-47a2-a38f-6b7c8bc6bbf1"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Desktop"",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""e62dc89d-8109-4a75-8bdb-c5999bc51472"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=3,y=3)"",
-                    ""groups"": """",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""619c359a-412f-416d-85a7-fea4a543a3c2"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""389d9e73-6908-472f-87df-d22e0c4fb963"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""b9e8d517-66d2-4dc2-9d22-714710ac39ae"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""345422ae-24d0-42ce-97a9-42fac6b6b981"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Mouse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
                     ""id"": ""dfaa5764-6884-42c6-ba6a-4665bd5b5190"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -448,6 +373,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Desktop"",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e03695d3-e91e-4bde-88f8-655e9496f647"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -510,7 +446,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""585762f0-902b-471e-8194-e3b99158bf01"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -587,6 +523,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c6f869e-5fe3-479b-97cc-5aaa1f8b8278"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -618,7 +565,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // BasicMovement
         m_BasicMovement = asset.FindActionMap("BasicMovement", throwIfNotFound: true);
         m_BasicMovement_Move = m_BasicMovement.FindAction("Move", throwIfNotFound: true);
-        m_BasicMovement_Mouse = m_BasicMovement.FindAction("Mouse", throwIfNotFound: true);
         m_BasicMovement_Jump = m_BasicMovement.FindAction("Jump", throwIfNotFound: true);
         m_BasicMovement_Sprint = m_BasicMovement.FindAction("Sprint", throwIfNotFound: true);
         m_BasicMovement_Crouch = m_BasicMovement.FindAction("Crouch", throwIfNotFound: true);
@@ -711,7 +657,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_BasicMovement;
     private List<IBasicMovementActions> m_BasicMovementActionsCallbackInterfaces = new List<IBasicMovementActions>();
     private readonly InputAction m_BasicMovement_Move;
-    private readonly InputAction m_BasicMovement_Mouse;
     private readonly InputAction m_BasicMovement_Jump;
     private readonly InputAction m_BasicMovement_Sprint;
     private readonly InputAction m_BasicMovement_Crouch;
@@ -733,10 +678,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_BasicMovement_Move;
-        /// <summary>
-        /// Provides access to the underlying input action "BasicMovement/Mouse".
-        /// </summary>
-        public InputAction @Mouse => m_Wrapper.m_BasicMovement_Mouse;
         /// <summary>
         /// Provides access to the underlying input action "BasicMovement/Jump".
         /// </summary>
@@ -790,9 +731,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Mouse.started += instance.OnMouse;
-            @Mouse.performed += instance.OnMouse;
-            @Mouse.canceled += instance.OnMouse;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -825,9 +763,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Mouse.started -= instance.OnMouse;
-            @Mouse.performed -= instance.OnMouse;
-            @Mouse.canceled -= instance.OnMouse;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -1013,13 +948,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Mouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMouse(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
