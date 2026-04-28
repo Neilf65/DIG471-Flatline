@@ -180,7 +180,6 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
-            SoundEffectsOSManager.PlayOSSound(SoundType.JUMP, 0.5f);
         }
     }
     // Crouching

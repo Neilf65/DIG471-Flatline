@@ -154,6 +154,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9629ba2-9def-4411-8bf9-2389bd3c3847"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -464,6 +473,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""TimeJump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf0b6d73-5ebd-46d3-9db4-f696f0024020"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -571,6 +591,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_BasicMovement_Dash = m_BasicMovement.FindAction("Dash", throwIfNotFound: true);
         m_BasicMovement_ItemUse = m_BasicMovement.FindAction("ItemUse", throwIfNotFound: true);
         m_BasicMovement_TimeJump = m_BasicMovement.FindAction("TimeJump", throwIfNotFound: true);
+        m_BasicMovement_Mouse = m_BasicMovement.FindAction("Mouse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -663,6 +684,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicMovement_Dash;
     private readonly InputAction m_BasicMovement_ItemUse;
     private readonly InputAction m_BasicMovement_TimeJump;
+    private readonly InputAction m_BasicMovement_Mouse;
     /// <summary>
     /// Provides access to input actions defined in input action map "BasicMovement".
     /// </summary>
@@ -702,6 +724,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/TimeJump".
         /// </summary>
         public InputAction @TimeJump => m_Wrapper.m_BasicMovement_TimeJump;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/Mouse".
+        /// </summary>
+        public InputAction @Mouse => m_Wrapper.m_BasicMovement_Mouse;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -749,6 +775,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TimeJump.started += instance.OnTimeJump;
             @TimeJump.performed += instance.OnTimeJump;
             @TimeJump.canceled += instance.OnTimeJump;
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
         }
 
         /// <summary>
@@ -781,6 +810,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TimeJump.started -= instance.OnTimeJump;
             @TimeJump.performed -= instance.OnTimeJump;
             @TimeJump.canceled -= instance.OnTimeJump;
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
         }
 
         /// <summary>
@@ -990,6 +1022,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTimeJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Mouse" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMouse(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
