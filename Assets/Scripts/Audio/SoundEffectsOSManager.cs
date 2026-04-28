@@ -11,7 +11,11 @@ public enum SoundType
     LAND,
     STUN, 
     HURT,
-    TIMEJUMP
+    TIMEJUMP,
+    PRESS,
+    HOVER,
+    ZAP,
+    SCAN
 }
 
 

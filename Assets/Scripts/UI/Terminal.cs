@@ -11,7 +11,7 @@ public class Terminal : MonoBehaviour
     private InputAction uI;
 
     // Reference to player script
-    public PlayerController player;
+    public InteractObj interactObj;
 
     // QTE variables
     public Slider mainSlider;
@@ -33,24 +33,23 @@ public class Terminal : MonoBehaviour
     
     private float timer = 0f;
 
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        player.isInteracting = !player.isInteracting;
-        {
-            if (player.isInteracting)
-            {
-                Console();
-            }
-            else
-            {
-                Console();
-            }
-        }
-    }    
+    // public void OnInteract(InputAction.CallbackContext context)
+    // {
+    //     {
+    //         if (interactObj.isInteracting)
+    //         {
+    //             Console();
+    //         }
+    //         else
+    //         {
+    //             Console();
+    //         }
+    //     }
+    // }    
 
     void Start()
     {
-        PlayerController player = GetComponent<PlayerController>();
+        InteractObj interactObj = GetComponent<InteractObj>();
         timer = timer += Time.unscaledDeltaTime;
 
         int rand = Random.Range(0, 2);
@@ -106,13 +105,16 @@ public class Terminal : MonoBehaviour
 
         if (Physics.CheckSphere(transform.position, radius, Player))
         {
-            Debug.Log("Found a nearby object: " + radius);
+            if (interactObj)
+            {
+                Console();
+            }
         }
     }
 
     private void OnEnable()
     {
-        uI = playerControls.UI.Interact;
+        uI = interactObj.playerControls.BasicMovement.Interact;
         uI.Enable();
     }
 
@@ -123,15 +125,12 @@ public class Terminal : MonoBehaviour
 
     public void Console()
     {
-        if (player.isInteracting == true && Physics.CheckSphere(transform.position, radius, Player))
+        if (interactObj.isInteracting == true && Physics.CheckSphere(transform.position, radius, Player))
         {
             TerminalOpen();
+            interactObj.isInteracting = false;
         }
 
-        if (player.isInteracting == false)
-        {
-            TerminalClose();
-        }
     }
 
     public void TerminalOpen()

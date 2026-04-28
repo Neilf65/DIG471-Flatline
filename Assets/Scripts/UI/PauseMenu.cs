@@ -28,10 +28,14 @@ public class PauseMenu : MonoBehaviour
         if(pausing)
         {
             PauseGame();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
-        else
+        if (pausing != true)
         {
             ResumeGame();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
     
@@ -63,12 +67,10 @@ public class PauseMenu : MonoBehaviour
         videoImage.enabled = true;   
         videoPlayer.frame = 0;
         videoPlayer.Play();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+
 
         //Pause game audio
 
-        AudioListener.pause = true;
     }
     
      public void ResumeGame()
@@ -78,6 +80,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioListener.pause = false;
+        SoundEffectsOSManager.PlayOSSound(SoundType.PRESS);
     }
     public void QuitGame()
     {
@@ -96,6 +99,7 @@ public class PauseMenu : MonoBehaviour
     public void Settings()
     {
         settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
     void OnVideoEnd(VideoPlayer vp)
     {

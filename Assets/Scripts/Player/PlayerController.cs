@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private bool timelineDif;
     private bool canDoubleJump;
     private bool dashNow = false;
-    public bool isInteracting;
+    public bool takeDown;
     public bool waiting;
     private float walkAudioTimer = 3f;
 
@@ -115,15 +115,6 @@ public class PlayerController : MonoBehaviour
         // Debug.Log($"Move Input: {moveInput}");
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log($"Interacting {context.performed}");
-            isInteracting = true;
-        }
-        
-    }
 
     // Sprinting
     public void onSprint(InputAction.CallbackContext context)
@@ -192,6 +183,18 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             isCrouching = false;
+        }
+    }
+
+    public void OnTakedown(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            takeDown = true;
+        }
+        else
+        {
+            takeDown = false;
         }
     }
 
@@ -402,14 +405,14 @@ public class PlayerController : MonoBehaviour
         {
             
             ChangeEnergy(-10);
-            Debug.Log("current energy" + currentEnergy);
+            // Debug.Log("current energy" + currentEnergy);
             currentDashTime = 0;
         }
         if (currentDashTime < maxDashTime)
         {
             moveDirection = transform.forward * dashDistance;
             currentDashTime += dashStoppingSpeed;
-            Debug.Log (currentDashTime);
+            // Debug.Log (currentDashTime);
             controller.Move(velocity * Time.deltaTime);
             SoundEffectsOSManager.PlayOSSound(SoundType.DASH, 0.5f);
         }

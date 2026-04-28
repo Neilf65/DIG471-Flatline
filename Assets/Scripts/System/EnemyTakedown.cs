@@ -4,40 +4,43 @@ public class EnemyTakedown : MonoBehaviour
 {
     private Vector3 targetForward;
     private Vector3 forceMoveToPosition;
-    public PlayerStun playerStun;
+    private PlayerStun playerStun;
     [SerializeField] PlayerController playerController;
-    bool takeDown;
+    public bool takeDown;
     float takeDownTimer;
 
     private void Awake()
     {
-        targetForward = transform.forward;
-        forceMoveToPosition = transform.position;
+        
     }
 
     private void Update()
     {
-        if (playerController.isInteracting)
+        targetForward = transform.forward;
+        forceMoveToPosition = transform.position;
+        if (playerController.takeDown)
         {
-            takeDown = true;
-            takeDownTimer -= Time.deltaTime;
-        }
-        else if (!playerController.isInteracting)
-        {
-            takeDown = false;
+            takeDownTimer -= 5f;
+            {
+                PlayTakeDownAnimation();
+            }
+
         }
 
     }
 
-    public void PlayTakedownAnimation()
+    public void PlayTakeDownAnimation()
     {
-        takeDown = true;
-        if (takeDown)
-        {
+        takeDownTimer -= Time.deltaTime;;
+    
         HandleSmoothRotationForward();
-        HandleSmoothForceMovement();
+        // HandleSmoothForceMovement();
         takeDownTimer = 5f;
-        }
+        if (takeDownTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
+        Debug.Log("Enemy takedown: " + takeDown);
     }
 
     private void HandleSmoothRotationForward()
@@ -51,14 +54,14 @@ public class EnemyTakedown : MonoBehaviour
         float moveSpeed = 10f;
         transform.position = Vector3.Lerp(transform.position, forceMoveToPosition, Time.deltaTime * moveSpeed);
     }
+    public void SetTargetForward(Vector3 targetForward)
+    {
+        this.targetForward = targetForward;
+    }
 
     public void ForceMoveToPosition(Vector3 forceMoveToPosition)
     {
         this.forceMoveToPosition = forceMoveToPosition;
     }
 
-    public void SetTargetForward(Vector3 targetForward)
-    {
-        this.targetForward = targetForward;
-    }
 }

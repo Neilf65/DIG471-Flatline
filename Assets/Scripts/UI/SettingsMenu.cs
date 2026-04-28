@@ -7,12 +7,14 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider qualitySlider;
     [SerializeField] private Slider VolumeSlider;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameObject pauseMenu;
 
     private void Start()
     {
         RefreshSettings();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        PauseMenu pauseMenu = GetComponent<PauseMenu>();
     }
 
     public void RefreshSettings()
@@ -36,5 +38,6 @@ public class SettingsMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         Time.timeScale = 1f;
+        pauseMenu.SetActive(true);
     }
 }

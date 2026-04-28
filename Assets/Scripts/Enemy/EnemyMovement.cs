@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     // GameObject References
     private GameObject Player;
+    private PlayerController player;
 
     // Transforms
     public Transform Target;
@@ -19,13 +20,16 @@ public class EnemyMovement : MonoBehaviour
     public float UpdateSpeed = 0.1f;
     public float walkPointRange;
     public float fovRange = 5f;
+    private float chaseTimer = 7f;
     [SerializeField] private float walkTime;
     private float alertTimer = 0f;
+    private float sightRange;
 
 
     // Booleans
     public bool walkPointSet;
     public bool playerInSightRange;
+    bool chasing;
     
     // LayerMask
 
@@ -47,33 +51,45 @@ public class EnemyMovement : MonoBehaviour
     {
 
         Vector3 targetDir = Target.position - transform.position;
+        Vector3 targetDist = (Target.position - transform.position).normalized;
+        float fovDist = Vector3.Angle(targetDist * 1.5f, transform.position);
         float fovAngle = Vector3.Angle(targetDir, transform.position);
-        // RaycastHit hitinfo;
         // // Check for sight range
         // playerInSightRange = Physics.SphereCast(transform.position, sightRange, transform.forward, out hitinfo, 5f, whatIsPlayer);
 
-        if (fovAngle < 70)
+
+        if (fovDist < 45)
         {
             playerInSightRange = true;
-        }   
+            return;
+        } 
+
+        if (!playerInSightRange)
+        {  
+            Patrolling();
+        }
         if (playerInSightRange)
         {
             ChasePlayer();
+            return;
         }
-        else if (!playerInSightRange) 
-        {
-            Patrolling();
-        }
-
 
         walkTime += Time.deltaTime;
         alertTimer -= Time.deltaTime;
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine((Target.position - transform.position).normalized * 0.1f, transform.position);
+    }
+
     // Walking area for enemy
     private void Patrolling()
     {
-        if (!walkPointSet || walkTime >= 4.0f) 
+        
+        Debug.Log("Patrolling");
+        if (!walkPointSet || walkTime >= 6.0f)
         SearchWalkPoint();
 
         if (walkPointSet)
@@ -97,20 +113,34 @@ public class EnemyMovement : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
-            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .4f);
+            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .2f);
             walkTime = 0f;
     }
 
     // Chase the player when walking into range
     private void ChasePlayer()
-    {
+    { 
+        Debug.Log("Chasing");
+        // Chase Timer
+        chaseTimer -= Time.deltaTime;
+        alertTimer -= Time.deltaTime;
+
+        // Chase Logic
         Agent.SetDestination(Target.position);
         Debug.Log("Player in sight");
-        if (alertTimer <= 0.1f){
-        EnemySoundManager.PlayOSSound(EnemySoundType.guard_alert);
-        alertTimer = 4f;
-        return;
-        }
+    
+            if (alertTimer == 0.1f)
+            {
+                EnemySoundManager.PlayOSSound(EnemySoundType.guard_alert);
+                alertTimer = 6f;
+                return;
+            }
+            if (Vector3.Distance(transform.position, Target.position) >= sightRange && chaseTimer <= 0)
+            {
+                chaseTimer = 7f;
+                playerInSightRange = false;
+                Patrolling();
+            }
     }   
 
     public void OnTriggerEnter(Collider other)

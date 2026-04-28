@@ -163,6 +163,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e40830d-e05d-4418-958a-18d56775e059"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TakeDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""26bd22cb-1078-426c-9673-2f6aa3b2c257"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -484,6 +502,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9141bc28-9e9d-4137-96f3-bcd12c2032e2"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efd894df-e707-43a8-b2e4-61ddb45ed346"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0d51c95-04e0-4111-9fea-f004c0720b93"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Desktop"",
+                    ""action"": ""TakeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -592,6 +643,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_BasicMovement_ItemUse = m_BasicMovement.FindAction("ItemUse", throwIfNotFound: true);
         m_BasicMovement_TimeJump = m_BasicMovement.FindAction("TimeJump", throwIfNotFound: true);
         m_BasicMovement_Mouse = m_BasicMovement.FindAction("Mouse", throwIfNotFound: true);
+        m_BasicMovement_Interact = m_BasicMovement.FindAction("Interact", throwIfNotFound: true);
+        m_BasicMovement_TakeDown = m_BasicMovement.FindAction("TakeDown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -685,6 +738,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_BasicMovement_ItemUse;
     private readonly InputAction m_BasicMovement_TimeJump;
     private readonly InputAction m_BasicMovement_Mouse;
+    private readonly InputAction m_BasicMovement_Interact;
+    private readonly InputAction m_BasicMovement_TakeDown;
     /// <summary>
     /// Provides access to input actions defined in input action map "BasicMovement".
     /// </summary>
@@ -728,6 +783,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "BasicMovement/Mouse".
         /// </summary>
         public InputAction @Mouse => m_Wrapper.m_BasicMovement_Mouse;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_BasicMovement_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "BasicMovement/TakeDown".
+        /// </summary>
+        public InputAction @TakeDown => m_Wrapper.m_BasicMovement_TakeDown;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -778,6 +841,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Mouse.started += instance.OnMouse;
             @Mouse.performed += instance.OnMouse;
             @Mouse.canceled += instance.OnMouse;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @TakeDown.started += instance.OnTakeDown;
+            @TakeDown.performed += instance.OnTakeDown;
+            @TakeDown.canceled += instance.OnTakeDown;
         }
 
         /// <summary>
@@ -813,6 +882,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Mouse.started -= instance.OnMouse;
             @Mouse.performed -= instance.OnMouse;
             @Mouse.canceled -= instance.OnMouse;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @TakeDown.started -= instance.OnTakeDown;
+            @TakeDown.performed -= instance.OnTakeDown;
+            @TakeDown.canceled -= instance.OnTakeDown;
         }
 
         /// <summary>
@@ -1029,6 +1104,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMouse(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TakeDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTakeDown(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

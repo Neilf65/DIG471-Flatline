@@ -27,19 +27,14 @@ public class PlayerStun : MonoBehaviour
     }
    private void Update()
     {
-        if (playerController.isInteracting != false)
-        {
         Transform enemyTransform = enemyTakedown.transform;
         Vector3 dirFromEnemyToPlayer = ( transform.position - enemyTransform.position ).normalized;
         float dot = Vector3.Dot( enemyTransform.forward, dirFromEnemyToPlayer );
 
-        
-
         float takedownDotOffset = .1f;
         float takedownDistance = 2f;
-        if (dot < -1 + takedownDotOffset  && Vector3.Distance(transform.position, enemyTransform.position) < takedownDistance)
+        if (dot < -1 + takedownDotOffset && Vector3.Distance(transform.position, enemyTransform.position) < takedownDistance)
             {
-                // enemyMovement.walkPointSet = false;
 
                 Vector3 dirToEnemy = ( enemyTransform.position - transform.position ).normalized;
                 SetTargetForward(dirToEnemy);
@@ -47,10 +42,9 @@ public class PlayerStun : MonoBehaviour
 
                 enemyTakedown.ForceMoveToPosition(transform.position + dirToEnemy * 1.5f);
 
+                // enemyMovement.walkPointSet = false;
 
             }
-        }
-
         
     }
 
