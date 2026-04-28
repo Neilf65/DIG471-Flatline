@@ -10,6 +10,7 @@ public class PlayerStun : MonoBehaviour
 
     // Reference to player
    public PlayerController playerController;
+   [SerializeField] private EnemyMovement enemyMovement;
 
     // Animation
     [SerializeField] private Animator animator;
@@ -22,10 +23,12 @@ public class PlayerStun : MonoBehaviour
     private void Awake()
     {
         enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
+        EnemyMovement enemyMovement = GetComponent<EnemyMovement>();
     }
    private void Update()
     {
-        
+        if (playerController.isInteracting != false)
+        {
         Transform enemyTransform = enemyTakedown.transform;
         Vector3 dirFromEnemyToPlayer = ( transform.position - enemyTransform.position ).normalized;
         float dot = Vector3.Dot( enemyTransform.forward, dirFromEnemyToPlayer );
@@ -34,9 +37,9 @@ public class PlayerStun : MonoBehaviour
 
         float takedownDotOffset = .1f;
         float takedownDistance = 2f;
-        if ( playerController.isInteracting != false && dot < -1 + takedownDotOffset  && Vector3.Distance(transform.position, enemyTransform.position) < takedownDistance)
+        if (dot < -1 + takedownDotOffset  && Vector3.Distance(transform.position, enemyTransform.position) < takedownDistance)
             {
-                // Takedown
+                // enemyMovement.walkPointSet = false;
 
                 Vector3 dirToEnemy = ( enemyTransform.position - transform.position ).normalized;
                 SetTargetForward(dirToEnemy);
@@ -44,12 +47,9 @@ public class PlayerStun : MonoBehaviour
 
                 enemyTakedown.ForceMoveToPosition(transform.position + dirToEnemy * 1.5f);
 
-            }
-            else
-            {
-                
-            }
 
+            }
+        }
 
         
     }

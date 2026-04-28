@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     // Booleans
-    bool walkPointSet;
+    public bool walkPointSet;
     public bool playerInSightRange;
     
     // LayerMask
@@ -60,9 +60,11 @@ public class EnemyMovement : MonoBehaviour
         {
             ChasePlayer();
         }
+        else if (!playerInSightRange) 
+        {
+            Patrolling();
+        }
 
-        // if (!playerInSightRange) Patrolling();
-        // if (playerInSightRange) ChasePlayer();
 
         walkTime += Time.deltaTime;
         alertTimer -= Time.deltaTime;

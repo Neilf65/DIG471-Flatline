@@ -3,11 +3,14 @@ using UnityEngine;
 public class DamageZoneSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject flameSpot;
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerController PlayerController;
     private bool isSpawning;
     [SerializeField] float spawnTimer;
     private Vector3 spawnVec;
     private float lifeTime;
+    private float timer;
+    public float RangeNegX, RangePosX;
+    public float RangeNegZ, RangePosZ;
 
     void Start()
     {
@@ -22,20 +25,29 @@ public class DamageZoneSpawner : MonoBehaviour
     void Update()
     {
         spawnTimer -= Time.deltaTime;
-
         if (spawnTimer <= 0)
         {
         SpawnFlame();
         spawnTimer = 1f;
         Debug.Log("Spawn timer is now 0");
         }
-        lifeTime -= Time.deltaTime;
     }
 
     private void SpawnFlame()
     {
-        Vector3 spawnVec = new Vector3(transform.position.x + Random.Range( 20, -20), transform.position.y, transform.position.z + Random.Range(20, -20));
+        if (spawnTimer <= 0){
+        Vector3 spawnVec = new Vector3(transform.position.x + Random.Range( -RangeNegX, RangePosX), transform.position.y, transform.position.z + Random.Range(-RangeNegZ, RangePosZ));    
         Instantiate(flameSpot, spawnVec, Quaternion.identity);
+        flameSpot.GetComponent<DamageZone>().playerController = PlayerController;
         Debug.Log("Spawning now");
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {   PlayerController Player = GetComponent<PlayerController>();
+        if (Player != null)
+        {
+            spawnTimer -= Time.deltaTime;
+        }
     }
 }

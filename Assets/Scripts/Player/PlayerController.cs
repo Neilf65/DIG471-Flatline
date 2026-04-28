@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     private bool timelineDif;
     private bool canDoubleJump;
     private bool dashNow = false;
-    public bool isInteracting = false;
+    public bool isInteracting;
     public bool waiting;
     private float walkAudioTimer = 3f;
 
@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"Interacting {context.performed}");
             isInteracting = true;
         }
+        
     }
 
     // Sprinting

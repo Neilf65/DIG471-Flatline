@@ -4,6 +4,10 @@ public class EnemyTakedown : MonoBehaviour
 {
     private Vector3 targetForward;
     private Vector3 forceMoveToPosition;
+    public PlayerStun playerStun;
+    [SerializeField] PlayerController playerController;
+    bool takeDown;
+    float takeDownTimer;
 
     private void Awake()
     {
@@ -13,13 +17,27 @@ public class EnemyTakedown : MonoBehaviour
 
     private void Update()
     {
-        HandleSmoothRotationForward();
-        HandleSmoothForceMovement();
+        if (playerController.isInteracting)
+        {
+            takeDown = true;
+            takeDownTimer -= Time.deltaTime;
+        }
+        else if (!playerController.isInteracting)
+        {
+            takeDown = false;
+        }
+
     }
 
     public void PlayTakedownAnimation()
     {
-        
+        takeDown = true;
+        if (takeDown)
+        {
+        HandleSmoothRotationForward();
+        HandleSmoothForceMovement();
+        takeDownTimer = 5f;
+        }
     }
 
     private void HandleSmoothRotationForward()
