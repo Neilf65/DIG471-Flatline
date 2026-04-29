@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     // GameObject References
     private GameObject Player;
-    private PlayerController player;
+
 
     // Transforms
     public Transform Target;
@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float walkTime;
     private float alertTimer = 0f;
     private float sightRange;
+    [SerializeField] private bool soundOn;
 
 
     // Booleans
@@ -81,7 +82,6 @@ public class EnemyMovement : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine((Target.position - transform.position).normalized * 0.1f, transform.position);
     }
 
     // Walking area for enemy
@@ -113,7 +113,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
-            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .2f);
+            if (soundOn)
+            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .1f);
             walkTime = 0f;
     }
 

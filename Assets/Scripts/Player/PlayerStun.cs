@@ -42,6 +42,7 @@ public class PlayerStun : MonoBehaviour
 
                 enemyTakedown.ForceMoveToPosition(transform.position + dirToEnemy * 1.5f);
 
+
                 // enemyMovement.walkPointSet = false;
 
             }

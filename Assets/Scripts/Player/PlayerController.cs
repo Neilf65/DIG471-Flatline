@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Jumping
     private float jumpHeight = 5f;
     private float doubleJumpHeight = 3f;
+    public bool dblJumpEnabled = false;
 
     // Dashing
     public const float maxDashTime = 1.0f;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     float dashStoppingSpeed = 0.1f;
     float currentDashTime = maxDashTime;
     float dashSpeed = 6;
+    public bool dashEnabled = false;
 
     // Crouching
     private Vector3 crouchScale;
@@ -123,8 +125,6 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             isSprinting = true;
-            if (isSprinting && walkAudioTimer >= 0)
-            SoundEffectsOSManager.PlaySound(SoundType.RUN);
         }
         else if (context.canceled)
         {
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     public void OnDash(InputAction.CallbackContext context)
     {
         Debug.Log($"Dashing {context.performed}");
-        if (context.performed)
+        if (context.performed && dashEnabled)
         {
             dashNow = true;
         }
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
             }
         }
-        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true && dblJumpEnabled)
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         {
             takeDown = false;
         }
+        Debug.Log("Takedown is now: " + takeDown);
     }
 
     public void OnItemUse(InputAction.CallbackContext context)
@@ -283,6 +284,9 @@ public class PlayerController : MonoBehaviour
             
                 isInvincible = false;
         }
+
+        if (isSprinting && controller.isGrounded && walkAudioTimer >= 0)
+            SoundEffectsOSManager.PlaySound(SoundType.RUN);
     }
 
     #region Mechanics
@@ -459,7 +463,6 @@ public class PlayerController : MonoBehaviour
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log("Current health: " + currentHealth); 
-
         if (currentHealth <= 0)
         {
             PlayerDeath();
