@@ -33,20 +33,6 @@ public class Terminal : MonoBehaviour
     
     private float timer = 0f;
 
-    // public void OnInteract(InputAction.CallbackContext context)
-    // {
-    //     {
-    //         if (interactObj.isInteracting)
-    //         {
-    //             Console();
-    //         }
-    //         else
-    //         {
-    //             Console();
-    //         }
-    //     }
-    // }    
-
     void Start()
     {
         InteractObj interactObj = GetComponent<InteractObj>();
