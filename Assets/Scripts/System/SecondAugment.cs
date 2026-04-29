@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class FirstAugment : MonoBehaviour
+public class SecondAugment : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeedX, rotationSpeedY;
+
+   [SerializeField] private float rotationSpeedX, rotationSpeedY;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class FirstAugment : MonoBehaviour
 
         if (Player != null)
         {
-            Player.dashEnabled = true;
+            Player.dblJumpEnabled = true;
             Destroy(gameObject);
         }
     }

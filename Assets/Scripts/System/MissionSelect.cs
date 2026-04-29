@@ -41,12 +41,17 @@ public class MissionSelect : MonoBehaviour
     {
         missionSelect.SetActive(true);
         Time.timeScale = 0.01f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
 
     public void TerminalClose()
     {
         missionSelect.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void FirstLevel()
