@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MissionSelect : MonoBehaviour
 {
@@ -45,5 +47,20 @@ public class MissionSelect : MonoBehaviour
     {
         missionSelect.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void FirstLevel()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void SecondLevel()
+    {
+        SceneManager.LoadScene("Level 2 Blockout");
+    }
+
+    public void FinalLevel()
+    {
+        SceneManager.LoadScene("Level 3 Blockout");
     }
 }

@@ -387,8 +387,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3675b872c6718e409f4f7a9f89186c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectsManager
-  soundList: []
-  loopSounds: []
+  soundList:
+  - {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
+  - {fileID: 8300000, guid: 1ecf8caa0ec165044abec7468d8cf469, type: 3}
+  - {fileID: 8300000, guid: 9e1c87de138aa8947b6c4a2c5b946215, type: 3}
+  - {fileID: 8300000, guid: 52d9d80e4bc3a824ca8ed11c8c76d49d, type: 3}
+  - {fileID: 8300000, guid: c1a335a2ef8067748a00296658144966, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d12234c7c47095e43a2e3613762a3d38, type: 3}
+  - {fileID: 8300000, guid: f6c74c94fe2c85046a743ad3c3a6bdc7, type: 3}
+  - {fileID: 8300000, guid: a4580ee1f0c9443478b806ac03f0377c, type: 3}
+  - {fileID: 8300000, guid: d03f3316e688c4840b3694b629172fd6, type: 3}
+  - {fileID: 8300000, guid: fbe434852f7a6d84ca201221ae298030, type: 3}
+  - {fileID: 8300000, guid: a9b279163a3c2914897f8fd6e8a88c12, type: 3}
+  loopSounds:
+  - {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
+  - {fileID: 8300000, guid: 1ecf8caa0ec165044abec7468d8cf469, type: 3}
 --- !u!4 &49535745
 Transform:
   m_ObjectHideFlags: 0
@@ -5389,16 +5403,101 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5a740030aa06543ac7954187ab22fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &377663246 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5349875090124815323, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
   m_PrefabInstance: {fileID: 1960911034}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 377663240}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ebec086329bfc445aefaf71ac487a4d, type: 3}
@@ -31603,6 +31702,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1042660680}
     m_Modifications:
+    - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
+      propertyPath: enemyMovement
+      value: 
+      objectReference: {fileID: 377663246}
+    - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 377663241}
     - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
       propertyPath: playerController
       value: 
