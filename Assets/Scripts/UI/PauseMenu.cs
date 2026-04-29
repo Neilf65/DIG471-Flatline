@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
 
     private void OnDisable()
     {
+        uI = playerControls.UI.Pause;
         uI.Disable(); 
     }
   

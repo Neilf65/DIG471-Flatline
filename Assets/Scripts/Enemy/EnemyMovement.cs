@@ -81,7 +81,6 @@ public class EnemyMovement : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine((Target.position - transform.position).normalized * 0.1f, transform.position);
     }
 
     // Walking area for enemy

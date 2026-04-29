@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Jumping
     private float jumpHeight = 5f;
     private float doubleJumpHeight = 3f;
+    public bool dblJumpEnabled;
 
     // Dashing
     public const float maxDashTime = 1.0f;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     float dashStoppingSpeed = 0.1f;
     float currentDashTime = maxDashTime;
     float dashSpeed = 6;
+    public bool dashEnabled;
 
     // Crouching
     private Vector3 crouchScale;
@@ -196,6 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             takeDown = false;
         }
+        Debug.Log("Takedown is now: " + takeDown);
     }
 
     public void OnItemUse(InputAction.CallbackContext context)

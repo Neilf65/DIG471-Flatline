@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyTakedown : MonoBehaviour
 {
+    [SerializeField] private Transform enemyTransform;
     private Vector3 targetForward;
     private Vector3 forceMoveToPosition;
     private PlayerStun playerStun;
     [SerializeField] PlayerController playerController;
+    [SerializeField] EnemyMovement enemyMovement;
     public bool takeDown;
     float takeDownTimer;
 
@@ -18,9 +21,15 @@ public class EnemyTakedown : MonoBehaviour
     {
         targetForward = transform.forward;
         forceMoveToPosition = transform.position;
-        if (playerController.takeDown)
+        Vector3 targetDist = enemyTransform.position - transform.position;
+
+        float takeDownDist = 3f;
+        if (playerController.takeDown && Vector3.Distance(transform.position, enemyTransform.position) < takeDownDist)
         {
             takeDownTimer -= 5f;
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            Debug.Log("Should takeDown now");
+
             {
                 PlayTakeDownAnimation();
             }
@@ -34,7 +43,7 @@ public class EnemyTakedown : MonoBehaviour
         takeDownTimer -= Time.deltaTime;;
     
         HandleSmoothRotationForward();
-        // HandleSmoothForceMovement();
+        HandleSmoothForceMovement();
         takeDownTimer = 5f;
         if (takeDownTimer <= 0)
             {
