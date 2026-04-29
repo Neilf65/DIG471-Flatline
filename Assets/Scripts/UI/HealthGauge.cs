@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
+
 
 public class HealthGauge : MonoBehaviour
 {

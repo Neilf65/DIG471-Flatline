@@ -13,7 +13,7 @@ public class HubPad : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Neil");
+            SceneManager.LoadScene("Main Hub Blockout");
         }
     }
 }
