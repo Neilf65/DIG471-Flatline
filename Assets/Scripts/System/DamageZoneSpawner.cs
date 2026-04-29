@@ -7,7 +7,6 @@ public class DamageZoneSpawner : MonoBehaviour
     private bool isSpawning;
     [SerializeField] float spawnTimer;
     private Vector3 spawnVec;
-    private float lifeTime;
     private float timer;
     public float RangeNegX, RangePosX;
     public float RangeNegZ, RangePosZ;
@@ -19,7 +18,6 @@ public class DamageZoneSpawner : MonoBehaviour
         // Spawn timer
         isSpawning = false;
         spawnTimer = 5f;
-        lifeTime = 20f;
     }
 
     void Update()
