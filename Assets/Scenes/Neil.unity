@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a092e25cee1864f9e82e443e93aa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  flameSpot: {fileID: 1495119853}
+  flameSpot: {fileID: 5394342133871052295, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
   PlayerController: {fileID: 392750440}
   spawnTimer: 1
   RangeNegX: 10
@@ -1903,6 +1903,14 @@ PrefabInstance:
       propertyPath: interactObj
       value: 
       objectReference: {fileID: 392750448}
+    - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
+      propertyPath: enemyMovement
+      value: 
+      objectReference: {fileID: 2043228415}
+    - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 1172724049}
     - target: {fileID: -5244512719035916618, guid: cb8963009fe03d049987e184a6bf9cf2, type: 3}
       propertyPath: playerController
       value: 
@@ -4276,11 +4284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25421d9a154734c49a3ee4d42bd38659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonSoundEvent
---- !u!1 &1495119853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5394342133871052295, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-  m_PrefabInstance: {fileID: 1578474213929908977}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505452426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 171033154984477332, guid: a35c81440da6ef54785ea82bcfeafc64, type: 3}
@@ -5398,7 +5401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352537244183450497, guid: fea301ab3721fa544a873ecf33c0cfaa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 453.00012
+      value: 453.00015
       objectReference: {fileID: 0}
     - target: {fileID: 4352537244183450497, guid: fea301ab3721fa544a873ecf33c0cfaa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5469,75 +5472,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea301ab3721fa544a873ecf33c0cfaa, type: 3}
---- !u!1001 &1578474213929908977
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 108187117483671279, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 392750436}
-    - target: {fileID: 108187117483671279, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 392750440}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3885806603883707578, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5394342133871052295, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_Name
-      value: DamageZone2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8106151320521463036, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bf88d4a64a82ac64aaa37e915464745a, type: 3}
 --- !u!1001 &2469111024281115030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6738,4 +6672,3 @@ SceneRoots:
   - {fileID: 1282408296}
   - {fileID: 160839921}
   - {fileID: 382497938}
-  - {fileID: 1578474213929908977}
