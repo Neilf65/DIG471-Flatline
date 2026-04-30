@@ -100,7 +100,6 @@ public class Terminal : MonoBehaviour
 
     private void OnEnable()
     {
-        uI = interactObj.playerControls.BasicMovement.Interact;
         uI.Enable();
     }
 

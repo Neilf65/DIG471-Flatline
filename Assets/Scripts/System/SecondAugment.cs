@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class SecondAugment : MonoBehaviour
 {
-
    [SerializeField] private float rotationSpeedX, rotationSpeedY;
-
 
     void Update()
     {

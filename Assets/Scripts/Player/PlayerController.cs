@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
     private bool isSprinting = false;
     bool hanging;
     private bool isCrouching;
-    private bool canTimeHop;
-    private bool timelineDif;
+    public bool canTimeHop;
+    public bool timelineDif;
     private bool canDoubleJump;
     private bool dashNow = false;
     public bool takeDown;
@@ -133,7 +133,6 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             isSprinting = false;
-            // SoundEffectsOSManager.StopSound(SoundType.RUN);
         }
     }
 
@@ -227,7 +226,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"TimeSwap {context.performed}");
             canTimeHop = true;
-            SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.7f);
+            SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.5f);
         }
     }
 
@@ -276,7 +275,7 @@ public class PlayerController : MonoBehaviour
         Crouching();
         Sprinting();
         Dashing();
-        StartCoroutine("TimelineJump");
+        TimelineJump();
 
 
         // Apply gravity
@@ -290,16 +289,11 @@ public class PlayerController : MonoBehaviour
             
                 isInvincible = false;
         }
-
-        if (isSprinting && controller.isGrounded && walkAudioTimer >= 0)
-            SoundEffectsOSManager.PlaySound(SoundType.RUN);
     }
 
     #region Mechanics
-    IEnumerator TimelineJump()
+    public void TimelineJump()
     {
-        Vector3 firstTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 1500);
-        Vector3 secondTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 1500);
 
         if (canTimeHop == true)
         {
@@ -307,21 +301,13 @@ public class PlayerController : MonoBehaviour
             {
             Debug.Log("first TimeLine");
             canTimeHop = false;
-            yield return new WaitForSeconds(0.0f);
-            controller.enabled = false;
-            Player.transform.position = firstTimeline;
-            controller.enabled = true;
-            timelineDif = false;
+            timelineDif = !timelineDif;
             }
         else if (timelineDif == false)
             {
-            Debug.Log("first TimeLine");
+            Debug.Log("Second TimeLine");
             canTimeHop = false;
-            yield return new WaitForSeconds(0.0f);
-            controller.enabled = false;
-            Player.transform.position = secondTimeline;
-            controller.enabled = true;
-            timelineDif = true;
+            timelineDif = !timelineDif;
             }   
         }
     }

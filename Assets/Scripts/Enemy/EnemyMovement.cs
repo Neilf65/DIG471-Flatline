@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
     // Floats
     public float UpdateSpeed = 0.1f;
     public float walkPointRange;
-    public float fovRange = 5f;
     private float chaseTimer = 7f;
     [SerializeField] private float walkTime;
     private float alertTimer = 0f;
@@ -52,14 +51,12 @@ public class EnemyMovement : MonoBehaviour
     {
 
         Vector3 targetDir = Target.position - transform.position;
-        Vector3 targetDist = (Target.position - transform.position).normalized;
-        float fovDist = Vector3.Angle(targetDist * 1.5f, transform.position);
         float fovAngle = Vector3.Angle(targetDir, transform.position);
         // // Check for sight range
         // playerInSightRange = Physics.SphereCast(transform.position, sightRange, transform.forward, out hitinfo, 5f, whatIsPlayer);
 
 
-        if (fovDist < 45)
+        if (fovAngle < 65)
         {
             playerInSightRange = true;
             return;
@@ -77,11 +74,6 @@ public class EnemyMovement : MonoBehaviour
 
         walkTime += Time.deltaTime;
         alertTimer -= Time.deltaTime;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
     }
 
     // Walking area for enemy
@@ -111,11 +103,10 @@ public class EnemyMovement : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)){
             walkPointSet = true;
-            if (soundOn)
-            EnemySoundManager.PlayOSSound(EnemySoundType.guard_walk, .1f);
             walkTime = 0f;
+            }
     }
 
     // Chase the player when walking into range

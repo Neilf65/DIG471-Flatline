@@ -1697,10 +1697,10 @@ RectTransform:
   - {fileID: 1547398116}
   m_Father: {fileID: 650493829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 100, y: 39}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &106306968
 MonoBehaviour:
@@ -5856,9 +5856,17 @@ PrefabInstance:
       propertyPath: inputAction.m_Name
       value: Input
       objectReference: {fileID: 0}
+    - target: {fileID: 3929799073682308170, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1bf11c40dd9486a47887a55097fe2e17, type: 2}
+    - target: {fileID: 4988920735113663546, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7213501675257580136, guid: 59e7bbc52e4c5e14e94dea843af22304, type: 3}
     - target: {fileID: 6781684980663917330, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: m_DefaultActionMap
-      value: ba1e2cc0-1cc1-480c-ac69-62d7e979b2c7
+      value: BasicMovement
       objectReference: {fileID: 0}
     - target: {fileID: 6781684980663917330, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: m_ActionEvents.Array.size
@@ -6161,12 +6169,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 572687882100371641, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4487872615679249175, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1712402116}
     - targetCorrespondingSourceObject: {fileID: 4487872615679249175, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1712402115}
@@ -6305,7 +6311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7847251713341713881, guid: fea301ab3721fa544a873ecf33c0cfaa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9448,6 +9454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   imageComponent: {fileID: 672247887}
   settingsMenu: {fileID: 0}
+  howToPlayMenu: {fileID: 0}
 --- !u!1 &675718932
 GameObject:
   m_ObjectHideFlags: 0
@@ -10590,7 +10597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1643413908377026389, guid: aa2cb4bbfb38a5142a2bbf8aee8a8e38, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4580234639391035949, guid: aa2cb4bbfb38a5142a2bbf8aee8a8e38, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10847,6 +10854,7 @@ GameObject:
   - component: {fileID: 730465892}
   - component: {fileID: 730465889}
   - component: {fileID: 730465890}
+  - component: {fileID: 730465895}
   m_Layer: 5
   m_Name: PlayerUICanvas
   m_TagString: Untagged
@@ -10982,6 +10990,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -10
   m_TargetDisplay: 0
+--- !u!114 &730465895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730465887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14be8af900c20b40a3da77c3765a2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissionSelect
+  missionSelect: {fileID: 778542050}
+  player: {fileID: 1712402113}
+  interactObj: {fileID: 1712402115}
+  Player:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &741064979
 GameObject:
   m_ObjectHideFlags: 0
@@ -11655,7 +11681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &778542051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15605,6 +15631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   imageComponent: {fileID: 1812103346}
   settingsMenu: {fileID: 1228206644}
+  howToPlayMenu: {fileID: 0}
 --- !u!114 &1228206646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16736,10 +16763,10 @@ RectTransform:
   - {fileID: 21441826}
   m_Father: {fileID: 650493829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -78}
+  m_SizeDelta: {x: 100, y: 39}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1319277246
 MonoBehaviour:
@@ -21469,10 +21496,10 @@ RectTransform:
   - {fileID: 1253917131}
   m_Father: {fileID: 650493829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -39}
+  m_SizeDelta: {x: 100, y: 39}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1680698469
 MonoBehaviour:
@@ -21949,23 +21976,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isInteracting: 0
---- !u!114 &1712402116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712402112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c862004ef46c1468b28d67baa651c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  enemyTransform: {fileID: 0}
-  enemyTakedown: {fileID: 0}
-  playerController: {fileID: 1712402113}
-  enemyMovement: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1 &1725400196
 GameObject:
   m_ObjectHideFlags: 0
@@ -23831,6 +23841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaminaBar
       objectReference: {fileID: 0}
+    - target: {fileID: 3034648886874920922, guid: befa8a82490a9554bae99682930cbc15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3539834499208460039, guid: befa8a82490a9554bae99682930cbc15, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -24754,6 +24768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   imageComponent: {fileID: 626901687}
   settingsMenu: {fileID: 1228206644}
+  howToPlayMenu: {fileID: 0}
 --- !u!114 &2007733348
 MonoBehaviour:
   m_ObjectHideFlags: 0
