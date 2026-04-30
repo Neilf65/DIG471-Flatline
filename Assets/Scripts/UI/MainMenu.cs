@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
   public Image imageComponent;
 
   [SerializeField] private GameObject settingsMenu;
+  [SerializeField] private GameObject howToPlayMenu;
 
   public void OnPointerEnter(PointerEventData eventData)
   {
@@ -36,6 +37,16 @@ public class MainMenu : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
   public void QuitGame()
   {
     Application.Quit();
+  }
+
+  public void Back()
+  {
+    howToPlayMenu.SetActive(false);
+  }
+
+  public void HowToPlay()
+  {
+    howToPlayMenu.SetActive(true);
   }
 
 }

@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     // Jumping
     private float jumpHeight = 5f;
     private float doubleJumpHeight = 3f;
-    public bool dblJumpEnabled = false;
 
     // Dashing
     public const float maxDashTime = 1.0f;
@@ -29,7 +28,6 @@ public class PlayerController : MonoBehaviour
     float dashStoppingSpeed = 0.1f;
     float currentDashTime = maxDashTime;
     float dashSpeed = 6;
-    public bool dashEnabled = false;
 
     // Crouching
     private Vector3 crouchScale;
@@ -77,6 +75,7 @@ public class PlayerController : MonoBehaviour
     private bool dashNow = false;
     public bool takeDown;
     public bool waiting;
+    private bool dashSFXEnabled;
     private float walkAudioTimer = 3f;
 
     // Damage Logic
@@ -109,6 +108,11 @@ public class PlayerController : MonoBehaviour
         waiting = false;
     }
 
+    void Awake()
+    {
+
+    }
+
     #region Inputs
     // Player Movement
     public void OnMove(InputAction.CallbackContext context)
@@ -129,15 +133,16 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             isSprinting = false;
-            SoundEffectsOSManager.StopSound(SoundType.RUN);
+            // SoundEffectsOSManager.StopSound(SoundType.RUN);
         }
     }
 
     // Dashing
     public void OnDash(InputAction.CallbackContext context)
     {
+
         Debug.Log($"Dashing {context.performed}");
-        if (context.performed && dashEnabled)
+        if (context.performed)
         {
             dashNow = true;
         }
@@ -149,7 +154,8 @@ public class PlayerController : MonoBehaviour
 
     // Jumping
     public void OnJump(InputAction.CallbackContext context)
-    {
+    {  
+
         Debug.Log($"Jumping {context.performed} - Is Grounded: {controller.isGrounded}");
         if (context.performed && controller.isGrounded)
         {
@@ -167,7 +173,7 @@ public class PlayerController : MonoBehaviour
                 canDoubleJump = true;
             }
         }
-        if (context.performed && controller.isGrounded != true && canDoubleJump == true && dblJumpEnabled)
+        if (context.performed && controller.isGrounded != true && canDoubleJump == true)
         {
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
@@ -292,8 +298,8 @@ public class PlayerController : MonoBehaviour
     #region Mechanics
     IEnumerator TimelineJump()
     {
-        Vector3 firstTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 1500);
-        Vector3 secondTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + -1500);
+        Vector3 firstTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 1500);
+        Vector3 secondTimeline = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 1500);
 
         if (canTimeHop == true)
         {
@@ -418,7 +424,6 @@ public class PlayerController : MonoBehaviour
             currentDashTime += dashStoppingSpeed;
             // Debug.Log (currentDashTime);
             controller.Move(velocity * Time.deltaTime);
-            SoundEffectsOSManager.PlayOSSound(SoundType.DASH, 0.5f);
         }
         else 
         {

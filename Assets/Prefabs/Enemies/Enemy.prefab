@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5975835072579049343}
   - component: {fileID: 8551076512840015076}
   - component: {fileID: 5349875090124815323}
-  - component: {fileID: -5244512719035916618}
   - component: {fileID: 705707634720415499}
   - component: {fileID: 4049205455087312211}
   - component: {fileID: 5735187575022930453}
@@ -160,6 +159,7 @@ MonoBehaviour:
   walkPointRange: 6
   fovRange: 5
   walkTime: 0
+  soundOn: 0
   walkPointSet: 0
   playerInSightRange: 0
   whatIsPlayer:
@@ -169,22 +169,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 0}
---- !u!114 &-5244512719035916618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3180492240876554629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5a740030aa06543ac7954187ab22fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  enemyTransform: {fileID: 3632407026776477718}
-  playerController: {fileID: 0}
-  enemyMovement: {fileID: 5349875090124815323}
-  takeDown: 0
 --- !u!82 &705707634720415499
 AudioSource:
   m_ObjectHideFlags: 0

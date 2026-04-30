@@ -5,6 +5,7 @@ public class SecondAugment : MonoBehaviour
 
    [SerializeField] private float rotationSpeedX, rotationSpeedY;
 
+
     void Update()
     {
         transform.Rotate(rotationSpeedX, rotationSpeedY, 0f);
@@ -15,7 +16,7 @@ public class SecondAugment : MonoBehaviour
 
         if (Player != null)
         {
-            Player.dblJumpEnabled = true;
+            FindFirstObjectByType<GameManager>().dblJumpEnabled = true;
             Destroy(gameObject);
         }
     }
