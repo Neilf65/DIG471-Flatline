@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
         Crouching();
         Sprinting();
         Dashing();
-        // TimelineJump();
+        TimelineJump();
 
 
         // Apply gravity
