@@ -4,7 +4,6 @@ public class DamageZone : MonoBehaviour
 {
 
     public PlayerController playerController;
-    [SerializeField] GameObject player;
     private Transform spawnPoint;
     private float lifeTime;
 

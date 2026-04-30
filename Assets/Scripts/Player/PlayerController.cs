@@ -64,8 +64,6 @@ public class PlayerController : MonoBehaviour
     // Game Object
     public GameObject Player;
     public GameObject GameOverScreen;
-    [SerializeField] GameObject TPOne;
-    [SerializeField] GameObject TPTwo;
 
     // Input Action Bools
     private bool isSprinting = false;
@@ -135,7 +133,6 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             isSprinting = false;
-            // SoundEffectsOSManager.StopSound(SoundType.RUN);
         }
     }
 
@@ -229,7 +226,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"TimeSwap {context.performed}");
             canTimeHop = true;
-            SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.7f);
+            SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.5f);
         }
     }
 
@@ -278,7 +275,7 @@ public class PlayerController : MonoBehaviour
         Crouching();
         Sprinting();
         Dashing();
-        TimelineJump();
+        // TimelineJump();
 
 
         // Apply gravity
@@ -292,16 +289,11 @@ public class PlayerController : MonoBehaviour
             
                 isInvincible = false;
         }
-
-        if (isSprinting && controller.isGrounded && walkAudioTimer >= 0)
-            SoundEffectsOSManager.PlaySound(SoundType.RUN);
     }
 
     #region Mechanics
     public void TimelineJump()
     {
-        Transform firstTimeline = TPOne.transform;
-        Transform secondTimeline = TPTwo.transform;
 
         if (canTimeHop == true)
         {
@@ -309,16 +301,12 @@ public class PlayerController : MonoBehaviour
             {
             Debug.Log("first TimeLine");
             canTimeHop = false;
-            controller.enabled = false;
-            controller.enabled = true;
             timelineDif = !timelineDif;
             }
         else if (timelineDif == false)
             {
             Debug.Log("Second TimeLine");
             canTimeHop = false;
-            controller.enabled = false;
-            controller.enabled = true;
             timelineDif = !timelineDif;
             }   
         }
