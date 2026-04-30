@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &412307287621290542
 Transform:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 829043303202046040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -1500}
+  m_LocalPosition: {x: 0, y: 2, z: -1499.9999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,13 +151,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4483936478165803051}
+  - component: {fileID: 6212051690902903461}
   m_Layer: 0
   m_Name: Teleport2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4483936478165803051
 Transform:
   m_ObjectHideFlags: 0
@@ -167,12 +168,24 @@ Transform:
   m_GameObject: {fileID: 2966517549622853123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 1500}
+  m_LocalPosition: {x: 0, y: 2, z: 1499.9999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7825525755279164017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6212051690902903461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966517549622853123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83da7c96a6b97214fa61d1d21f53d3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &3327333991826615714
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,19 +378,22 @@ MonoBehaviour:
   gravity: -9
   baseSpeed: 5
   sprintSpeed: 10
-  jumpHeight: 5
-  doubleJumpHeight: 3
   dashDistance: 10
   maxHealth: 100
   currentHealth: 0
+  staminaBarUI: {fileID: 0}
   _stamina: 50
-  currentStamina: 0
+  energyBarUI: {fileID: 0}
   maxEnergy: 50
   cameraTransform: {fileID: 0}
   Player: {fileID: 4487872615679249175}
-  isInteracting: 0
+  GameOverScreen: {fileID: 0}
+  TPOne: {fileID: 0}
+  TPTwo: {fileID: 0}
+  takeDown: 0
+  waiting: 0
   timeInvincible: 2
-  energyBar: {fileID: 0}
+  waitTime: 4
 --- !u!143 &1825518954042977441
 CharacterController:
   m_ObjectHideFlags: 0
@@ -611,7 +627,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2029433015394480429}
-  - {fileID: 412307287621290542}
   - {fileID: 4483936478165803051}
+  - {fileID: 412307287621290542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
