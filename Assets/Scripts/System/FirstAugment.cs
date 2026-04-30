@@ -11,10 +11,10 @@ public class FirstAugment : MonoBehaviour
     public void OnCollisionEnter(Collision other)
     {
         PlayerController Player = other.gameObject.GetComponent<PlayerController>();
-
+        
         if (Player != null)
         {
-            Player.dashEnabled = true;
+            FindFirstObjectByType<GameManager>().dashEnabled = true;
             Destroy(gameObject);
         }
     }

@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2103170529632689523, guid: e8527fb1974700b45afc53f59e2b10bb, type: 3}
       propertyPath: m_Name
-      value: SecondAugment Variant
+      value: DblJumpAugment
       objectReference: {fileID: 0}
     - target: {fileID: 7972745822347719401, guid: e8527fb1974700b45afc53f59e2b10bb, type: 3}
       propertyPath: m_Materials.Array.size
@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 8811828094932706750, guid: e8527fb1974700b45afc53f59e2b10bb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6176854469086690445, guid: e8527fb1974700b45afc53f59e2b10bb, type: 3}
     m_RemovedGameObjects: []
