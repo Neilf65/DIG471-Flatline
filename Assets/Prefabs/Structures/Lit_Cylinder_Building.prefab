@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3394009675453649296}
   - component: {fileID: 4137701087008525694}
   - component: {fileID: 3043717481468739636}
+  - component: {fileID: 2232151213345218337}
   m_Layer: 0
   m_Name: taller_cylinder_building (2)
   m_TagString: Untagged
@@ -112,6 +113,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8783603333066971097, guid: 7003644a29a455844bfb5590c33a5778, type: 3}
+--- !u!208 &2232151213345218337
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839121169370227163}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2691.437, y: 9301.688, z: 2762.3762}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -18.313002, y: 9301.688, z: -0.001}
+  m_TimeToStationary: 0.5
 --- !u!1 &8157691245306866669
 GameObject:
   m_ObjectHideFlags: 0

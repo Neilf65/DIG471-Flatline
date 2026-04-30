@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 6701002492074234732}
   - component: {fileID: 8870482726328166310}
   - component: {fileID: 6316574006449012588}
+  - component: {fileID: 8413185949805706727}
   m_Layer: 0
   m_Name: HoloPad
   m_TagString: Untagged
@@ -506,6 +507,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8108563764783910780, guid: c5284404e1e9d6a4781a81763362e494, type: 3}
+--- !u!208 &8413185949805706727
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925046914902181491}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.008, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.010000001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7165146009378987267
 GameObject:
   m_ObjectHideFlags: 0
