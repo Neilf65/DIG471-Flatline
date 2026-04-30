@@ -1994,7 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Terminal
   terminalUI: {fileID: 550463253}
   winScreen: {fileID: 1548907864}
-  interactObj: {fileID: 0}
+  interactObj: {fileID: 1350874273}
   mainSlider: {fileID: 1072103255}
   keyToPress: {fileID: 383777155}
   Player:
@@ -36468,10 +36468,10 @@ MonoBehaviour:
     m_ActionName: 'UI/Pause[/Keyboard/p]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Terminal, Assembly-CSharp
-        m_MethodName: Console
-        m_Mode: 1
+      - m_Target: {fileID: 1350874273}
+        m_TargetAssemblyTypeName: InteractObj, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -80321,7 +80321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Terminal
   terminalUI: {fileID: 550463253}
   winScreen: {fileID: 1548907864}
-  interactObj: {fileID: 0}
+  interactObj: {fileID: 1350874273}
   mainSlider: {fileID: 1072103255}
   keyToPress: {fileID: 383777155}
   Player:
