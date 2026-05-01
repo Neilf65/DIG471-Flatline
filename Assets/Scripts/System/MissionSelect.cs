@@ -57,15 +57,18 @@ public class MissionSelect : MonoBehaviour
     public void FirstLevel()
     {
         SceneManager.LoadScene("Level 1");
+        Time.timeScale = 1f;
     }
 
     public void SecondLevel()
     {
         SceneManager.LoadScene("Level 2 Blockout");
+        Time.timeScale = 1f;
     }
 
     public void FinalLevel()
     {
         SceneManager.LoadScene("Level 3 Blockout");
+        Time.timeScale = 1f;
     }
 }
