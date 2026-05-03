@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent Agent;
 
     // Animation
-    [SerializeField] private Animator animator;
+    [SerializeField] EnemyAnimation enemyAnimation;
 
     private void Awake()
     {
@@ -86,6 +86,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (walkPointSet)
             Agent.SetDestination(walkPoint);
+        
+        if (enemyAnimation.eAnimator != null)
+        {
+            enemyAnimation.eAnimator.SetBool("Patrolling", true);
+            enemyAnimation.eAnimator.SetBool("Chasing", false);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -119,6 +125,11 @@ public class EnemyMovement : MonoBehaviour
 
         // Chase Logic
         Agent.SetDestination(Target.position);
+        if (enemyAnimation.eAnimator != null)
+        {
+            enemyAnimation.eAnimator.SetBool("Patrolling", false);
+            enemyAnimation.eAnimator.SetBool("Chasing", true);
+        }
         Debug.Log("Player in sight");
     
             if (alertTimer == 0.1f)
@@ -144,6 +155,7 @@ public class EnemyMovement : MonoBehaviour
         {
             EnemySoundManager.PlayOSSound(EnemySoundType.guard_attack);
             player.ChangeHealth(-10);
+            enemyAnimation.eAnimator.SetTrigger("Attack");
 
         }
     }
