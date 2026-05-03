@@ -61,7 +61,7 @@ public class SecurityCam : MonoBehaviour
         {
             camRotateTime = 5f;
             camRotateY = -camRotateY;
-            SoundEffectsOSManager.PlayOSSound(SoundType.SCAN, .4f);
+            // SoundEffectsOSManager.PlayOSSound(SoundType.SCAN, .4f);
         }
     }
 

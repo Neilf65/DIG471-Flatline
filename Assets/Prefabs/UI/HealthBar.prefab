@@ -82,7 +82,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3891140798452290817}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7caaeae25567d25458c620d711e15480, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: f383eff875f1192469f494824523eb5e, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -140,11 +140,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4803770182156199746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000034332275, y: -0.0000076293945}
+  m_SizeDelta: {x: 100, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8670090057535806114
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: dca69eb6d6726644a8c269ed8bb9bebc, type: 2}
+  m_Texture: {fileID: 8400000, guid: 6b073014faf8349418da0da4514cf275, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -224,11 +224,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4180421772973587704}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 42db4d2582cf94d40980bc1f989795ad, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 60618adb1f1e68b40864140e7880b942, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: dca69eb6d6726644a8c269ed8bb9bebc, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 6b073014faf8349418da0da4514cf275, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -294,11 +294,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720401188280698063}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ee1b80d8358aa204f8fd321942aaa3c1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 40773836ca733ec4e810f2ee0964b349, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: d752692a8285e4e4382dfaa529603424, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 8bf859a83dbe1d443bc105e155eec565, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>

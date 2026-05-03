@@ -14,8 +14,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private RawImage videoImage;
     private PlayerControls playerControls;
     private InputAction uI;
-    
-    [SerializeField] private InputActionAsset playerMovement;
+
 
     // Booleans
     public bool isPaused;
@@ -28,14 +27,11 @@ public class PauseMenu : MonoBehaviour
         if(pausing)
         {
             PauseGame();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            
         }
         if (pausing != true)
         {
             ResumeGame();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
     
@@ -64,24 +60,22 @@ public class PauseMenu : MonoBehaviour
      public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         videoImage.enabled = true;   
         videoPlayer.frame = 0;
         videoPlayer.Play();
-
-
-        //Pause game audio
-
+        Time.timeScale = 0f;
     }
     
      public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        pausing = false;
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         AudioListener.pause = false;
-        SoundEffectsOSManager.PlayOSSound(SoundType.PRESS);
     }
     public void QuitGame()
     {
@@ -95,6 +89,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         pausing = false;
         AudioListener.pause = false;
+        Time.timeScale = 1f;
     }
 
     public void Settings()

@@ -15,7 +15,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-       TimeSwap(); 
+       TimeSwap();
+       if (Time.timeScale == 0)
+        {
+            return;
+        } 
+       Debug.Log("Timescale is currently: " + Time.timeScale);
     }
 
     private void TimeSwap()

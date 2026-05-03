@@ -5,17 +5,15 @@ public class DamageZoneSpawner : MonoBehaviour
     [SerializeField] private GameObject flameSpot;
     [SerializeField] private PlayerController PlayerController;
     [SerializeField] private GameObject Player;
-    private bool isSpawning;
+
     [SerializeField] float spawnTimer;
     public float RangeNegX, RangePosX;
     public float RangeNegZ, RangePosZ;
 
     void Start()
     {
-        PlayerController playerController = GetComponent<PlayerController>();
         
         // Spawn timer
-        isSpawning = false;
         spawnTimer = 5f;
     }
 

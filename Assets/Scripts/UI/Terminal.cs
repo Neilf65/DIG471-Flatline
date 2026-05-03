@@ -35,7 +35,6 @@ public class Terminal : MonoBehaviour
 
     void Start()
     {
-        InteractObj interactObj = GetComponent<InteractObj>();
         timer = timer += Time.unscaledDeltaTime;
 
         int rand = Random.Range(0, 2);
@@ -59,6 +58,17 @@ public class Terminal : MonoBehaviour
             mainSlider.value = Mathf.MoveTowards(mainSlider.value, 0, Time.unscaledDeltaTime);
         }
 
+        if (freeze)
+        {
+            timer += Time.unscaledDeltaTime;
+
+            if (timer > 3f)
+            {
+                TerminalClose();
+                timer = 0f;
+            }
+        }
+
         if (Input.GetKeyDown(key) && mainSlider.value > 0)
         {
             mainSlider.value += 1;
@@ -78,16 +88,6 @@ public class Terminal : MonoBehaviour
             freeze = true;
         }
 
-        if (freeze)
-        {
-            timer += Time.unscaledDeltaTime;
-
-            if (timer > 3f)
-            {
-                TerminalClose();
-                timer = 0f;
-            }
-        }
 
         if (Physics.CheckSphere(transform.position, radius, Player))
         {
@@ -113,7 +113,6 @@ public class Terminal : MonoBehaviour
         if (interactObj.isInteracting == true && Physics.CheckSphere(transform.position, radius, Player))
         {
             TerminalOpen();
-            interactObj.isInteracting = false;
         }
 
     }

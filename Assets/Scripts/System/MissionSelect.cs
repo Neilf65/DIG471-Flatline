@@ -40,7 +40,7 @@ public class MissionSelect : MonoBehaviour
     public void TerminalOpen()
     {
         missionSelect.SetActive(true);
-        Time.timeScale = 0.01f;
+        Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 

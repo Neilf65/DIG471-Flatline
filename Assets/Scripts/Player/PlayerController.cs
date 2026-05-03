@@ -45,14 +45,16 @@ public class PlayerController : MonoBehaviour
 
     // Energy 
     [SerializeField] private EnergyBar energyBarUI;
+    [SerializeField] private BatteryMeter batteryMeter;
     private float currentEnergy;
     public float maxEnergy = 50;
-    private float BatteryCount;
+    public float BatteryCount;
+    public float maxBatteries;
 
     // Mouse movement
     private float _pitchX;
     private float _pitchY;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     private Vector2 lookInput;
     
     // Camera
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
     // Game Object
     public GameObject Player;
     public GameObject GameOverScreen;
+    
 
     // Input Action Bools
     private bool isSprinting = false;
@@ -87,12 +90,16 @@ public class PlayerController : MonoBehaviour
     // Takedown timer reset
     public float waitTime = 4f;
 
+    // Dance
+    bool danceNow;
+    float danceTimer;
+
 
 
     // Components
     private Rigidbody _rb;
     private CharacterController controller;
-
+    [SerializeField] private JohnFAnimation johnF;
     #endregion
 
 
@@ -105,6 +112,7 @@ public class PlayerController : MonoBehaviour
         currentStamina = _stamina;
         energyBarUI.SetEnergy(maxEnergy);
         staminaBarUI.SetStamina(_stamina);
+        batteryMeter.SetBattery(maxBatteries);
         waiting = false;
     }
 
@@ -118,7 +126,16 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        // Debug.Log($"Move Input: {moveInput}");
+
+        // Movement animation
+        if (context.started && johnF.jAnimator != null)
+        {
+            johnF.jAnimator.SetBool("Walking", true);
+        }
+        if (context.canceled && johnF.jAnimator != null)
+        {
+            johnF.jAnimator.SetBool("Walking", false);
+        }
     }
 
 
@@ -129,10 +146,18 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             isSprinting = true;
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.SetBool("Running", true);
+            }
         }
         else if (context.canceled)
         {
             isSprinting = false;
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.SetBool("Running", false);
+            }
         }
     }
 
@@ -177,6 +202,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(-2f * doubleJumpHeight * gravity);
             canDoubleJump = false;
         }
+        if (johnF.jAnimator != null)
+                {
+                    johnF.jAnimator.SetTrigger("Jumping");
+                    johnF.jAnimator.ResetTrigger("Landed");
+                }
     }
     // Crouching
     public void OnCrouch(InputAction.CallbackContext context)
@@ -208,14 +238,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && BatteryCount >= 1f && currentEnergy < 50)
         {
-            BatteryCount -= 1;
+            ChangeBatteries(-1);
             ChangeEnergy(25);
             Debug.Log("Current batteries: " + BatteryCount);
             Debug.Log("Current energy: " + currentEnergy);
-        }
-        if (context.performed && currentEnergy == maxEnergy)
-        {
-        
         }
     }
 
@@ -227,6 +253,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"TimeSwap {context.performed}");
             canTimeHop = true;
             SoundEffectsOSManager.PlayOSSound(SoundType.TIMEJUMP, 0.5f);
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.SetBool("Timeswap", true);
+            }
         }
     }
 
@@ -234,6 +264,14 @@ public class PlayerController : MonoBehaviour
     public void OnMouse(InputValue value)
     {
         lookInput = value.Get<Vector2>();
+    }
+
+    public void OnDance(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            danceNow = true;
+        }
     }
 
     #endregion
@@ -281,6 +319,30 @@ public class PlayerController : MonoBehaviour
         // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        
+        if (controller.isGrounded)
+        {
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.ResetTrigger("Jumping");
+                johnF.jAnimator.SetTrigger("Landed");
+                johnF.jAnimator.SetBool("Falling", false);
+
+            }
+        }
+
+        // else if (Physics.SphereCast(groundDetect, checkRad, checkDir, out hitinfo, 2f, LayerMask.GetMask("Ground")))
+        // {
+        //     if (hitinfo.collider)
+
+        if (controller.isGrounded != true)
+        {
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.ResetTrigger("Landed");
+                johnF.jAnimator.SetBool("Falling", true);
+            }
+        }
 
         if (isInvincible)
         {
@@ -475,6 +537,13 @@ public class PlayerController : MonoBehaviour
         // Set Stamina bar
         staminaBarUI.SetStamina(currentStamina);
     }
+    private void ChangeBatteries(float BattAmount)
+    {
+        currentStamina = Mathf.Clamp(BatteryCount + BattAmount, 0 , maxBatteries);
+
+        // Set Stamina bar
+        batteryMeter.SetBattery(BatteryCount);
+    }
 
     #endregion
 
@@ -501,7 +570,7 @@ public class PlayerController : MonoBehaviour
     
     public void CollectBattery(GameObject Battery)
     {
-        BatteryCount += 1;
+        ChangeBatteries(1);
         Debug.Log("Collected Batteries: " + BatteryCount);
         Destroy(Battery);
     }
@@ -510,7 +579,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if (johnF.jAnimator != null)
+            {
+                johnF.jAnimator.SetBool("isDead", true);
+            }
             GameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

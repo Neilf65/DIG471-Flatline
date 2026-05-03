@@ -6,11 +6,11 @@ public class UIButtonSoundEvent : MonoBehaviour, IPointerEnterHandler, IPointerD
 
 	public void OnPointerEnter( PointerEventData ped ) 
     {
-	    SoundEffectsOSManager.PlayOSSound(SoundType.PRESS, .6f);
+	    // SoundEffectsOSManager.PlayOSSound(SoundType.PRESS, .6f);
 	}
 
 	public void OnPointerDown( PointerEventData ped ) 
     {
-	    SoundEffectsOSManager.PlayOSSound(SoundType.HOVER, .5f);
+	    // SoundEffectsOSManager.PlayOSSound(SoundType.HOVER, .5f);
 	}    
 }
