@@ -12728,8 +12728,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212345, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: 23.41375, y: 4.098766, z: -13.082701}
+  m_LocalRotation: {x: 0.1521234, y: -0.0000000130146525, z: 0.0000000020031472, w: 0.98836154}
+  m_LocalPosition: {x: 23.41375, y: 4.48979, z: -12.95941}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49003,7 +49003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184837127}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212345, y: 0, z: 0, w: 0.98836154}
+  m_LocalRotation: {x: 0.1521234, y: -0.00000001354762, z: 0.0000000054658833, w: 0.98836154}
   m_LocalPosition: {x: 23.41375, y: 3.162326, z: -12.90612}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49232,7 +49232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCameraOffset
-  Offset: {x: 0, y: 0.84, z: -0.45}
+  Offset: {x: 0, y: 1.25, z: -0.45}
   ApplyAfter: 1
   PreserveComposition: 0
 --- !u!1 &1185366734
@@ -84854,6 +84854,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1159026129}
     m_Modifications:
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.21405701
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9768211
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029433015394480429, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -204.72
+      objectReference: {fileID: 0}
     - target: {fileID: 2038455272992670055, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: energyBarUI
       value: 
@@ -84870,6 +84890,14 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 2809170152285067061, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3929799073682308170, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7181737505781237604, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
       propertyPath: m_Name
       value: PlayerObj
