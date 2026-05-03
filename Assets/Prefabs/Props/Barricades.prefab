@@ -83,9 +83,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4392283812665527314, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1055917972839280081}
+    - targetCorrespondingSourceObject: {fileID: 4392283812665527314, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8463346382784996120}
     - targetCorrespondingSourceObject: {fileID: 8790315061154058269, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
       insertIndex: -1
       addedObject: {fileID: 38932711550935672}
+    - targetCorrespondingSourceObject: {fileID: 8790315061154058269, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6606455520022659821}
   m_SourcePrefab: {fileID: 100100000, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
 --- !u!1 &2229298523735964018 stripped
 GameObject:
@@ -114,6 +120,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5833210316870340135, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
+--- !u!208 &6606455520022659821
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229298523735964018}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 161.781, y: 54.787003, z: 24.692001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -161.785, y: 54.787003, z: -24.692001}
+  m_TimeToStationary: 0.5
 --- !u!1 &6627593379837355389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4392283812665527314, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
@@ -141,3 +163,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4906996256664587342, guid: 9c8f196426cb90144b53df1cc0732719, type: 3}
+--- !u!208 &8463346382784996120
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6627593379837355389}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 38.398003, y: 54.731003, z: 21.902}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -38.398003, y: 53.794003, z: -21.903002}
+  m_TimeToStationary: 0.5
