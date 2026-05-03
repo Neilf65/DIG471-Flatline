@@ -12,10 +12,13 @@ public class InteractObj : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         { 
             isInteracting = !isInteracting;
-            
+        }
+        if (context.canceled)
+        {
+            isInteracting = !isInteracting;
         }
         
     }   
