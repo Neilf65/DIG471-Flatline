@@ -476,6 +476,10 @@ public class PlayerController : MonoBehaviour
         else 
         {
             moveDirection = Vector3.zero;
+            if (currentEnergy < 50)
+            {
+                ChangeEnergy(2 * Time.deltaTime);
+            }
         }
         controller.Move(moveDirection * Time.deltaTime * dashSpeed);
         dashNow = false;
@@ -522,7 +526,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ChangeEnergy(int EnergyAmount)
+    private void ChangeEnergy(float EnergyAmount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
         Debug.Log("Current Energy: " + currentEnergy);

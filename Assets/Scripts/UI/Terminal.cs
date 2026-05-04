@@ -20,7 +20,7 @@ public class Terminal : MonoBehaviour
   
 
     KeyCode key;
-    KeyCode[] availableOptions =  { KeyCode.Space, KeyCode.R};
+    KeyCode[] availableOptions =  {KeyCode.R, KeyCode.JoystickButton1};
 
 
     // range to access terminal when near
@@ -120,7 +120,7 @@ public class Terminal : MonoBehaviour
     public void TerminalOpen()
     {
         terminalUI.SetActive(true);
-        Time.timeScale = 0.01f;
+        Time.timeScale = 0.0f;
         int rand = Random.Range(0, 2);
         key = availableOptions[rand];
         keyToPress.text = availableOptions[rand].ToString();
@@ -134,6 +134,7 @@ public class Terminal : MonoBehaviour
     {
         terminalUI.SetActive(false);
         Time.timeScale = 1f;
+        freeze = true;
     }
 
     
