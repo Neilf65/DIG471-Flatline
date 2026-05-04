@@ -1,0 +1,645 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3863991555945867130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9210476448036735241}
+  m_Layer: 0
+  m_Name: Solarpunk Building 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9210476448036735241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863991555945867130}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.95, y: 11.89587, z: -10.99782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5801440722853647018}
+  - {fileID: 3707982434702757519}
+  - {fileID: 9057362332316534923}
+  - {fileID: 7897014982994692122}
+  - {fileID: 6179705121455380202}
+  - {fileID: 44718434781731684}
+  - {fileID: 7073843801228026500}
+  - {fileID: 8658329387391543030}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1959543078758790517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6143789
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0033522
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.92349553
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.01925
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.10413
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -80.36218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99947494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.032402016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.714
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &6179705121455380202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 1959543078758790517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2193763762372210997
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1342411
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.895872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -78.88521
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6305099457156458239, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3130347020145261504}
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!1 &5328292757129680842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6305099457156458239, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 2193763762372210997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &3130347020145261504
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328292757129680842}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.011000001, y: 0.011000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!4 &5801440722853647018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 2193763762372210997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2550407741913607045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6488681
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6488681
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7817562
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3092499
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.62413
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -79.68218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99947494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.032402016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.714
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &7897014982994692122 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 2550407741913607045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3231434334765777179
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6058374
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46421075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.60583735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.65075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5158701
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -76.09218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99835634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.057312343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -6.571
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &7073843801228026500 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 3231434334765777179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3693299212826946324
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8114401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8114401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.81144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.93925
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.19413
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -80.81218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99947494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.032402016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.714
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &9057362332316534923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 3693299212826946324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3952924250074039657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.60583735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.46421075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.60583735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3707502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.85413
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -76.192184
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99808145
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.03204742
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.03355816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.040991772
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.826
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.698
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 4.58
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &8658329387391543030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 3952924250074039657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5651406413171210491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.68708634
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.78917664
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.79846346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.97075033
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.01413
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -78.692184
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99947494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.032402016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.714
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &44718434781731684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 5651406413171210491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9045037288004005136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9210476448036735241}
+    m_Modifications:
+    - target: {fileID: 5024006941157685541, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_Name
+      value: SolarPunk Modular kit 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8114401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8114401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.81144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0290871
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.203084
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -80.81218
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99947494
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.032402016
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.714
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+--- !u!4 &3707982434702757519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5688902974797816735, guid: 1c692f2e87f63b441863ea3cd45f5fa4, type: 3}
+  m_PrefabInstance: {fileID: 9045037288004005136}
+  m_PrefabAsset: {fileID: 0}
