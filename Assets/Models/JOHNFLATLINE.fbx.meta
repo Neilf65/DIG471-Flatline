@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: ab4f820c0b4c9174aa5a1d804c81cd26
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: openPBR_shader1
+    second: {fileID: 2100000, guid: 1bf11c40dd9486a47887a55097fe2e17, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: JOHNFLATLINE(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube.104
+      parentName: JOHNFLATLINE(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: QuickRigCharacter_Guides
+      parentName: JOHNFLATLINE(Clone)
+      position: {x: -0.0005790943, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.01698072, z: -0.00032667388}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.009405112, z: -0.0005357978}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftArm
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.0019867818, y: 0.014888041, z: -0.000028620518}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftFoot
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.0008315968, y: 0.0012517986, z: -0.0007511966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftForeArm
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.0028148117, y: 0.011280823, z: -0.00046613748}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHand
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.003019479, y: 0.0092995055, z: -0.00042087366}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftLeg
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.0007472695, y: 0.005245947, z: -0.0006618686}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftShoulder
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.00049378414, y: 0.014888041, z: -0.000028620518}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftToeBase
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.00096802216, y: 0.00039416103, z: 0.000142112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftUpLeg
+      parentName: QuickRigCharacter_Guides
+      position: {x: -0.0005726371, y: 0.009260228, z: -0.00044504536}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Neck
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.01589534, z: -0.00054026005}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Reference
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.000015774529, z: -0.00026084183}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightArm
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0029898768, y: 0.014888041, z: -0.000028620518}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightFoot
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0018346913, y: 0.0012517986, z: -0.0007511966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightForeArm
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0038179052, y: 0.011280823, z: -0.00046613748}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightHand
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0040225745, y: 0.0092995055, z: -0.00042087366}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightLeg
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0017503643, y: 0.005245947, z: -0.0006618686}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightShoulder
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0014968789, y: 0.014888041, z: -0.000028620518}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightToeBase
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0019711172, y: 0.00039416103, z: 0.000142112}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RightUpLeg
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.0015757318, y: 0.009260228, z: -0.00044504536}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.01054707, z: -0.0006090789}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine1
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.011695369, z: -0.0006396646}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine2
+      parentName: QuickRigCharacter_Guides
+      position: {x: 0.00050154753, y: 0.012843677, z: -0.0006702501}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Reference
+      parentName: JOHNFLATLINE(Clone)
+      position: {x: -0.00016960531, y: 0.000015774529, z: -0.00026084183}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Hips
+      parentName: JohnFlatline_Reference
+      position: {x: 0.00016960522, y: 0.009387876, z: -0.00027486452}
+      rotation: {x: 0.48372656, y: -0.5157603, z: -0.48372656, w: 0.5157603}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftUpLeg
+      parentName: JohnFlatline_Hips
+      position: {x: 0.00015040294, y: 0.00008128744, z: 0.0010741837}
+      rotation: {x: -0.016269615, y: -0.0016849345, z: 0.9991523, w: 0.037777524}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftLeg
+      parentName: JohnFlatline_LeftUpLeg
+      position: {x: -0.004023916, y: -0.00000026503346, z: 0.0000000039916577}
+      rotation: {x: -0.022995096, y: 0.0006541809, z: -0.026746992, w: 0.9993775}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftFoot
+      parentName: JohnFlatline_LeftLeg
+      position: {x: -0.0039960374, y: 0.000000026906433, z: 0.000000001932746}
+      rotation: {x: -0.0063299937, y: 0.02405847, z: 0.421533, w: 0.9064718}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftToeBase
+      parentName: JohnFlatline_LeftFoot
+      position: {x: -0.0012458547, y: 3.285871e-10, z: 5.3857313e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightUpLeg
+      parentName: JohnFlatline_Hips
+      position: {x: 0.00015040294, y: 0.00008128744, z: -0.0010741837}
+      rotation: {x: -0.0016845517, y: 0.016278656, z: -0.03772031, w: 0.9991543}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightLeg
+      parentName: JohnFlatline_RightUpLeg
+      position: {x: 0.0040239138, y: -0.000000015998857, z: -0.000000010915428}
+      rotation: {x: -0.022981256, y: 0.00065974775, z: -0.02682651, w: 0.9993757}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightFoot
+      parentName: JohnFlatline_RightLeg
+      position: {x: 0.003996039, y: -0.00000002677214, z: -0.0000000013182178}
+      rotation: {x: -0.006346871, y: 0.024051595, z: 0.42155346, w: 0.9064623}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightToeBase
+      parentName: JohnFlatline_RightFoot
+      position: {x: 0.0012458547, y: -3.760258e-10, z: -9.6549775e-11}
+      rotation: {x: 0.000025436813, y: 0.000000024901725, z: -6.334205e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Spine
+      parentName: JohnFlatline_Hips
+      position: {x: -0.0011443086, y: -4.2418966e-10, z: 0}
+      rotation: {x: 3.7391474e-19, y: 3.4560483e-18, z: -0.01872914, w: 0.9998246}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Spine1
+      parentName: JohnFlatline_Spine
+      position: {x: -0.0011487068, y: -2.2799913e-11, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Spine2
+      parentName: JohnFlatline_Spine1
+      position: {x: -0.0011487084, y: -7.7522544e-11, z: 0}
+      rotation: {x: -2.7653818e-20, y: 3.4693367e-18, z: -0.034593046, w: 0.9994015}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftShoulder
+      parentName: JohnFlatline_Spine2
+      position: {x: -0.0020698193, y: 0.0005540441, z: 0.000995331}
+      rotation: {x: 0.5105286, y: -0.48924488, z: -0.5105286, w: -0.48924488}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftArm
+      parentName: JohnFlatline_LeftShoulder
+      position: {x: -0.0014929954, y: -5.6843405e-18, z: -3.4416894e-19}
+      rotation: {x: 0.7505453, y: -0.036804818, z: -0.015300121, w: 0.65961576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftForeArm
+      parentName: JohnFlatline_LeftArm
+      position: {x: -0.0037268084, y: 0.000000092682164, z: 0.000000026745699}
+      rotation: {x: 0.008971273, y: 0.05724718, z: -0.050398163, w: 0.9970469}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_LeftHand
+      parentName: JohnFlatline_LeftForeArm
+      position: {x: -0.00199237, y: -0.0000000053965605, z: -0.00000003386034}
+      rotation: {x: 0.00000092347256, y: -0.000054097767, z: 0.000049518254, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightShoulder
+      parentName: JohnFlatline_Spine2
+      position: {x: -0.0020698193, y: 0.0005540441, z: -0.0009953312}
+      rotation: {x: 0.48924488, y: 0.5105286, z: -0.48924488, w: 0.5105286}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightArm
+      parentName: JohnFlatline_RightShoulder
+      position: {x: 0.0014929954, y: 2.8421703e-18, z: 1.6653335e-19}
+      rotation: {x: 0.7498763, y: -0.040646557, z: -0.005991083, w: 0.660301}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightForeArm
+      parentName: JohnFlatline_RightArm
+      position: {x: 0.003726804, y: -0.00000011964507, z: -0.00000002888584}
+      rotation: {x: 0.001262128, y: 0.0140917385, z: -0.06262482, w: 0.9979369}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_RightHand
+      parentName: JohnFlatline_RightForeArm
+      position: {x: 0.0019923737, y: 0.0000000063052306, z: -1.839273e-10}
+      rotation: {x: 0, y: 0, z: 0.000050124363, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Neck
+      parentName: JohnFlatline_Spine2
+      position: {x: -0.0030544016, y: -8.2508994e-10, z: 0}
+      rotation: {x: -2.1532185e-19, y: -2.5617903e-20, z: -0.075774886, w: 0.99712497}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JohnFlatline_Head
+      parentName: JohnFlatline_Neck
+      position: {x: -0.0011061735, y: 1.1782285e-10, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
