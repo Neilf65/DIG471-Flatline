@@ -3224,7 +3224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MissionSelect
   missionSelect: {fileID: 611477456}
   player: {fileID: 2034011670}
-  interactObj: {fileID: 2034011674}
+  interactObj: {fileID: 0}
   Player:
     serializedVersion: 2
     m_Bits: 0
@@ -29419,14 +29419,14 @@ RectTransform:
   m_GameObject: {fileID: 745104076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7697448, y: 1.2422731, z: 0.72376645}
+  m_LocalScale: {x: 2.6324952, y: 1.2422731, z: 0.72376645}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 611477457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.999878, y: -16.000122}
+  m_AnchoredPosition: {x: -14, y: -16.000183}
   m_SizeDelta: {x: 0, y: 12.762573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745104078
@@ -29451,7 +29451,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b82413ce979f1724d8cca9e1a4459bf4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -59069,8 +59069,8 @@ RectTransform:
   m_GameObject: {fileID: 1413065359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.24128, y: 5.5168, z: 5.5168}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.68, y: 3.022224, z: 3.022224}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1996845534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59157,7 +59157,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 21531446d71472545861c500cf64b148, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -70977,8 +70977,8 @@ RectTransform:
   m_GameObject: {fileID: 1733955211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.24128, y: 5.5168, z: 5.5168}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.68, y: 3.022224, z: 3.022224}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1996845534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -71065,7 +71065,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: c0b19a268e5ed074d874cbe91016deb4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -76962,8 +76962,8 @@ RectTransform:
   m_GameObject: {fileID: 1881502299}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.24128, y: 5.5168, z: 5.5168}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.68, y: 3.022224, z: 3.022224}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1996845534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77050,7 +77050,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 3a7e78dd2807d6f4cadab0fba6588eb9, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -84971,17 +84971,6 @@ Transform:
 --- !u!114 &2034011673 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2159020943978376333, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
-  m_PrefabInstance: {fileID: 2034011669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f25065f2736fb949951b55d9d640a14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractObj
---- !u!114 &2034011674 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7614587662041200705, guid: c446919fc0f1afe4c882dbc3baf7992c, type: 3}
   m_PrefabInstance: {fileID: 2034011669}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
