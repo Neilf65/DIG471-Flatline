@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 public class WinScreen : MonoBehaviour
 {
     [SerializeField] private Terminal terminal;
-    [SerializeField] private PlayableDirector timeline;
+    [SerializeField] private GameObject endSequence;
 
     float timer;
 
@@ -28,12 +28,12 @@ public class WinScreen : MonoBehaviour
 
     public void Update()
     {
-        if (terminal.freeze == false)
+        if (terminal.freeze != false)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                timeline.Play();
+                endSequence.SetActive(true);
             }
         }
     }

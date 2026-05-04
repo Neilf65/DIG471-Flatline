@@ -4,7 +4,7 @@ public class SecurityCam : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject camReset;
-    [SerializeField] private float camRotateY;
+    public float camRotateY;
     [SerializeField] private float camRotateTime = 5f;
     private float zapTime = 0f;
     private Vector3 camRotationOrigin;
@@ -65,9 +65,18 @@ public class SecurityCam : MonoBehaviour
         }
     }
 
-    private void ResetCameraRotation()
+    public void ResetCameraRotation()
     {
         transform.LookAt(camReset.transform);
+    }
+
+    public void CamDead()
+    {
+        transform.LookAt(Player.transform);
+        {
+            camRotateTime = 0f;
+            camRotateY = 0f;
+        }
     }
 }
 

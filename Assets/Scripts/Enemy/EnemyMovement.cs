@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float walkTime;
     private float alertTimer = 0f;
     private float sightRange;
+    float fovRange;
     [SerializeField] private bool soundOn;
 
 
@@ -50,16 +51,15 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
 
-        Vector3 targetDir = Target.position - transform.position;
+        Vector3 targetDir = (Target.position - transform.position).normalized;
         float fovAngle = Vector3.Angle(targetDir, transform.position);
         // // Check for sight range
         // playerInSightRange = Physics.SphereCast(transform.position, sightRange, transform.forward, out hitinfo, 5f, whatIsPlayer);
 
 
-        if (fovAngle < 65)
+        if (Vector3.Angle(transform.forward, targetDir) < fovAngle / 3)
         {
             playerInSightRange = true;
-            return;
         } 
 
         if (!playerInSightRange)
@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
         if (playerInSightRange)
         {
             ChasePlayer();
-            return;
+  
         }
 
         walkTime += Time.deltaTime;
