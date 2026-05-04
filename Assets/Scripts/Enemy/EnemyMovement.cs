@@ -153,7 +153,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (player != null)
         {
-            EnemySoundManager.PlayOSSound(EnemySoundType.guard_attack);
+            EnemySoundManager.PlayOSSound(EnemySoundType.guard_attack, .3f);
             player.ChangeHealth(-10);
             enemyAnimation.eAnimator.SetTrigger("Attack");
 
