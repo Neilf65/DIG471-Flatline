@@ -357,8 +357,9 @@ public class PlayerController : MonoBehaviour
     public void TimelineJump()
     {
 
-        if (canTimeHop == true)
+        if (canTimeHop == true && currentEnergy >= 10)
         {
+            ChangeEnergy(-10);
             if (timelineDif == true)
             {
             Debug.Log("first TimeLine");
