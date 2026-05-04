@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     // Stamina 
     [SerializeField] private StaminaBar staminaBarUI;
-    public float _stamina = 50;
+    public float maxStamina = 50;
     private float currentStamina;
 
     // Energy 
@@ -109,10 +109,10 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         currentHealth = maxHealth;
         currentEnergy = maxEnergy;
-        currentStamina = _stamina;
+        currentStamina = maxStamina;
         energyBarUI.SetEnergy(maxEnergy);
-        staminaBarUI.SetStamina(_stamina);
-        batteryMeter.SetBattery(maxBatteries);
+        staminaBarUI.SetStamina(maxStamina);
+        batteryMeter.SetBattery(BatteryCount);
         waiting = false;
     }
 
@@ -309,7 +309,6 @@ public class PlayerController : MonoBehaviour
         controller.enabled = true;
 
         // Movement Actions
-        LedgeGrab();
         Crouching();
         Sprinting();
         Dashing();
@@ -375,45 +374,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Grab the ledge when falling
-    void LedgeGrab()
-    {
-        if(_rb.linearVelocity.y < 0 && !hanging)
-        {
-            RaycastHit downHit;
-            Vector3 lineDownStart = (transform.position + Vector3.up * 1f) + transform.forward;
-            Vector3 lineDownEnd = (transform.position + Vector3.up * .5f) + transform.forward;
-            Physics.Linecast(lineDownStart, lineDownEnd, out downHit, LayerMask.GetMask("Ground"));
-            Debug.DrawLine(lineDownStart, lineDownEnd);
-            Debug.Log(downHit.transform.name);
-
-            if(downHit.collider != null)
-            {
-                RaycastHit fwdHit;
-                Vector3 linefwdStart = new Vector3(transform.position.x, downHit.point.y -0.1f, transform.position.z);
-                Vector3 linefwdEnd = new Vector3(transform.position.x, downHit.point.y -0.1f, transform.position.z) + transform.forward * 3f;
-                Physics.Linecast(linefwdStart, linefwdEnd, out fwdHit, LayerMask.GetMask("Ground"));
-                Debug.DrawLine(linefwdStart, linefwdEnd);
-
-                if(fwdHit.collider != null)
-                {
-                    _rb.useGravity = false;
-                    controller.enabled = false;
-                    _rb.linearVelocity = Vector3.zero;
-
-                    hanging = true;
-
-                    Vector3 hangPos = new Vector3(fwdHit.point.x, downHit.point.y, fwdHit.point.z);
-                    Vector3 offset = transform.forward * -0.1f + transform.up * -1f;
-                    hangPos += offset;
-                    transform.position = hangPos;
-                    transform.forward = -fwdHit.normal;
-                }
-            }
-        }
-    
-    }
-
     // Crouching calculations
     private void Crouching()
     {
@@ -441,14 +401,14 @@ public class PlayerController : MonoBehaviour
 
             if (currentStamina < 50)
             {
-                ChangeStamina(7f * Time.deltaTime);
+                ChangeStamina(2f * Time.deltaTime);
             }
         }
         else if (isSprinting)
         {
             moveSpeed = sprintSpeed;
             walkAudioTimer -= Time.deltaTime;
-            ChangeStamina(-8f * Time.deltaTime);
+            ChangeStamina(-4f * Time.deltaTime);
 
             if (isSprinting && currentStamina <= 0.1f)
             {
@@ -527,6 +487,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ChangeStamina(float stamAmount)
+    {
+        currentStamina = Mathf.Clamp(currentStamina + stamAmount, 0 , maxStamina);
+        Debug.Log("Current Stamina: " + currentStamina);
+
+        staminaBarUI.SetStamina(currentStamina);
+    }
     private void ChangeEnergy(float EnergyAmount)
     {
         currentEnergy = Mathf.Clamp(currentEnergy + EnergyAmount, 0 , maxEnergy);
@@ -535,18 +502,10 @@ public class PlayerController : MonoBehaviour
         energyBarUI.SetEnergy(currentEnergy);
     }
 
-    private void ChangeStamina(float stamAmount)
-    {
-        currentStamina = Mathf.Clamp(currentStamina + stamAmount, 0 , _stamina);
-
-        // Set Stamina bar
-        staminaBarUI.SetStamina(currentStamina);
-    }
     private void ChangeBatteries(float BattAmount)
     {
-        currentStamina = Mathf.Clamp(BatteryCount + BattAmount, 0 , maxBatteries);
+        BatteryCount = Mathf.Clamp(BatteryCount + BattAmount, 0 , maxBatteries);
 
-        // Set Stamina bar
         batteryMeter.SetBattery(BatteryCount);
     }
 

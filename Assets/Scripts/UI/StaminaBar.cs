@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class StaminaBar : MonoBehaviour
 {
-    public float currentStamina, _stamina, width, Height;
+    public float currentStamina, maxStamina, width, Height;
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] RectTransform staminaBar;
@@ -11,7 +11,7 @@ public class StaminaBar : MonoBehaviour
     public void SetStamina(float Stamina)
     {
         currentStamina = Stamina;
-        float newWidth = (currentStamina / _stamina) * width;
+        float newWidth = (currentStamina / maxStamina) * width;
 
         staminaBar.sizeDelta = new Vector2(newWidth, Height);
         Debug.Log("Changing Stamina bar now");
