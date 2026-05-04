@@ -9,7 +9,7 @@ public class Prelogue : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private GameObject nextButton;
     float startDist;
     float endDist;
-    float textTime;
+    float textTime = 44f;
     public void OnPointerEnter(PointerEventData eventData)
   {
     
@@ -22,6 +22,11 @@ public class Prelogue : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     imageComponent.enabled = false;
   }
 
+  void Awake()
+  {
+    nextButton.SetActive(false);
+  }
+
   public void Next()
     {
         SceneManager.LoadScene("Hub Alpha");
@@ -29,6 +34,10 @@ public class Prelogue : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void Update()
     {
-    
+      textTime -= Time.deltaTime;
+      if (textTime <= 0)
+    {
+      nextButton.SetActive(true);
+    }
     }
 }
