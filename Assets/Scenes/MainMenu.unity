@@ -1054,8 +1054,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895054156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.608016, y: 4.8348436, z: 3.9875}
+  m_LocalPosition: {x: 0, y: 0, z: 2.0438}
+  m_LocalScale: {x: 8.704981, y: 5.038179, z: 3.4469423}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 965618974}
@@ -1063,7 +1063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -64, y: -53}
+  m_AnchoredPosition: {x: -21.159973, y: -111.67999}
   m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &895054158
@@ -1133,7 +1133,7 @@ RectTransform:
   m_GameObject: {fileID: 965618973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 31.821}
-  m_LocalScale: {x: 0.05280275, y: 0.30173, z: 0.30173}
+  m_LocalScale: {x: 0.035641328, y: 0.30173, z: 0.30173}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 895054157}
@@ -1187,10 +1187,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 15df1801becd46548ba9bf386c1af607, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 15df1801becd46548ba9bf386c1af607, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 15df1801becd46548ba9bf386c1af607, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 15df1801becd46548ba9bf386c1af607, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 8b1fee2db91a9a545be66271c8283a63, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 8b1fee2db91a9a545be66271c8283a63, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 8b1fee2db91a9a545be66271c8283a63, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 8b1fee2db91a9a545be66271c8283a63, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3e5fefd59cf505743bf84aa24ca629d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd7cb68d06da1604082191f9ce3334b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1866,10 +1866,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 47454810887914656, guid: 117b8722ba30ab54b9bd64ada334eccb, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 78671794}
-    - targetCorrespondingSourceObject: {fileID: 47454810887914656, guid: 117b8722ba30ab54b9bd64ada334eccb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 446814047}
+    - targetCorrespondingSourceObject: {fileID: 47454810887914656, guid: 117b8722ba30ab54b9bd64ada334eccb, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 78671794}
     - targetCorrespondingSourceObject: {fileID: 7082647143856271347, guid: 117b8722ba30ab54b9bd64ada334eccb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 895054157}

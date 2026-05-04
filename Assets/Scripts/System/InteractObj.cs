@@ -21,6 +21,13 @@ public class InteractObj : MonoBehaviour
             isInteracting = !isInteracting;
         }
         
-    }   
+    } 
+
+    void Update()
+    {
+        Vector3 rayDir = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        var direction = transform.forward;
+        Physics.Raycast((transform.position + Vector3.forward * 1f), rayDir, LayerMask.GetMask("Interactable"));
+    }  
 
 }
