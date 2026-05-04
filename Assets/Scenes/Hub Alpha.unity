@@ -11143,8 +11143,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3675b872c6718e409f4f7a9f89186c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectsManager
-  soundList: []
-  loopSounds: []
+  soundList:
+  - {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
+  - {fileID: 8300000, guid: 1ecf8caa0ec165044abec7468d8cf469, type: 3}
+  - {fileID: 8300000, guid: 9e1c87de138aa8947b6c4a2c5b946215, type: 3}
+  - {fileID: 8300000, guid: 52d9d80e4bc3a824ca8ed11c8c76d49d, type: 3}
+  - {fileID: 8300000, guid: c1a335a2ef8067748a00296658144966, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: d12234c7c47095e43a2e3613762a3d38, type: 3}
+  - {fileID: 8300000, guid: f6c74c94fe2c85046a743ad3c3a6bdc7, type: 3}
+  - {fileID: 8300000, guid: a4580ee1f0c9443478b806ac03f0377c, type: 3}
+  - {fileID: 8300000, guid: d03f3316e688c4840b3694b629172fd6, type: 3}
+  - {fileID: 8300000, guid: fbe434852f7a6d84ca201221ae298030, type: 3}
+  - {fileID: 8300000, guid: a9b279163a3c2914897f8fd6e8a88c12, type: 3}
+  loopSounds:
+  - {fileID: 8300000, guid: c973803aaa149374c9c0cac2e939edc4, type: 3}
+  - {fileID: 8300000, guid: 1ecf8caa0ec165044abec7468d8cf469, type: 3}
 --- !u!1001 &284389985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29502,7 +29516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.6069946, y: -16.000122}
+  m_AnchoredPosition: {x: -4.6070557, y: -16.000122}
   m_SizeDelta: {x: 10.674, y: 12.763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745104078
@@ -66897,9 +66911,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0d2c301171c15f04ca6f2d6c91c054e8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
