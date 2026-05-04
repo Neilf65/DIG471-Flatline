@@ -16,7 +16,7 @@ public class Terminal : MonoBehaviour
     // QTE variables
     public Slider mainSlider;
     public TextMeshProUGUI keyToPress;
-    bool freeze;
+    public bool freeze;
   
 
     KeyCode key;
