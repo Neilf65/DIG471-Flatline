@@ -20,7 +20,7 @@ public class Terminal : MonoBehaviour
   
 
     KeyCode key;
-    KeyCode[] availableOptions =  {KeyCode.R, KeyCode.JoystickButton0};
+    KeyCode[] availableOptions =  {KeyCode.R, KeyCode.JoystickButton1};
 
 
     // range to access terminal when near
