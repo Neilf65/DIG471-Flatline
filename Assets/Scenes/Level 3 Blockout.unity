@@ -4077,6 +4077,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4631042005137657469, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_Name
       value: Car (Cyberpunk, Orange) (11)
@@ -4140,30 +4164,6 @@ PrefabInstance:
     - target: {fileID: 5408564244370478279, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -5182,8 +5182,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 4.8850793e-18, y: 0.9996474, z: -0.026555482, w: 1.8389263e-16}
-  m_LocalPosition: {x: 2.2216282, y: 73.59454, z: -17.996904}
+  m_LocalRotation: {x: 0.041607976, y: 0.9549867, z: -0.24320011, w: 0.16469057}
+  m_LocalPosition: {x: -0.3982563, y: 269.68478, z: -203.02078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15676,6 +15676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 974830627}
   - component: {fileID: 974830628}
+  - component: {fileID: 974830629}
   m_Layer: 0
   m_Name: CutsceneStart
   m_TagString: Untagged
@@ -15741,6 +15742,23 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &974830629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974830626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: d8aef3bbc668e7a46ad4f57b85c777f5, type: 2}
 --- !u!1 &983051387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 224857833753384989, guid: 1894bbc2da5f4614c81f5144caf2268e, type: 3}
@@ -17460,6 +17478,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4631042005137657469, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_Name
       value: Car (Cyberpunk, Orange) (9)
@@ -17523,30 +17565,6 @@ PrefabInstance:
     - target: {fileID: 5408564244370478279, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -17827,6 +17845,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1689402328662813537, guid: 034c7b5b34623b54e8d774af3158e51a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5430543
@@ -17890,30 +17932,6 @@ PrefabInstance:
     - target: {fileID: 2033980903886844379, guid: 034c7b5b34623b54e8d774af3158e51a, type: 3}
       propertyPath: m_TagString
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -21337,6 +21355,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1225854675797559566, guid: fed78307b24438643bb6e46b1c238f81, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5430543
@@ -21400,30 +21442,6 @@ PrefabInstance:
     - target: {fileID: 1893989016007218100, guid: fed78307b24438643bb6e46b1c238f81, type: 3}
       propertyPath: m_TagString
       value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -23080,6 +23098,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4631042005137657469, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_Name
       value: Car (Cyberpunk, Orange) (10)
@@ -23143,30 +23185,6 @@ PrefabInstance:
     - target: {fileID: 5408564244370478279, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -32013,6 +32031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639072484}
   - component: {fileID: 1639072485}
+  - component: {fileID: 1639072486}
   m_Layer: 0
   m_Name: CutsceneMiddle
   m_TagString: Untagged
@@ -32078,6 +32097,23 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1639072486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639072483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: d8aef3bbc668e7a46ad4f57b85c777f5, type: 2}
 --- !u!1 &1640640097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6513575608552445315, guid: 836d71846f9be2b42adf16fc36d972f8, type: 3}
@@ -35009,6 +35045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863596478}
   - component: {fileID: 1863596479}
+  - component: {fileID: 1863596480}
   m_Layer: 0
   m_Name: CutscenefinalPos
   m_TagString: Untagged
@@ -35074,6 +35111,23 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1863596480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863596477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: d8aef3bbc668e7a46ad4f57b85c777f5, type: 2}
 --- !u!1 &1865176028
 GameObject:
   m_ObjectHideFlags: 0
@@ -36796,6 +36850,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4631042005137657469, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_Name
       value: Car (Cyberpunk, Orange) (13)
@@ -36859,30 +36937,6 @@ PrefabInstance:
     - target: {fileID: 5408564244370478279, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -38249,6 +38303,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 910485020}
     m_Modifications:
+    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4631042005137657469, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_Name
       value: Car (Cyberpunk, Orange) (12)
@@ -38312,30 +38390,6 @@ PrefabInstance:
     - target: {fileID: 5408564244370478279, guid: 372a4e2036d18a74e8a7db9e7bc41105, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870630332055453182, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2111908247365485367, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242226562777611342, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235783498609374931, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8242632023957841588, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599886747960505842, guid: 26c5024999de4f242a0a31fe356235a9, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
